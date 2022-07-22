@@ -49,6 +49,14 @@ const routes = [
                 }
             },
             {
+                path: '/closed-requests',
+                name: 'closed-requests',
+                component: ()=> import('./views/requests/ClosedRequests.vue'),
+                meta: {
+                    layout: 'MainDashboard'
+                }
+            },
+            {
                 path: '/sentenses',
                 name: 'sentenses',
                 component: ()=> import('./views/sentenses/Sentenses.vue'),

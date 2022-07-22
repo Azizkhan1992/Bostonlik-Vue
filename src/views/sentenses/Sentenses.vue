@@ -9,41 +9,51 @@
         </div>
         <div class="sentenses-content">
             <div class="sentenses-content-header">
-                <div class="sentenses-content-one">
+                <div class="sentenses-content-one one">
 
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
                 <select id="sentenses-one-select">
-                    <option value="">Выберите ведомство</option>
+                    <option value="">Все</option>
                     <option value="">Новые</option>
                     <option value="">Старые</option>
                 </select>
             </div>
-            <div class="sentenses-content-one">
+            <div class="sentenses-content-one two">
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
                 <select id="sentenses-status">
-                    <option value="">Все</option>
+                    <option value="">Предложение</option>
                     <option value="">Откритые</option>
                     <option value="">Закрытые</option>
                 </select>
             </div>
-            <div class="sentenses-content-one">
+            <div class="sentenses-content-one three">
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
                 <select id="sentenses-month">
-                    <option value="">Все</option>
+                    <option value="">2022</option>
                     <option value="">Естественные</option>
                     <option value="">Человеческие</option>
                 </select>
             </div>
-            <div class="sentenses-content-one">
+            <div class="sentenses-content-one four">
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
                 <select id="sentenses-year">
-                    <option value="">Все</option>
+                    <option value="">Апрель</option>
                     <option value="">Естественные</option>
                     <option value="">Человеческие</option>
                 </select>
             </div>
             </div>
-            <div class="sentenses-content-content"></div>
+            <div class="sentenses-content-content">
+                <table>
+                    <tr>
+                        <th>ФИО Заявителя</th>
+                        <th>номер телефона</th>
+                        <th>Категория</th>
+                        <th>Статус</th>
+                        <th>Дата поступления</th>
+                    </tr>
+                </table>
+            </div>
             <div class="sentenses-footer"></div>
         </div>
     </div>
@@ -58,6 +68,7 @@ export default {
     margin-left: 25px;
     margin-top: 10px;
     width: 95%;
+    position: relative;
 }
 .sentenses-container .sentenses-header{
     display: flex;
@@ -87,19 +98,21 @@ export default {
     margin-left: 10px;
     /* background: white; */
     border-radius: 10px;
+    flex-direction: column
 }
 .sentenses-content .sentenses-content-header{
     display: flex;
     /* justify-content: space-around */
 }
 .sentenses-content-one{
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-    /* align-items: self-start; */
+    
+    align-items: self-start;
 }
 .sentenses-content-one select{
-    position: relative;
     margin-top: 5px;
     min-width: 200px;
     padding: 5px;
@@ -114,8 +127,13 @@ export default {
       margin-left: 25px;
 }
 .sentenses-content-one img{
+    display: block;
     position: absolute;
-    left: 165px;
     top: 5px;
+    right: 10px;
+}
+th{
+        /* display: block;
+    margin-left: 50px; */
 }
 </style>

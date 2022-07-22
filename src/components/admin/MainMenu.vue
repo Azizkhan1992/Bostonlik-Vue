@@ -21,14 +21,17 @@
                     
 
                  <div v-if="isActive" class="inner-menu-items">
-                    <div class="menu-item-one panel">
+                    <div class="menu-item-one">
                         <router-link to="/requests">
                             <span>Откритые заявки</span>
                         </router-link>
                         
                     </div>
                     <div class="menu-item-one panel">
-                        <span>Закрытые заявки</span>
+                        <router-link to="/closed-requests">
+                            <span>Закрытые заявки</span>
+                        </router-link>
+                        
                     </div>
                 </div>
             </div>
@@ -76,20 +79,27 @@ export default {
             beforeElem: null
         }
     },
+    mounted(){
+        this.getBeforeClass();
+    },
     methods:{
         menuActive(){
             this.isActive = !this.isActive
             if(this.isActive){
             this.elem = document.getElementById('request-elem')
-            this.beforeElem = document.getElementsByClassName('router-link-active')
+            
              this.elem.classList.toggle("active-request-element")
-            console.log(this.isActive)    
+            // console.log(this.isActive)    
             }
            else{
             this.elem = document.getElementById('request-elem')
-            this.elem.classList.toggle("non-active-request")
-            console.log(this.isActive)
+            // console.log(this.isActive)   
            }
+        },
+        getBeforeClass(){
+                this.beforeElem = document.getElementsByClassName('router-link-active')
+                // this.beforeElem.classList.toggle("non-active-request")
+                console.log(this.isActive)
         }
     }
 }
@@ -111,5 +121,16 @@ export default {
     background: #F4F5FA;
     transition: all 1s linear;
 }
-
+.active-request-element .router-link-active{
+    display: block;
+    width: 170px;
+    background:forestgreen;
+    color: #fff;
+}
+.menu-item-one{
+    margin-top: 5px;
+}
+.panel{
+    margin-bottom: 10px;
+}
 </style>
