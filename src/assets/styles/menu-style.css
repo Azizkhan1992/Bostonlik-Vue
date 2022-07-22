@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @font-face {
     font-family: 'Jost';
     src: url(./font/Jost-Regular.ttf);
@@ -39,45 +38,18 @@ body{
 }
 .menu-container-footer{
     align-self: center;
-=======
-.main-container{
-    width: 100%;
-    display: flex;
-    background-color: aqua;
-}
-.figma-menu{
-    position: fixed;
-    width: 316px;
-    height: 700px;
-    float: left;
-    background-color:#F4F5FA;
-}
-.main-content{
-    width: 970px;
-    background-color: #E5E5E5;
-    padding-left: 300px;
-}
-.menu-container .menu-container-footer{
->>>>>>> 991029e0139e0ddd172d46088d43502a02ed56fc
+
     display: block;
 }
 .menu-container img{
     color: greenyellow !important;
     margin-right: 25px;
 }
-<<<<<<< HEAD
 /* .menu-container-center .menu-container-item:active{
     background: #1C9E3C;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 } */
-=======
-.menu-container-center .menu-container-item:active{
-    background: #1C9E3C;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
->>>>>>> 991029e0139e0ddd172d46088d43502a02ed56fc
 .menu-container-center .menu-container-item{
     height: 50px;
     margin-right: 15px;
@@ -86,7 +58,6 @@ body{
     margin-top: 10px;
     cursor: pointer;
 }
-<<<<<<< HEAD
 
 .router-link-active{
     background: #1C9E3C;
@@ -101,8 +72,6 @@ body{
     font-family: 'Jost' !important;
 }
 
-=======
->>>>>>> 991029e0139e0ddd172d46088d43502a02ed56fc
 .menu-container-item .item-img{
     width: 25px;
     height: 25px;

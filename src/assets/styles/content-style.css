@@ -544,7 +544,6 @@
 }
 .profil-file-input input{
     display: none;
-<<<<<<< HEAD
 }
 
 /* User Settings */
@@ -717,6 +716,5 @@
     margin-left: 33px;
     color: #A0AEC0;
     margin-top: 5px;
-=======
->>>>>>> 991029e0139e0ddd172d46088d43502a02ed56fc
+
 }
