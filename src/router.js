@@ -8,10 +8,16 @@ Vue.use(VueRouter);
 
 const routes = [
             {
-                path: '/dashboard',
+                path: '/',
                 name: 'dashboard',
                 component: MainDashboardLayout,
-                meta: { layout : 'MainDashboard'}
+                children: [
+                    {
+                        path: '/dashboard',
+                        name: 'dashboard',
+                        component: ()=> import('./views/Dashboard.vue')
+                    }
+                ]
             },
             {
                 path: '/my-profile',
@@ -29,19 +35,26 @@ const routes = [
                     {
                         path: '/user-settings',
                         name: 'user-settings',
-                        component: ()=> import('./views/settings-live/UserSettings.vue')
+                        component: ()=> import('./views/settings-live/UserSettings.vue'),
+                        meta: { layout: 'MainDashboard'}
                     }
                 ]
             },
             {
                 path: '/requests',
                 name: 'requests',
-                component: ()=> import('./views/requests/RequestBlog.vue')
+                component: ()=> import('./views/requests/RequestBlog.vue'),
+                meta: {
+                    layout: 'MainDashboard'
+                }
             },
             {
                 path: '/sentenses',
                 name: 'sentenses',
-                component: ()=> import('./views/sentenses/Sentenses.vue')
+                component: ()=> import('./views/sentenses/Sentenses.vue'),
+                meta: {
+                    layout: 'MainDashboard'
+                }
             },
     {
         path: '/login',
