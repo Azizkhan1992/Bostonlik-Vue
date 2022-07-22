@@ -38,6 +38,7 @@
             </div>
         </div>
     </div>
+
     <div class="menu-container-footer">
         <img :src="`./src/Group1.png`" alt="" class="footer-image">
         <div class="footer-block">

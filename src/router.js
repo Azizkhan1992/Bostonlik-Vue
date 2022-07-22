@@ -18,6 +18,7 @@ const routes = [
                 name: 'profile',
                 component: ()=> import('./views/profile/MyProfile.vue'),
                 meta: {layout: 'MainDashboard'}
+
             },
             {
                 path: '/settings',
