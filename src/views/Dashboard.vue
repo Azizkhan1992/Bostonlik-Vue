@@ -126,7 +126,6 @@
 </template>
 <script>
 
-
 export default {
     name: 'dashboard-app',
     data(){

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-// import router from '@/router'
 import TokenService from '@/services/TokenService';
 
 
@@ -14,9 +13,18 @@ const instance = axios.create({
     headers: {
         common: {
             'X-Requested-With': 'XMLHttpRequest',
+            "Access-Control-Allow-Headers": "content-type",
+            "Access-Control-Allow-Origin": "*"
         },
     },
 });
+
+
+const _token = TokenService.getToken();
+
+
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + _token;
+
 
 instance.interceptors.response.use(config => {
     if(TokenService.getToken()){
@@ -27,7 +35,8 @@ instance.interceptors.response.use(config => {
     return config
 }, error => { if(error.response.status === 401 ){
     TokenService.removeToken()
-}})
+}});
+
 
 
 

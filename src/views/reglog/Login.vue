@@ -33,7 +33,7 @@
 <script>
 
 import TokenService from '@/services/TokenService'
-
+import setAuthHeader from '@/utils/setAuthHeader'
 export default {
     name: 'login-app',
     data(){
@@ -52,8 +52,9 @@ export default {
                 password: this.user.password
             })
             .then(response=> {
-                console.log(response)
-                TokenService.saveToken(response.data)
+                console.log(response.data)
+                TokenService.saveToken(response.data.token)
+                setAuthHeader(response.data)
                 
                 this.$router.push('/dashboard')
             },error=> {console.log(error)})
