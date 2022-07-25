@@ -1,50 +1,61 @@
 <template>
-    <div class="sentenses-container">
-        <div class="sentenses-header">
-            <div class="sentenses-header-left">
-                <span>Жалобы и предложения</span>
-                <p>Жалобы и предложения</p>
+<div class="statistics-container">
+        <div class="statistics-header">
+            <div class="statistics-header-left">
+                <span>Статистика</span>
+                <p>Статистика</p>
             </div>
             <person-menu/>
         </div>
-        <div class="sentenses-content">
-            <div class="sentenses-content-header">
-                <div class="sentenses-content-one one">
-
+        <div class="statistics-content">
+            <div class="statistics-content-header">
+               
+                <div class="statistics-content-one one">
+                <span>Категория статистики  </span>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-one-select">
+                <select id="statistics-one-select">
                     <option value="">Все</option>
                     <option value="">Новые</option>
                     <option value="">Старые</option>
                 </select>
             </div>
-            <div class="sentenses-content-one two">
+
+            
+            <div class="statistics-content-one two">
+                <span>Период</span>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-status">
+                <select id="statistics-period">
                     <option value="">Предложение</option>
                     <option value="">Откритые</option>
                     <option value="">Закрытые</option>
                 </select>
             </div>
-            <div class="sentenses-content-one three">
+            
+            
+            <div class="statistics-content-one three">
+                <span>Год</span>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-month">
+                <select id="statistics-year">
                     <option value="">2022</option>
                     <option value="">Естественные</option>
                     <option value="">Человеческие</option>
                 </select>
             </div>
-            <div class="sentenses-content-one four">
+
+            
+            <div class="statistics-content-one four">
+                <span>Месяц</span>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-year">
+                <select id="statistics-month">
                     <option value="">Апрель</option>
                     <option value="">Естественные</option>
                     <option value="">Человеческие</option>
                 </select>
             </div>
             </div>
-            <div class="sentenses-content-content">
+            <div class="statistics-content-content">
                 <table>
+                    <hr/>
                     <tr class="table-header">
                         <th class="th-one">ФИО Заявителя</th>
                         <th class="th-two two">номер телефона</th>
@@ -52,6 +63,7 @@
                         <th class="th-two">Статус</th>
                         <th class="th-two">Дата поступления</th>
                     </tr>
+                    <hr/>
                     <tr class="table-content">
                         <td class="td-one">Абдужабборов Акбар</td>
                         <td class="td-two">Место не убрано...</td>
@@ -61,8 +73,8 @@
                     </tr>
                 </table>
             </div>
-            <div class="sentenses-footer">
-                <div class="sentenses-footer-left">
+            <div class="statistics-footer">
+                <div class="statistics-footer-left">
                     <button class="btn-item-one">
                         <img src="@/assets/src/Icons/Vector-left.svg" alt="">
                         <span>Пред.</span>
@@ -72,13 +84,9 @@
                         <span>След.</span>
                     </button>
                 </div>
-                <div class="sentenses-footer-center">
-                    <span>Страница</span>
-                    <input type="text" placeholder="1">
-                    <span>из 1</span>
-                    <button>
-                        <img src="@/assets/src/Icons/chevron-right.svg" alt="">
-                    </button>
+                <div class="statistics-footer-right">
+                    <img src="@/assets/src/svg-icons/print.svg" alt="">
+                    <span>Распечатать</span>
                 </div>
             </div>
         </div>
@@ -88,11 +96,22 @@
 import PersonMenu from '../PersonMenu.vue'
 export default {
   components: { PersonMenu },
-    name: 'sentense-app'
+    name: 'statistics-app',
+    data(){
+        return{
+        }
+    },
+    methods:{
+        
+    }
 }
 </script>
 <style>
-.sentenses-header .personal-keys{
+hr{
+    border: 1px solid #E2E8F0
+}
+.statistics-header .personal-keys{
     display: none;  
 }
+
 </style>

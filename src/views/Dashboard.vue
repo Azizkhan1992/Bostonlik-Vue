@@ -2,7 +2,7 @@
 <div class="dashboard-container">
     <div class="dashboard-header">
         <span>Панел графиков</span>
-        <img src="@/assets/src/Icons/Ellipse.png" alt="">
+        <person-menu/>
     </div>
 
     <div class="dashboard-block-one">
@@ -125,10 +125,36 @@
 </div>
 </template>
 <script>
+
+
 export default {
-    name: 'dashboard-app'
+    name: 'dashboard-app',
+    data(){
+        return{
+        }
+    },
+    mounted(){
+        this.getUser()
+    },
+    methods:{
+      getUser(){
+        this.$api.get('currentUser')
+        .then(response => {
+            console.log(response)
+        },
+        error => {
+            console.log(error)
+        }
+        )
+      }
+    }
+    
+
 }
 </script>
 <style>
+.dashboard-header .personal-keys{
+    display: none;  
+}
 
 </style>

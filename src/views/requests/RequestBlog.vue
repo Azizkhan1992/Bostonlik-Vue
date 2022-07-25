@@ -11,7 +11,7 @@
                 <img src="@/assets/src/svg-icons/search.svg" alt="">
             </div>
             <div class="request-header-img">
-                <img src="@/assets/src/Icons/Ellipse.png" alt="">
+                <person-menu/>
             </div>
         </div>
     </div>
@@ -55,13 +55,25 @@
             <span>Заявки</span>
             <div class="requests-table">
                 <table>
+                    <hr/>
                     <tr>
+                        
                         <th>Заявитель</th>
                         <th>Количество нарушения</th>
                         <th>Время отправки</th>
                         <th>Статус заявки</th>
                         <th>Ответвление ведомство</th>
                         <th>Ответственный сотркдник</th>
+                   
+                    </tr>
+                    <hr/>
+                    <tr class="table-content">
+                        <td>+99890123-45-67</td>
+                        <td>Выброс мусора</td>
+                        <td>22.07.2022 14:37</td>
+                        <td class="td-item">Решено</td>
+                        <td>Эко-прокуратура</td>
+                        <td>Не определен</td>
                     </tr>
                 </table>
             </div>
@@ -71,10 +83,46 @@
 </div>
 </template>
 <script>
+import PersonMenu from '../PersonMenu.vue'
 export default{
+  components: { PersonMenu },
     name: 'request-blog'
 }
 </script>
 <style>
+.requests-table table{
+    display: block;
 
+    width: 100%;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.requests-table table .table-content{
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.requests-table table tr td{
+    display: block;
+    width: 20%;
+    text-align: left;
+    margin-left: 33px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #A0AEC0;
+
+
+}
+.table-content .td-item{
+    color: #CB8F2D;
+}
+hr{
+    border: 1px solid #E2E8F0
+}
+.request-header-img .personal-keys{
+    display: none;  
+}
 </style>

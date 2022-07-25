@@ -24,7 +24,8 @@ export default {
   },
   computed:{
     getLayout(){
-      if(this.$route.meta.layout == 'MainDashboard'){
+
+      if(this.$route.meta.layout === 'MainDashboard'){
         // this.isLayout = true
         return MainDashboardLayout
       }

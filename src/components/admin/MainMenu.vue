@@ -11,7 +11,7 @@
                     </router-link>
             </div>
 
-            <div class="menu-container-item accordion" id="request-elem">
+            <div :class="{'active-request-element':isActive}" class="menu-container-item accordion" id="request-elem">
                 
                <div  @click="menuActive" class="request-outer-block">
                     <img src="@/assets/src/Icons/Vector.png" alt="" class="item-img">
@@ -22,7 +22,9 @@
 
                  <div v-if="isActive" class="inner-menu-items">
                     <div class="menu-item-one">
-                        <router-link to="/requests">
+
+                        <router-link to="/opened-requests">
+
                             <span>Откритые заявки</span>
                         </router-link>
                         
@@ -38,6 +40,17 @@
 
             <div class="menu-container-item">
                
+
+                <router-link to="/statistics">
+                    <img src="@/assets/src/svg-icons/Statistics.svg" alt="" class="item-img">
+                    <span class="menu-item-span">Статистика</span>
+                </router-link>
+                
+            </div>
+
+            <div class="menu-container-item">
+               
+
                 <router-link to="/sentenses">
                     <img src="/src/Icons/Vector-2.png" alt="" class="item-img">
                     <span class="menu-item-span">Жалоби и предложения</span>
@@ -76,7 +89,9 @@ export default {
         return{
             isActive: false,
             elem: null,
-            beforeElem: null
+
+            beforeElem: null,
+
         }
     },
     mounted(){
@@ -85,21 +100,23 @@ export default {
     methods:{
         menuActive(){
             this.isActive = !this.isActive
-            if(this.isActive){
-            this.elem = document.getElementById('request-elem')
+        //     if(this.isActive){
+        //     this.elem = document.getElementById('request-elem')
             
-             this.elem.classList.toggle("active-request-element")
-            // console.log(this.isActive)    
-            }
-           else{
-            this.elem = document.getElementById('request-elem')
-            // console.log(this.isActive)   
-           }
+        //      this.elem.classList.toggle("active-request-element")
+        //     // console.log(this.isActive)    
+        //     }
+        //    else{
+        //     this.elem = document.getElementById('request-elem')
+        //     // console.log(this.isActive)   
+        //    }
         },
         getBeforeClass(){
                 this.beforeElem = document.getElementsByClassName('router-link-active')
                 // this.beforeElem.classList.toggle("non-active-request")
-                console.log(this.isActive)
+
+                // console.log(this.isActive)
+
         }
     }
 }
@@ -112,14 +129,18 @@ export default {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background: #1C9E3C;
-    transition: all 1s linear;
+
+    /* transition: all 1s linear; */
+
 }
 .active-request-element .request-outer-block .item-img-one{
     transform: rotate(180deg);
 }
 .non-active-request{
     background: #F4F5FA;
-    transition: all 1s linear;
+
+    /* transition: all 1s linear; */
+
 }
 .active-request-element .router-link-active{
     display: block;

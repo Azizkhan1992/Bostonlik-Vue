@@ -6,7 +6,7 @@
             <p>Настройки</p>
         </div>
         
-        <img src="@/assets/src/Icons/Ellipse.png" alt="">
+        <person-menu/>
     </div>
     <div v-if="!isSettings" class="settings-route">
         <router-link to="/user-settings">
@@ -21,7 +21,10 @@
 </div>
 </template>
 <script>
+import PersonMenu from '../PersonMenu.vue'
+
 export default {
+  components: { PersonMenu },
     name: 'settings-app',
     data(){
         return{
@@ -30,16 +33,20 @@ export default {
     },
     mounted(){
         this.getSettings()
+        // this.getProfil()
     },
     methods:{
         getSettings(){
             if(this.$route.params['/user-settings']){
                 this.isSettings = true
             }
-        }
+        },
+        
     }
 }
 </script>
 <style>
-
+.settings-header .personal-keys{
+    display: none;  
+}
 </style>

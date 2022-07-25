@@ -9,13 +9,15 @@
            <div class="login-form">
             <div class="login-input">
                 <label for="item-input">Логин</label>
-                <input class="item-input" type="text" placeholder="введите логин">
+
+                <input class="item-input" type="text" v-model="user.name" placeholder="введите логин">
             </div>
             <div class="login-input">
                 <label for="">Пароль</label>
-                <input class="item-input" type="text" placeholder="введите парол">
+                <input class="item-input" type="text" v-model="user.password" placeholder="введите парол">
             </div>
-            <button class="left-btn"><p>вход</p></button>
+            <button class="left-btn" @click="login"><p>вход</p></button>
+
            </div>
            <div class="left-footer">
             <span>Разработка сайта:</span>
@@ -29,8 +31,36 @@
 </div>
 </template>
 <script>
+
+import TokenService from '@/services/TokenService'
+
 export default {
-    name: 'login-app'
+    name: 'login-app',
+    data(){
+        return{
+            user: {
+                name: 'ecobot114',
+                password: 'user114'
+            }
+        }
+    },
+    
+    methods:{
+        login(){
+             this.$api.post('login',{
+                login: this.user.name,
+                password: this.user.password
+            })
+            .then(response=> {
+                console.log(response)
+                TokenService.saveToken(response.data)
+                
+                this.$router.push('/dashboard')
+            },error=> {console.log(error)})
+        },
+        
+    }
+
 }
 </script>
 <style>

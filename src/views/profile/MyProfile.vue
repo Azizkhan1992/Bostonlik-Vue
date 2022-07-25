@@ -2,7 +2,7 @@
 <div class="my-profil-container">
     <div class="my-profil-header">
         <span>Мой профиль</span>
-        <img src="@/assets/src/Icons/Ellipse.png" alt="">
+        <person-menu/>
     </div>
     <div class="my-profil-content">
         <div class="profil-content-one">
@@ -80,10 +80,20 @@
 </div>
 </template>
 <script>
+import PersonMenu from '../PersonMenu.vue'
 export default{
-    name: 'my-profil'
+  components: { PersonMenu },
+    name: 'my-profil',
+    mounted(){
+        
+    },
+    methods:{
+        
+    }
 }
 </script>
 <style>
-
+.my-profil-header .personal-keys{
+    display: none;  
+}
 </style>
