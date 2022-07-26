@@ -125,7 +125,7 @@
 </div>
 </template>
 <script>
-
+import TokenService from '@/services/TokenService'
 export default {
     name: 'dashboard-app',
     data(){
@@ -139,7 +139,9 @@ export default {
       getUser(){
         this.$api.get('currentUser')
         .then(response => {
-            console.log(response)
+            if (response?.data?.user?.role) {
+                TokenService.saveRoles(response.data.user.role)
+            }
         },
         error => {
             console.log(error)

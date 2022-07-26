@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="menu-container-item">
+            <div class="menu-container-item" v-if="can(['user', 'moderator'])">
                
 
                 <router-link to="/statistics">

@@ -8,6 +8,7 @@ Vue.use(VueAxios, axios);
 
 
 const URL_BASE = 'https://back.bostonliqlive.uz/api/'
+
 const instance = axios.create({
     baseURL: URL_BASE,
     headers: {
@@ -19,25 +20,14 @@ const instance = axios.create({
     },
 });
 
-
 const _token = TokenService.getToken();
 
-
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + _token;
-
-
-instance.interceptors.response.use(config => {
-    if(TokenService.getToken()){
-        config.headers = {
-            'authorization' : `Bearer ${localStorage.getToken()}` 
-        }
+instance.interceptors.request.use((config) => {
+    if (_token) {
+        config.headers['authorization'] = `${_token}`
     }
-    return config
-}, error => { if(error.response.status === 401 ){
-    TokenService.removeToken()
-}});
-
-
+    return config;
+}, error => console.log(error))
 
 
 Vue.prototype.$api = instance;

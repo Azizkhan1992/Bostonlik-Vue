@@ -12,7 +12,6 @@ Vue.use(VueRouter);
 const routes = [
             {
                 path: '/',
-                name: 'dashboard',
                 component: MainDashboardLayout,
                 children: [
                     {
