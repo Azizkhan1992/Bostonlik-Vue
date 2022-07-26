@@ -1,0 +1,52 @@
+<template>
+<div class="settings-container">
+    <div class="settings-header">
+        <div class="header-left-blog">
+            <span>Настройки</span>
+            <p>Настройки</p>
+        </div>
+        
+        <person-menu/>
+    </div>
+    <div v-if="!isSettings" class="settings-route">
+        <router-link to="/user-settings">
+        <button><img src="@/assets/src/svg-icons/Settings-staff.svg">
+        <p>Пользователи системы</p>
+        </button>
+        </router-link>
+    </div>
+    <div class="settings-content">
+        <router-view/>
+    </div>
+</div>
+</template>
+<script>
+import PersonMenu from '../PersonMenu.vue'
+
+export default {
+  components: { PersonMenu },
+    name: 'settings-app',
+    data(){
+        return{
+            isSettings: false 
+        }
+    },
+    mounted(){
+        this.getSettings()
+        // this.getProfil()
+    },
+    methods:{
+        getSettings(){
+            if(this.$route.params['/user-settings']){
+                this.isSettings = true
+            }
+        },
+        
+    }
+}
+</script>
+<style>
+.settings-header .personal-keys{
+    display: none;  
+}
+</style>
