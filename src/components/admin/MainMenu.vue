@@ -38,7 +38,10 @@
                 </div>
             </div>
 
+
+
             <div class="menu-container-item" v-if="can(['admin'])">
+
                
 
                 <router-link to="/statistics">
@@ -48,7 +51,10 @@
                 
             </div>
 
+
+
             <div class="menu-container-item" v-if="can(['admin'])">
+
                
 
                 <router-link to="/sentenses">
@@ -113,8 +119,6 @@ export default {
         },
         getBeforeClass(){
                 this.beforeElem = document.getElementsByClassName('router-link-active')
-                
-
         }
     }
 }

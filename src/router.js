@@ -39,9 +39,16 @@ const routes = [
                         name: 'user-settings',
                         component: ()=> import('./views/settings-live/UserSettings.vue'),
                         meta: { layout: 'MainDashboard'}
-                    }
+                    },
+                    {
+                        path: '/user-setting-item/:id?',
+                        name: 'user-setting-item',
+                        component: ()=> import('./views/settings-live/UserSettingItem.vue'),
+                        meta: { layout: 'MainDashboard'}
+                    },
                 ]
             },
+            
             {
 
 

@@ -58,22 +58,25 @@
                     <hr/>
                     <tr>
                         
-                        <th>Заявитель</th>
+                        <th>Номер заявителя</th>
                         <th>Количество нарушения</th>
                         <th>Время отправки</th>
                         <th>Статус заявки</th>
                         <th>Ответвление ведомство</th>
-                        <th>Ответственный сотркдник</th>
+                        <th>Ответственный сотрудник</th>
                    
                     </tr>
                     <hr/>
-                    <tr class="table-content">
-                        <td>+99890123-45-67</td>
+                    <tr v-for="(now, idx) in news" :key="idx" class="table-content">
+                        <td>{{now.phoneNumber}}</td>
                         <td>Выброс мусора</td>
-                        <td>22.07.2022 14:37</td>
-                        <td class="td-item">Решено</td>
-                        <td>Эко-прокуратура</td>
-                        <td>Не определен</td>
+                        <td>{{now.lastDateOfSolving}}</td>
+                        <td class="td-item">{{now.status}}</td>
+                        <div tag="td" class="department-item">
+                            <td v-for="(depart, idy) in now.department" :key="idy" class="department">{{depart}}</td>
+                        </div>
+                        
+                        <td>{{now.name}}</td>
                     </tr>
                 </table>
             </div>
@@ -86,7 +89,27 @@
 import PersonMenu from '../PersonMenu.vue'
 export default{
   components: { PersonMenu },
-    name: 'request-blog'
+    name: 'request-blog',
+    data(){
+        return{
+            news: null
+        }
+    },
+    mounted(){
+        this.getNews()
+    },
+    methods:{
+        getNews(){
+            this.$api.get('/applications/news')
+            .then(response => {
+                this.news = response.data
+            },
+            error => {
+                console.log(error)
+            }
+            )
+        }
+    }
 }
 </script>
 <style>
@@ -102,6 +125,10 @@ export default{
     display: flex;
     margin-top: 15px;
     width: 100%;
+    cursor: pointer;
+}
+.requests-table table .table-content:hover{
+    background: rgb(214, 238, 214);
 }
 
 .requests-table table tr td{
@@ -124,5 +151,13 @@ hr{
 }
 .request-header-img .personal-keys{
     display: none;  
+}
+.table-content .department{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.table-content .department-item{
+    width: 25%;
 }
 </style>

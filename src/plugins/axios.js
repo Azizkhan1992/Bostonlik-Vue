@@ -20,11 +20,12 @@ const instance = axios.create({
     },
 });
 
-const _token = TokenService.getToken();
+
 
 instance.interceptors.request.use((config) => {
+    const _token = TokenService.getToken();
     if (_token) {
-        // console.log(config)
+
         config.headers['authorization'] = `${_token}`
     }
     return config;

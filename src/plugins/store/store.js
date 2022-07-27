@@ -22,8 +22,9 @@ const store = new Vuex.Store({
             // localStorage.removeItem('token')
             // delete axios.defaults.headers.common['Authorization']
         },
-        checkRoles(userRoles, checkRoles){
-            userRoles.commit('checkRoles', checkRoles)
+        CHECK_ROLES({commit}, checkRoles){
+            // console.log(checkRoles);
+            commit('check_Roles', checkRoles)
         }
     },
     mutations:{
@@ -33,7 +34,8 @@ const store = new Vuex.Store({
         departmentRole(state, departmentRole){
             state.departmentRole = departmentRole
         },
-        checkRoles(state, checkRoles){
+        check_Roles(state, checkRoles){
+            // console.log(checkRoles);
             state.checkRoles = checkRoles
         }
     },

@@ -2,13 +2,16 @@
 <div>
     <img @click="personActive" src="@/assets/src/Icons/Ellipse.png" alt="">
         <div :class="{'personal-keys' :isPersonal}" class="own">
+
         <router-link to="/my-profile"><button>Мой профиль</button></router-link>
             
             <button @click="logOut">Выход</button>
+
         </div>
 </div>
 </template>
 <script>
+
 import TokenService from '@/services/TokenService'
 export default {
     name: 'person-menu',
@@ -21,6 +24,7 @@ export default {
         personActive(){
             this.isPersonal = !this.isPersonal
         },
+
         logOut(){
             TokenService.removeToken()
             this.$router.go()
@@ -30,6 +34,7 @@ export default {
 }
 </script>
 <style scoped>
+
 img{
     cursor: pointer;
 }
@@ -66,6 +71,8 @@ img{
 .own button:hover{
     color: #1C9E3C;
 } 
+
+
 .own .router-link-exact-active{
     background: #1C9E3C !important;
 }
@@ -75,4 +82,6 @@ img{
 .own .router-link-exact-active button:hover{
     color: #fff;
 }
+
+
 </style>
