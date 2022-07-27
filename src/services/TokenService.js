@@ -1,7 +1,10 @@
 import router from "@/router";
 const TOKEN = 'Authorization'
 const ROLES = 'roles';
+<<<<<<< HEAD
 const CHECK_ROLES = ['role1', 'role2', 'role3', 'role4']
+=======
+>>>>>>> a1dd48d86b9c62883cea2566aaded5cbf0d6e41b
 // const STATUS = 'Status'
 
 const TokenService = {
@@ -31,6 +34,7 @@ const TokenService = {
     getRoles() {
         const roles = localStorage.getItem(ROLES);
         return roles ? JSON.parse(roles) : [];
+<<<<<<< HEAD
     },
     saveCheckRoles(roles){
         for(let i=0; i<roles.length; i++){
@@ -38,6 +42,8 @@ const TokenService = {
             localStorage.setItem(CHECK_ROLES[i], roles[i])
         }
         
+=======
+>>>>>>> a1dd48d86b9c62883cea2566aaded5cbf0d6e41b
     }
 };
 
