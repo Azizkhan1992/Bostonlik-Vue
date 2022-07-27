@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="dashboard-block-three">
-        <div class="inner-block-two">
+        <div v-if="checkCompanyRole('clusterGarbage')" class="inner-block-two">
             <img src="@/assets/src/svg-icons/dashboard_avatar4.svg" alt="">
             <div class="title-block-two">
                 <span>Стихийная свалка</span>
@@ -74,8 +74,8 @@
             </div>
         </div>
     </div>
-    <div v-if="getCheckedFire" class="dashboard-block-four">
-        <div class="inner-block-three">
+    <div  class="dashboard-block-four">
+        <div v-if="checkCompanyRole('breedingFire')" class="inner-block-three">
             <img class="block-img" src="@/assets/src/svg-icons/dashboard_avatar8.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span">Разведение огня в неположённом месте</span>
@@ -139,9 +139,9 @@
 </div>
 </template>
 <script>
-import TokenService from '@/services/TokenService'
+// import TokenService from '@/services/TokenService'
 export default {
-    name: 'dashboard-app',
+    name: 'dashboard-app',    
 
     data(){
         return{
@@ -151,15 +151,7 @@ export default {
         }
     },
     computed:{
-        getCheckedFire(){
-            let department = this.$store.getters && this.$store.getters.getDepartmentRoles;
-            // console.log(22,department)  
-            this.$store.getters &&  this.$store.getters.getCheckRoles && this.$store.getters.getCheckRoles.breedingFire && this.$store.getters.getCheckRoles.breedingFire.forEach(element => {
-                element == department? this.checker = true : this.checker =false
-            });
-            console.log(this.checker);
-            return this.checker;
-        }
+       
     },
     mounted(){
             this.getUser()
@@ -167,14 +159,15 @@ export default {
             this.getCheckRoles()
     },
     methods:{
+			checkCompanyRole(roleName) {
+				let department = this.$store.getters && this.$store.getters.getDepartmentRoles;
+            this.$store.getters && this.$store.getters.getCheckRoles && this.$store.getters.getCheckRoles[roleName] && this.$store.getters.getCheckRoles[roleName].forEach(element => {
+                element == department? this.checker = true : this.checker = false
+            });
+            return this.checker
+			},
       getUser(){
-            const headers = {
-                'Content-type': 'application/json',
-                'authorization': `${TokenService.getToken()}`
-            }
-             this.$api.get('currentUser',{
-                headers: headers
-             })
+             this.$api.get('currentUser')
             .then(response => {
                 // console.log(response) 
             if (response?.data?.user?.role) {
