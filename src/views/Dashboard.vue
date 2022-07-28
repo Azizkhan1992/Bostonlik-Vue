@@ -1,12 +1,13 @@
 <template>
-<div class="dashboard-container">
+  <div class="dashboard-container">
     <div class="dashboard-header">
         <span>Панел графиков</span>
         <person-menu />
     </div>
 
     <div v-if="can(['admin', 'moderator'])" class="dashboard-block-one">
-        <div class="inner-block">
+        <div class="inner-flex-block">
+             <div class="inner-block">
 
             <img src="@/assets/src/svg-icons/dashboard_avatar.svg" alt="">
             <div class="title-block">
@@ -32,9 +33,11 @@
 
             </div>
         </div>
-    </div>
-    <div class="dashboard-block-two">
-        <div class="inner-block-one">
+
+
+
+
+            <div class="inner-block-one">
             <img src="@/assets/src/svg-icons/dashboard_avatar3.svg" alt="">
             <div class="title-block-one">
                 <span>Закрытие заявки</span>
@@ -43,7 +46,7 @@
 
             </div>
         </div>
-        <div class="inner-block-one">
+        <div class="inner-block-one dashboard-one">
             <img src="@/assets/src/svg-icons/dashboard_avatar2.svg" alt="">
             <div class="title-block-one">
                 <span>Ложные заявки</span>
@@ -52,8 +55,7 @@
 
             </div>
         </div>
-    </div>
-    <div class="dashboard-block-three">
+    
 
         <div v-if="checkCompanyRole('clusterGarbage')" class="inner-block-two">
 
@@ -90,10 +92,8 @@
                 <p>{{applications.cuttingDownTrees}}</p>
             </div>
         </div>
-    </div>
-
-    <div class="dashboard-block-four">
-        <div v-if="checkCompanyRole('breedingFire')" class="inner-block-three">
+    
+        <div v-if="checkCompanyRole('breedingFire')"  class="inner-block-three">
 
             <img class="block-img" src="@/assets/src/svg-icons/dashboard_avatar8.svg" alt="">
             <div class="title-block-three">
@@ -102,7 +102,7 @@
 
             </div>
         </div>
-        <div v-if="checkCompanyRole('industrialWaste')" class="inner-block-three">
+        <div v-if="checkCompanyRole('industrialWaste')"  class="inner-block-three">
             <img class="block-img-item" src="@/assets/src/svg-icons/dashboard_avatar9.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span">Выброс промишленных стоков/мусора в реку</span>
@@ -120,7 +120,10 @@
 
             </div>
         </div>
+        </div>
+        
     </div>
+    
     <div v-if="can(['admin', 'moderator'])" class="dashboard-block-five">
         <div class="inner-table">
             <span>Поцент решения случаев</span>
@@ -143,7 +146,7 @@
         </div>
         <div class="inner-table">
             <span>Среднее время обработки заявок ( за месяц )</span>
-            <div class="inner-table-block">
+            <div class="inner-table-block-one">
                 <table cell-spacing="0" cellpadding="0">
 
                     <tr>
@@ -151,7 +154,7 @@
                         <th>Среднее время обработки (нынешный месяц)</th>
                         <th>Среднее время обработки (прошлый месяц)</th>
                     </tr>
-                    <tr class="category-content-tr">
+                    <tr>
                         <td>Инспекция по экологии</td>
                         <td>{{applications&& applications.stat && applications.stat.currentEcologyStat}}</td>
                         <td>{{applications && applications.stat && applications.stat.currentEcologyStat}}</td>
@@ -167,147 +170,83 @@
 
 <script>
 export default {
-    name: 'dashboard-app',
+  name: "dashboard-app",
 
-    data() {
-        return {
-            applications: {},
-            users_permissions: null,
-            checker: false
+  data() {
+    return {
+      applications: {},
+      users_permissions: null,
+      checker: false,
+    };
+  },
+  computed: {},
+  mounted() {
+    this.getUser();
+    this.getDashboardContent();
+    this.getCheckRoles();
+  },
+  methods: {
+    checkCompanyRole(roleName) {
+      // console.log(roleName);
+      let checker = false;
+      let department = this.$store.getters?.getDepartmentRoles;
+      this.$store.getters?.getCheckRoles[roleName] &&
+        this.$store.getters.getCheckRoles[roleName].forEach((element) => {
+          element == department ? checker = true : checker = false;
+        });
+      return checker;
+    },
+    getUser() {
+      this.$api
+        .get("currentUser")
+
+        .then(
+          (response) => {
+            if (response?.data?.user?.role) {
+              this.$store.dispatch("role", response.data.user.role);
+            }
+            if (response?.data?.user?.department) {
+              this.$store.dispatch("department", response.data.user.department);
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    },
+    getDashboardContent() {
+      this.$api.get("dashboard").then(
+        (response) => {
+          this.applications = response.data;
+        },
+        (error) => {
+          console.log(error);
         }
+      );
     },
-    computed: {
-
-    },
-    mounted() {
-        this.getUser()
-        this.getDashboardContent()
-        this.getCheckRoles()
-    },
-    methods: {
-        checkCompanyRole(roleName) {
-            console.log(roleName);
-            let checker = false;
-            let department = this.$store.getters?.getDepartmentRoles;
-            this.$store.getters?.getCheckRoles[roleName] && this.$store.getters.getCheckRoles[roleName].forEach(element => {
-                element == department ? (checker = true) : (checker = false)
-            });
-            return checker;
+    getCheckRoles() {
+      this.$api.get("settings/check").then(
+        (response) => {
+          if (response?.data?.categories) {
+            const checkroles = response.data.categories;
+            this.users_permissions = checkroles;
+            this.$store.dispatch("CHECK_ROLES", checkroles);
+          }
         },
-        getUser() {
-            this.$api.get('currentUser')
-
-                .then(response => {
-                        if (response?.data?.user?.role) {
-                            this.$store.dispatch('role', response.data.user.role)
-                        }
-                        if (response?.data?.user?.department) {
-                            this.$store.dispatch('department', response.data.user.department)
-                        }
-                    },
-                    error => {
-                        console.log(error)
-                    }
-                )
-        },
-        getDashboardContent() {
-            this.$api.get('dashboard')
-                .then(response => {
-                        this.applications = response.data
-                    },
-                    error => {
-                        console.log(error)
-                    }
-                )
-        },
-        getCheckRoles() {
-            this.$api.get('settings/check')
-                .then(response => {
-                        if (response?.data?.categories) {
-                            const checkroles = response.data.categories
-                            this.users_permissions = checkroles
-                            this.$store.dispatch('CHECK_ROLES', checkroles)
-                        }
-                    },
-                    error => {
-                        console.log(error)
-                    }
-                )
+        (error) => {
+          console.log(error);
         }
-
-    }
-
-}
+      );
+    },
+  },
+};
 </script>
 
 <style>
+
 .dashboard-header .personal-keys {
-    display: none;
+  display: none;
 }
 
-.inner-table-block-one table .category-content-tr {
-    box-sizing: border-box;
-    vertical-align: middle;
-    display: table-row;
 
-    user-select: none;
-    cursor: default;
-    border: none;
-    background: #f7fafc;
-    height: 60px;
-    width: 100%;
-    font-family: Jost;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 12px;
-    letter-spacing: 1px;
-}
-
-.inner-table-block-one table .category-content-tr td {
-    font-size: 14px;
-    cursor: pointer;
-    padding: 0 20px;
-    height: 60px;
-    width: unset;
-    align-items: center;
-    border-color: inherit;
-    border-style: solid;
-    border-width: 0;
-    display: table-cell;
-    vertical-align: inherit;
-}
-
-.inner-table-block .time-content-tr {
-    box-sizing: border-box;
-    vertical-align: middle;
-    display: table-row;
-
-    user-select: none;
-    cursor: default;
-    border: none;
-    background: #f7fafc;
-    height: 60px;
-    width: 100%;
-    font-family: Jost;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 12px;
-    letter-spacing: 1px;
-}
-
-.inner-table-block .time-content-tr td {
-    font-size: 14px;
-
-    padding: 0 20px;
-    height: 60px;
-    width: unset;
-    align-items: center;
-    border-color: inherit;
-    border-style: solid;
-    border-width: 0;
-    display: table-cell;
-    vertical-align: inherit;
-}
 </style>

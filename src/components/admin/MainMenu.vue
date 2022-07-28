@@ -40,7 +40,7 @@
 
 
 
-            <div class="menu-container-item" v-if="can(['admin'])">
+            <div class="menu-container-item" v-if="can(['admin', 'moderator'])">
 
                
 
@@ -53,7 +53,7 @@
 
 
 
-            <div class="menu-container-item" v-if="can(['admin'])">
+            <div class="menu-container-item" v-if="can(['admin', 'moderator'])">
 
                
 

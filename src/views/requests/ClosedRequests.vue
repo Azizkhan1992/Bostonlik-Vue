@@ -46,10 +46,14 @@
                     <option value="">Человеческие</option>
                 </select>
             </div>
-            <div class="requests-content-one">
+            <div @click="showData" class="requests-content-one">
                 <label for="request-date">Дата поступления заявки</label>
                 <img src="@/assets/src/Icons/calendar.svg" alt="">
-                <input type="text" id="request-date">
+                <v-app v-if="isData" class="data-picker">
+                    <v-row justify="center">
+                <v-date-picker></v-date-picker>
+                </v-row>
+                </v-app>
             </div>
         </div>
         <div class="requests-content-content">
@@ -78,6 +82,27 @@
             </div>
         </div>
 
+        <div class="request-footer">
+            <div class="footer-left-block">
+                <button>
+                    <img class="request-right" src="@/assets/src/Icons/Vector-left.svg" alt="">
+                    <span>Пред .</span>
+                </button>
+                <button>
+                    <img class="request-left" src="@/assets/src/Icons/chevron-right.svg" alt="">
+                    <span>След .</span>
+                </button>
+            </div>
+            <div class="footer-center">
+                <span>Страница</span>
+                <input type="text" placeholder="1">
+                <span>из 0</span>
+                <button>
+                    <img src="@/assets/src/Icons/chevron-right.svg" alt="">
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
 </template>
@@ -85,7 +110,18 @@
 import PersonMenu from '../PersonMenu.vue'
 export default {
   components: { PersonMenu },
-    name: 'closed-requests'
+    name: 'closed-requests',
+    data(){
+        return {
+            isData: false
+        }
+    },
+    methods:{
+        showData(){
+            this.isData = !this.isData
+            // console.log(this.isData)
+        }
+    }
 }
 </script>
 <style>
