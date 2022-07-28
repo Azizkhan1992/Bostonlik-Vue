@@ -2,28 +2,24 @@
 <div class="dashboard-container">
     <div class="dashboard-header">
         <span>Панел графиков</span>
-        <person-menu/>
+        <person-menu />
     </div>
 
-
-
-    <div v-if="can(['admin', 'moderator'])"  class="dashboard-block-one">
+    <div v-if="can(['admin', 'moderator'])" class="dashboard-block-one">
         <div class="inner-block">
-           
-                <img src="@/assets/src/svg-icons/dashboard_avatar.svg" alt="">
-                <div class="title-block">
-                    <span>Всего</span>
-                    <P class="title-text">{{applications.applications}}</P>
-                </div>
+
+            <img src="@/assets/src/svg-icons/dashboard_avatar.svg" alt="">
+            <div class="title-block">
+                <span>Всего</span>
+                <P class="title-text">{{applications.applications}}</P>
+            </div>
         </div>
         <div class="inner-block">
             <img src="@/assets/src/svg-icons/dashboard_avatar.svg" alt="">
             <div class="title-block">
                 <span>Новые заявки</span>
 
-
                 <p>{{applications.newApplications}}</p>
-
 
             </div>
         </div>
@@ -31,7 +27,6 @@
             <img src="/src/svg-icons/dashboard_avatar2.svg" alt="">
             <div class="title-block">
                 <span>Заявки в обработке</span>
-
 
                 <p>{{applications.applicationsOnProcess}}</p>
 
@@ -44,9 +39,7 @@
             <div class="title-block-one">
                 <span>Закрытие заявки</span>
 
-
                 <p>{{applications.completedApplications}}</p>
-
 
             </div>
         </div>
@@ -55,15 +48,12 @@
             <div class="title-block-one">
                 <span>Ложные заявки</span>
 
-
                 <p>{{applications.falseApplications}}</p>
-
 
             </div>
         </div>
     </div>
     <div class="dashboard-block-three">
-
 
         <div v-if="checkCompanyRole('clusterGarbage')" class="inner-block-two">
 
@@ -72,7 +62,6 @@
                 <span>Стихийная свалка</span>
                 <p>{{applications.spontaneous}}</p>
 
-
             </div>
         </div>
         <div v-if="checkCompanyRole('spontaneous')" class="inner-block-two">
@@ -80,9 +69,7 @@
             <div class="title-block-two">
                 <span>Скопления мусора</span>
 
-
                 <p>{{applications.clusterGarbage}}</p>
-
 
             </div>
         </div>
@@ -91,9 +78,7 @@
             <div class="title-block-two">
                 <span>Выброс мусора в неположённом месте</span>
 
-
                 <p>{{applications.ejectionCarbage}}</p>
-
 
             </div>
         </div>
@@ -107,15 +92,13 @@
         </div>
     </div>
 
-    <div  class="dashboard-block-four">
+    <div class="dashboard-block-four">
         <div v-if="checkCompanyRole('breedingFire')" class="inner-block-three">
 
             <img class="block-img" src="@/assets/src/svg-icons/dashboard_avatar8.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span">Разведение огня в неположённом месте</span>
                 <p>{{applications.breedingFire}}</p>
-
-
 
             </div>
         </div>
@@ -124,9 +107,7 @@
             <div class="title-block-three">
                 <span class="title-span">Выброс промишленных стоков/мусора в реку</span>
 
-
                 <p>{{applications.industrialWaste}}</p>
-
 
             </div>
         </div>
@@ -134,7 +115,6 @@
             <img class="img-item-one" src="@/assets/src/svg-icons/dashboard_avatar2.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span-item">Прочее</span>
-
 
                 <p>{{applications.other}}</p>
 
@@ -147,7 +127,6 @@
             <div class="inner-table-block-one">
                 <table cell-spacing="0" cellpadding="0">
 
-
                     <tr>
                         <th>Ведомство</th>
                         <th>Кол-во заявок</th>
@@ -155,13 +134,10 @@
                     </tr>
                     <tr class="category-content-tr">
                         <td>Инспекция по экологии</td>
-                        <td>{{applications.ecologyDepartment}}</td>     
+                        <td>{{applications.ecologyDepartment}}</td>
                         <td>{{applications && applications.solutions && applications.solutions.ecologySolutions}}</td>
                     </tr>
 
-
-
-                    
                 </table>
             </div>
         </div>
@@ -170,19 +146,16 @@
             <div class="inner-table-block">
                 <table cell-spacing="0" cellpadding="0">
 
-
-
                     <tr>
                         <th>Ведомство</th>
                         <th>Среднее время обработки (нынешный месяц)</th>
                         <th>Среднее время обработки (прошлый месяц)</th>
                     </tr>
-                    <tr class="category-content-tr"   >
+                    <tr class="category-content-tr">
                         <td>Инспекция по экологии</td>
                         <td>{{applications&& applications.stat && applications.stat.currentEcologyStat}}</td>
                         <td>{{applications && applications.stat && applications.stat.currentEcologyStat}}</td>
                     </tr>
-                        
 
                 </table>
             </div>
@@ -191,98 +164,89 @@
 
 </div>
 </template>
+
 <script>
-
-
-// import TokenService from '@/services/TokenService'
 export default {
-    name: 'dashboard-app',    
+    name: 'dashboard-app',
 
-
-    data(){
-        return{
+    data() {
+        return {
             applications: {},
             users_permissions: null,
             checker: false
         }
     },
-    computed:{
-
+    computed: {
 
     },
-    mounted(){
-            this.getUser()
-            this.getDashboardContent()
-            this.getCheckRoles()
+    mounted() {
+        this.getUser()
+        this.getDashboardContent()
+        this.getCheckRoles()
     },
-    methods:{
-			checkCompanyRole(roleName) {
-                console.log(roleName);
-				let department = this.$store.getters && this.$store.getters.getDepartmentRoles;
-            //    console.log(this.$store.getters.getCheckRoles[roleName]);
-            this.$store.getters && this.$store.getters.getCheckRoles && this.$store.getters.getCheckRoles[roleName] && this.$store.getters.getCheckRoles[roleName].forEach(element => {
-               element == department? this.checker = true : this.checker = false
+    methods: {
+        checkCompanyRole(roleName) {
+            console.log(roleName);
+            let checker = false;
+            let department = this.$store.getters?.getDepartmentRoles;
+            this.$store.getters?.getCheckRoles[roleName] && this.$store.getters.getCheckRoles[roleName].forEach(element => {
+                element == department ? (checker = true) : (checker = false)
             });
-            return this.checker
-			},
-      getUser(){
-             this.$api.get('currentUser')
+            return checker;
+        },
+        getUser() {
+            this.$api.get('currentUser')
 
-            .then(response => {
-                // console.log(response) 
-            if (response?.data?.user?.role) {
-                this.$store.dispatch('role', response.data.user.role)
-            }
-            if(response?.data?.user?.department){
-                // console.log(response.data.user.department)
-                this.$store.dispatch('department', response.data.user.department)
-            }
+                .then(response => {
+                        if (response?.data?.user?.role) {
+                            this.$store.dispatch('role', response.data.user.role)
+                        }
+                        if (response?.data?.user?.department) {
+                            this.$store.dispatch('department', response.data.user.department)
+                        }
+                    },
+                    error => {
+                        console.log(error)
+                    }
+                )
         },
-            error => {
-            console.log(error)
-        }
-        )
-        },
-        getDashboardContent(){
+        getDashboardContent() {
             this.$api.get('dashboard')
-            .then(response => {
-                // console.log(response.data)
-                this.applications = response.data
-            },
-            error => {console.log(error)}
-            )
+                .then(response => {
+                        this.applications = response.data
+                    },
+                    error => {
+                        console.log(error)
+                    }
+                )
         },
-        getCheckRoles(){
+        getCheckRoles() {
             this.$api.get('settings/check')
-            .then(response => {
-                if(response?.data?.categories){
-                    const checkroles = response.data.categories
-                    // console.log(checkroles)
-                    this.users_permissions = checkroles
-                    // console.log(this.users_permissions)
-                    this.$store.dispatch('CHECK_ROLES', checkroles)
-                }
-            },
-            error => {console.log(error)}
-            )
+                .then(response => {
+                        if (response?.data?.categories) {
+                            const checkroles = response.data.categories
+                            this.users_permissions = checkroles
+                            this.$store.dispatch('CHECK_ROLES', checkroles)
+                        }
+                    },
+                    error => {
+                        console.log(error)
+                    }
+                )
         }
-       
-
-
 
     }
-    
 
 }
 </script>
+
 <style>
-.dashboard-header .personal-keys{
-    display: none;  
+.dashboard-header .personal-keys {
+    display: none;
 }
 
-
-.inner-table-block-one table .category-content-tr{
-     box-sizing: border-box;
+.inner-table-block-one table .category-content-tr {
+    box-sizing: border-box;
     vertical-align: middle;
     display: table-row;
 
@@ -299,7 +263,8 @@ export default {
     line-height: 12px;
     letter-spacing: 1px;
 }
-.inner-table-block-one table .category-content-tr td{
+
+.inner-table-block-one table .category-content-tr td {
     font-size: 14px;
     cursor: pointer;
     padding: 0 20px;
@@ -312,8 +277,9 @@ export default {
     display: table-cell;
     vertical-align: inherit;
 }
-.inner-table-block .time-content-tr{
-     box-sizing: border-box;
+
+.inner-table-block .time-content-tr {
+    box-sizing: border-box;
     vertical-align: middle;
     display: table-row;
 
@@ -330,7 +296,8 @@ export default {
     line-height: 12px;
     letter-spacing: 1px;
 }
-.inner-table-block .time-content-tr td{
+
+.inner-table-block .time-content-tr td {
     font-size: 14px;
 
     padding: 0 20px;
@@ -343,5 +310,4 @@ export default {
     display: table-cell;
     vertical-align: inherit;
 }
-
 </style>

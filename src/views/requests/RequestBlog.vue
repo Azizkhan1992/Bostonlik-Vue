@@ -45,10 +45,16 @@
                     <option value="">Человеческие</option>
                 </select>
             </div>
-            <div class="requests-content-one">
+            <div @click="showData" class="requests-content-one">
                 <label for="request-date">Дата поступления заявки</label>
                 <img src="@/assets/src/Icons/calendar.svg" alt="">
-                <input type="text" id="request-date">
+                <!-- <input type="text" id="request-date"> -->
+                <v-app v-if="isData" class="data-picker">
+                    <v-row justify="center">
+                <v-date-picker v-model="picker"></v-date-picker>
+                </v-row>
+                </v-app>
+                
             </div>
         </div>
         <div class="requests-content-content">
@@ -92,7 +98,9 @@ export default{
     name: 'request-blog',
     data(){
         return{
-            news: null
+            news: null,
+            picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+            isData: false
         }
     },
     mounted(){
@@ -108,6 +116,10 @@ export default{
                 console.log(error)
             }
             )
+        },
+        showData(){
+            this.isData = !this.isData
+            // console.log(this.isData)
         }
     }
 }
@@ -159,5 +171,17 @@ hr{
 }
 .table-content .department-item{
     width: 25%;
+}
+.v-application{
+    z-index: 1;
+    margin-top: 55px;
+    margin-left: 10px;
+}
+.v-picker__body{
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.v-btn--round{
+    background-color: aqua;
 }
 </style>
