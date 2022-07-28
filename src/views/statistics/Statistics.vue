@@ -10,116 +10,61 @@
 
     <div class="statistics-content">
       <div class="statistics-content-header">
-        <div class="text-center">
-    <v-menu offset-y>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Dropdown
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item
-          v-for="(item, index) in items"
-          :key="index"
-        >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-  </div>
+        <v-app>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Color" :items="items"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+        </div>
 
+       
 
-        <div class="statistics-content-one two">
-          <span>Период</span>
-          <div class="statistics-select">
-                 <img src="@/assets/src/Icons/chevron-down.svg" alt="" />
-          <select id="statistics-period">
-            <option value="">Предложение</option>
-            <option value="">Откритые</option>
-            <option value="">Закрытые</option>
-          
-         
-          </select>
-
+        <div class="statistics-content-content">
+          <table>
+            <tr class="table-header">
+              <th class="th-one">Дата</th>
+              <th class="th-two two">Количество заявок</th>
+              <th class="th-two">Решенные заявки в %</th>
+              <th class="th-two">Ложные заявки в %</th>
+              <th class="th-two">Соотношение случаев в аналогичном периоде</th>
+            </tr>
+            <tr class="table-content">
+              <td class="td-one">01.04.2022</td>
+              <td class="td-two">1916</td>
+              <td class="td-two">57,80 %</td>
+              <td class="td-two two">04,22 %</td>
+              <td class="td-two two">04,22 %</td>
+            </tr>
+          </table>
+        </div>
+        <div class="statistics-footer">
+          <div class="statistics-footer-left">
+            <button class="btn-item-one">
+              <img
+                class="statistics-left"
+                src="@/assets/src/Vector (2).png"
+                alt=""
+              />
+              Пред .
+            </button>
+            <button class="footer-btn-item">
+              <img
+                class="statistics-right"
+                src="@/assets/src/Vector (1).png"
+                alt=""
+              />
+              След .
+            </button>
+          </div>
+          <div class="statistics-footer-right">
+            <button>
+              <img src="@/assets/src/svg-icons/print.svg" alt="" />
+              Распечатать
+            </button>
           </div>
         </div>
-
-        <div class="statistics-content-one three">
-          <span>Год</span>
-          <div class="statistics-select">
-                <img src="@/assets/src/Icons/chevron-down.svg" alt="" />
-          <select id="statistics-year">
-            <option value="">2022</option>
-            <option value="">Естественные</option>
-            <option value="">Человеческие</option>
-          </select>
-          </div>
-          
-        </div>
-
-        <div class="statistics-content-one four">
-          <span>Месяц</span>
-          <div class="statistics-select">
-             <img src="@/assets/src/Icons/chevron-down.svg" alt="" />
-          <select id="statistics-month">
-            <option value="">Апрель</option>
-            <option value="">Естественные</option>
-            <option value="">Человеческие</option>
-          </select>
-          </div>
-         
-        </div>
-      </div>
-
-      <div class="statistics-content-content">
-        <table>
-          <tr class="table-header">
-            <th class="th-one">Дата</th>
-            <th class="th-two two">Количество заявок</th>
-            <th class="th-two">Решенные заявки в %</th>
-            <th class="th-two">Ложные заявки в %</th>
-            <th class="th-two">Соотношение случаев в аналогичном периоде</th>
-          </tr>
-          <tr class="table-content">
-            <td class="td-one">01.04.2022</td>
-            <td class="td-two">1916</td>
-            <td class="td-two">57,80 %</td>
-            <td class="td-two two">04,22 %</td>
-            <td class="td-two two">04,22 %</td>
-          </tr>
-        </table>
-      </div>
-      <div class="statistics-footer">
-        <div class="statistics-footer-left">
-          <button class="btn-item-one">
-            <img
-              class="statistics-left"
-              src="@/assets/src/Vector (2).png"
-              alt=""
-            />
-            Пред .
-          </button>
-          <button class="footer-btn-item">
-            <img
-              class="statistics-right"
-              src="@/assets/src/Vector (1).png"
-              alt=""
-            />
-            След .
-          </button>
-        </div>
-        <div class="statistics-footer-right">
-          <button>
-            <img src="@/assets/src/svg-icons/print.svg" alt="" />
-            Распечатать
-          </button>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -130,12 +75,7 @@ export default {
   name: "statistics-app",
   data() {
     return {
-        items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-        ]   
+      items: ["Blue", "Red", "Yellow", "Green"],
     };
   },
   methods: {},
@@ -146,66 +86,18 @@ hr {
   border: 1px solid #e2e8f0;
 }
 
+.statistics-content-content .statistics-content-header{
+    display: flex;
+    width: 100%;
+    height: 25%;
+}
+
 .statistics-header .personal-keys {
   display: none;
 }
 
-.statistics-content-header{
-    display: flex;
-    width: 100%;
-    margin-top: 75px;
-}
-.statistics-content-header .statistics-content-one{
-    display: flex;
-    position: relative;
-    width: 24%;
-    margin-left: 15px;
-}
-.statistics-content-one span{
-    display: block;
-    flex: 0 0 auto;
-    position: absolute;
-    left: 10px;
-    bottom: 30px;
-    margin-left: 10px;
-}
-.statistics-content-one .statistics-select{
-    display: flex;
-    width: 100%;
-    height: 50px;
-    background: #FFFFFF;
-    position: absolute;
-    left: 15px;
-    bottom: -25px;
-    border-radius: 10px;
-    position: relative;
-}
-.statistics-content-one .statistics-select img{
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 15px;
-}
-.statistics-content-one .statistics-select select{
-    display: block;
-    margin-left: 15px;
-    margin-top: 10px;
-    height: 35px;
-    width: 100%;
-    padding-left: 10px;
-    -moz-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-
-.statistics-content-one .statistics-select select:hover{
-    -moz-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
+.v-application--wrap {
+    min-height: auto;
 }
 
 /* .statistics-content-one select {
@@ -222,9 +114,8 @@ hr {
   appearance: none;
   cursor: pointer;
   /* margin-left: 25px; */
-/* } */ */
-
-.statistics-header .personal-keys {
+/* } */
+*/ .statistics-header .personal-keys {
   display: none;
 }
 .statistics-content-content {
