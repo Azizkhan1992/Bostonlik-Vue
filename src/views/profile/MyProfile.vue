@@ -1,83 +1,31 @@
 <template>
-<div class="my-profil-container">
-    <div class="my-profil-header">
-        <span>Мой профиль</span>
-        <person-menu/>
+    <div class="my-profile-container">
+        <div class="my-profil-header">
+            
+                <h2>Мой профиль</h2>
+                <person-menu/>
+        </div>
+        <div class="my-profil-content">
+            <div class="my-profil-left">
+                <div class="my-login my-profil-form">
+                    <h4>Логин:</h4>
+                    <span>login_003</span>
+                </div>
+                <div class="my-account my-profil-form">
+                    <h4>Дата создания аккаунта:</h4>
+                    <span>11.11.2022</span>
+                </div>
+                <div class="my-department my-profil-form">
+                    <h4>Ведомство</h4>
+                    <span>Тоза худуд</span>
+                </div>
+            </div>
+            <div class="my-profil-right">
+                <img src="@/assets/src/Icons/profil-icon.svg" alt="">
+            </div>
+            <div class="my-profil-footer"></div>
+        </div>
     </div>
-    <div class="my-profil-content">
-        <div class="profil-content-one">
-            <div class="inner-content-one">
-                <div class="profil-title">
-                    <span>Логин:</span>
-                    <p>login_003</p>
-                </div>
-                <div class="profil-title">
-                    <span>Ведомство</span>
-                    <p>Тоза худуд</p>
-                </div>
-            </div>
-            <div class="inner-content-two">
-                <span>Дата создания аккоунта:</span>
-                <p>11.11.2022</p>
-            </div>
-        </div>
-        <div class="profil-content-two">
-            <img src="@/assets/src/Icons/profil-icon.svg" alt="">
-        </div>
-
-         <div class="profil-content-three">
-            <div class="profil-form">
-                <div class="profil-left-form">
-                    <div class="profil-inputs">
-                        <label for="profil-input">Фамилия</label>
-                        <input class="profil-input" type="text" placeholder="Фамилия">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Имя</label>
-                        <input class="profil-input" type="text" placeholder="Имя">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Отчество</label>
-                        <input class="profil-input" type="text" placeholder="Отчество">
-                    </div>
-                </div>
-                <div class="profil-right-form">
-                    <div class="profil-inputs">
-                        <label for="profil-input">Номер телефона</label>
-                        <input class="profil-input" type="text" placeholder="+998">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Эл. адрес</label>
-                        <input class="profil-input" type="text" placeholder="Email">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Пароль</label>
-                        <input class="profil-input" type="text" placeholder="Пароль">
-                    </div>
-                </div>
-                <div class="profil-btn">
-                    <button class="close-btn"><p>Отмена</p></button>
-                    <button class="save-btn"><p>Сохранить</p></button>
-                </div>
-            </div>
-            <div class="profil-image">
-                <div class="profil-file-input">
-                    <label for="profil-image-input">
-                        <img src="@/assets/src/Vector.png" alt="">
-                        <span>Прикрепить фото</span>
-                        </label>
-                    <input type="file" id="profil-image-input">
-                </div>
-                <div class="file-image">
-                    <img src="@/assets/src/image 5.png" alt="">
-                    <button><img src="@/assets/src/Icons/Vector01.png" alt=""></button>
-                </div>
-            </div>
-        </div>
-       
-    </div>
-    
-</div>
 </template>
 <script>
 import PersonMenu from '../PersonMenu.vue'
@@ -96,4 +44,68 @@ export default{
 .my-profil-header .personal-keys{
     display: none;  
 }
+.my-profile-container{
+    width: 100%;
+    /* display: flex; */
+}
+.my-profile-container .my-profil-header{
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+.my-profil-header h2{
+    display: block;
+    margin-left: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1E1920;
+}
+.my-profile-container .my-profil-content{
+    display: flex;
+    flex: 0 0 auto;
+    width: 97%;
+    background: #FFFFFF;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+.my-profil-content .my-profil-left{
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    width: 50%;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.my-profil-left .my-login{
+    width: 33%;
+    margin-left: 25px;
+}
+.my-profil-left .my-account{
+    width: 33%;
+}
+.my-profil-left .my-department{
+    width: 33%;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+.my-profil-left .my-profil-form h4{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.my-profil-left .my-profil-form span{
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+.my-profil-content .my-profil-right{
+    margin-top: 25px;
+}
+
+
+
 </style>
