@@ -6,7 +6,8 @@
                 <person-menu/>
         </div>
         <div class="my-profil-content">
-            <div class="my-profil-left">
+            <div class="profil-content-header">
+                <div class="my-profil-left">
                 <div class="my-login my-profil-form">
                     <h4>Логин:</h4>
                     <span>login_003</span>
@@ -23,7 +24,45 @@
             <div class="my-profil-right">
                 <img src="@/assets/src/Icons/profil-icon.svg" alt="">
             </div>
-            <div class="my-profil-footer"></div>
+            </div>
+            
+            <div class="my-profil-footer">
+                <div class="my-profil-input">
+                    <div class="input-left">
+                        <div class="my-lastname my-row-one">
+                            <label for="lastname-input">Фамилия</label>
+                            <input type="text" id="lastname-input" placeholder="Фамилия">
+                        </div>
+                        <div class="my-firstname my-row-one">
+                            <label for="firstname-input">Имя</label>
+                            <input type="text" id="firstname-input" placeholder="Имя"> 
+                        </div>
+                        <div class="my-patronimic my-row-one">
+                            <label for="patronimic-input">Отчество</label>
+                            <input type="text" id="patronimic-input" placeholder="Отчество">
+                        </div>
+                    </div>
+                    <div class="input-right">
+                        <div class="my-phone-number my-row-one">
+                            <label for="phone-input">Номер телефона</label>
+                            <input type="text" id="phone-input" placeholder="+998">
+                        </div>
+                        <div class="my-email my-row-one">
+                            <label for="email-input">Эл. адрес</label>
+                            <input type="text" id="email-input" placeholder="Email">
+                        </div>
+                        <div class="my-password my-row-one">
+                            <label for="password-input">Пароль</label>
+                            <input type="text" id="password-input" placeholder="Пароль">
+                        </div>
+                    </div>
+                    <div class="my-profil-btn">
+                        <button class="my-profil-exit">Отмена</button>
+                        <button class="my-profil-save">Сохранить</button>
+                    </div>
+                </div>
+                <div class="my-input-img"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -63,8 +102,6 @@ export default{
     color: #1E1920;
 }
 .my-profile-container .my-profil-content{
-    display: flex;
-    flex: 0 0 auto;
     width: 97%;
     background: #FFFFFF;
     margin-left: 15px;
@@ -72,40 +109,123 @@ export default{
     margin-top: 25px;
     border-radius: 10px;
 }
-.my-profil-content .my-profil-left{
+.my-profil-content .profil-content-header{
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+}
+.profil-content-header .my-profil-left{
+    width: 50%;
     display: flex;
     flex: 0 0 auto;
     flex-wrap: wrap;
-    width: 50%;
-    margin-left: 15px;
-    margin-top: 15px;
+    margin-top: 53px;
+    margin-left: 50px;
 }
-.my-profil-left .my-login{
-    width: 33%;
-    margin-left: 25px;
-}
-.my-profil-left .my-account{
+.my-profil-left .my-profil-form{
     width: 33%;
 }
-.my-profil-left .my-department{
-    width: 33%;
-    margin-left: 25px;
-    margin-top: 15px;
-}
-.my-profil-left .my-profil-form h4{
+.my-profil-form h4{
     font-size: 1rem;
     font-weight: 700;
 }
-.my-profil-left .my-profil-form span{
+.my-profil-form span{
     font-size: 1rem;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.5);
-    margin-top: 10px;
 }
-.my-profil-content .my-profil-right{
+.my-profil-left .my-account{
+    margin-left: 25px;
+}
+.profil-content-header .my-profil-right{
+    width: 50%;
+    margin-top: 53px;
+    margin-left: 15px;
+}
+.my-profil-right img{
+    display: block;
+    width: 90%;
+    align-self: center;
+}
+.my-profil-content .my-profil-footer{
     margin-top: 25px;
+    margin-left: 50px;
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+}
+.my-profil-footer .my-profil-input{
+    width: 75%;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+}
+.my-profil-input .input-left{
+    width: 45%;
+}
+.my-profil-input .input-right{
+    width: 45%;
+    margin-left: 25px;
 }
 
+.my-profil-input .my-row-one{
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+.my-row-one label{
+    display: block;
+    position: absolute;
+    top: -35px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.my-row-one input{
+    display: block;
+    width: 75%;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    font-weight: 600;
+}
+.my-row-one input:hover{
+    border: 2px solid #1C9E3C;
+}
+.my-profil-input .my-profil-btn{
+    width: 100%;
+    display: flex;
+}
+.my-profil-btn button{
+    display: block;
+    width: 20%;
+    margin-top: 25px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.my-profil-btn .my-profil-exit{
+    background: rgba(244, 33, 45, 0.48);
+    margin-left: 150px;
+}
+.my-profil-btn .my-profil-exit:hover{
+    background: #FFFFFF;
+    border: 2px solid rgba(244, 33, 45, 0.48);
+    color: rgba(244, 33, 45, 0.48);
+}
+.my-profil-btn .my-profil-save{
+    background: #1C9E3C;
+    margin-left: 25px;
+}
+.my-profil-btn .my-profil-save:hover{
+    background: #FFFFFF;
+    border: 2px solid #1C9E3C;
+    color: #1C9E3C;
+}
 
 
 </style>
