@@ -10,14 +10,49 @@
 
     <div class="statistics-content">
       <div class="statistics-content-header">
-        <v-app>
+        
+          <v-app>
+            <p>Категория статистики</p>
           <v-row justify="center" class="ma-2">
             <v-col sm="6"
-              ><v-select label="Color" :items="items"></v-select
+              ><v-select label="Все" :items="items"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+        
+        
+          <v-app>
+            <p>Период</p>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Годовая статистика" :items="items1"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+        
+
+        
+           <v-app>
+            <p>Год</p>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Color" :items="items2"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+       
+
+        
+          <v-app>
+            <p>Месяц</p>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Color" :items="items3"></v-select
             ></v-col>
           </v-row>
         </v-app>
         </div>
+        
 
        
 
@@ -76,6 +111,9 @@ export default {
   data() {
     return {
       items: ["Blue", "Red", "Yellow", "Green"],
+      items1: ["Green", "White"],
+      items2: ["Red", "Black", "Dark-Blue"],
+      items3: ["Purple", "Yellow", "Brown"]
     };
   },
   methods: {},
@@ -86,8 +124,11 @@ hr {
   border: 1px solid #e2e8f0;
 }
 
-.statistics-content-content .statistics-content-header{
+.statistics-content .statistics-content-header{
     display: flex;
+    flex: 0 0 auto;
+    position: relative;
+    margin-top: 25px;
     width: 100%;
     height: 25%;
 }
@@ -96,31 +137,60 @@ hr {
   display: none;
 }
 
-.v-application--wrap {
+.statistics-content .statistics-content-header .v-application--wrap {
     min-height: auto;
 }
 
-/* .statistics-content-one select {
-  margin-top: 5px;
-  width: 100%;
-  border-radius: 5px;
-  padding: 5px;
-  border: none;
-  outline: none;
-  display: inline-block;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  /* margin-left: 25px; */
-/* } */
-*/ .statistics-header .personal-keys {
+.statistics-content .statistics-content-header .v-application{
+  background: none !important;
+  width: 25% !important;
+  margin-top: 20px !important;
+}
+.statistics-content .statistics-content-header .col-sm-6{
+  width: 100% !important;
+  
+}
+
+.statistics-content .statistics-content-header .v-menu__content{
+  max-height: 304px;
+  min-width: 95% !important;
+  top: 50px !important;
+  margin-left: -100px;
+  margin-top: 35px;
+  background: #1fef52;
+  /* left: 10px !important; */
+}
+.statistics-content .statistics-content-header .v-menu__content{
+  position: absolute;
+  top: 75px !important;
+  width: 75%;
+  height: auto;
+}
+.statistics-content .statistics-content-header .justify-center{
+  border-radius: 10px !important;
+  margin: 0 !important;
+  background: #FFFFFF;
+  margin-left: 15px !important;
+}
+.statistics-content .statistics-content-header .statistics-content-header .drop-common{
+  width: 25%;
+  display: flex;
+  flex: 0 0 auto;
+}
+.v-application p{
+  display: block;
+  position: absolute;
+  top: -25px;
+  left: 10px;
+}
+
+
+.statistics-header .personal-keys {
   display: none;
 }
 .statistics-content-content {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 25px;
   margin-left: 15px;
 }
 .statistics-content-content table {
@@ -219,4 +289,5 @@ hr {
   position: absolute;
   left: 10px;
 }
+
 </style>

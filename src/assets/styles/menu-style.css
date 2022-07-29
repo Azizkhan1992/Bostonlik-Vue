@@ -90,7 +90,7 @@ body{
 .router-link-active::before{
     background-color: #1C9E3C;
     display: block;
-    width: 280px;
+    width: 250px;
 }
 
 .menu-item-span {

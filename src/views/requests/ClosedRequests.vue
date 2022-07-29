@@ -22,32 +22,45 @@
 
                 <label for="content-one-select">Ведомство</label>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="content-one-select">
-                    <option value="">Выберите ведомство</option>
-                    <option value="">Новые</option>
-                    <option value="">Старые</option>
-                </select>
+                 <v-app>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Все" :items="items2"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+
+
             </div>
             <div class="requests-content-one">
                 <label for="request-status">Статус заявки</label>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="request-status">
-                    <option value="">Все</option>
-                    <option value="">Откритые</option>
-                    <option value="">Закрытые</option>
-                </select>
+                 <v-app>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Все" :items="items2"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+
+
             </div>
             <div class="requests-content-one">
                 <label for="request-category">Категория нарушения</label>
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="request-category">
-                    <option value="">Все</option>
-                    <option value="">Естественные</option>
-                    <option value="">Человеческие</option>
-                </select>
+                <v-app>
+          <v-row justify="center" class="ma-2">
+            <v-col sm="6"
+              ><v-select label="Все" :items="items2"></v-select
+            ></v-col>
+          </v-row>
+        </v-app>
+
+
             </div>
-            <div @click="showData" class="requests-content-one">
+            <div @click="showData" class="requests-content-two">
                 <label for="request-date">Дата поступления заявки</label>
+                <span>Выберите дату</span>
                 <img src="@/assets/src/Icons/calendar.svg" alt="">
                 <v-app v-if="isData" class="data-picker">
                     <v-row justify="center">
@@ -113,7 +126,11 @@ export default {
     name: 'closed-requests',
     data(){
         return {
-            isData: false
+            isData: false,
+
+            items: ["Blue", "Red", "Yellow", "Green"],
+      items1: ["Green", "White"],
+      items2: ["Red", "Black", "Dark-Blue"],   
         }
     },
     methods:{
