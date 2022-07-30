@@ -57,7 +57,7 @@
         </div>
     
 
-        <div v-if="checkCompanyRole('clusterGarbage')" class="inner-block-two">
+        <div class="inner-block-two">
 
             <img src="@/assets/src/svg-icons/dashboard_avatar4.svg" alt="">
             <div class="title-block-two">
@@ -66,7 +66,7 @@
 
             </div>
         </div>
-        <div v-if="checkCompanyRole('spontaneous')" class="inner-block-two">
+        <div  class="inner-block-two">
             <img src="@/assets/src/svg-icons/dashboard_avatar5.svg" alt="">
             <div class="title-block-two">
                 <span>Скопления мусора</span>
@@ -75,7 +75,7 @@
 
             </div>
         </div>
-        <div v-if="checkCompanyRole('ejectionCarbage')" class="inner-block-two">
+        <div  class="inner-block-two">
             <img src="@/assets/src/svg-icons/dashboard_avatar6.svg" alt="">
             <div class="title-block-two">
                 <span>Выброс мусора в неположённом месте</span>

@@ -219,249 +219,212 @@
 
 /* My Profil */
 
-.my-profil-container{
-    background: #E5E5E5;
-    height: 650px;
+.my-profile-container{
     width: 100%;
+    /* display: flex; */
 }
-.my-profil-container .my-profil-header{
+.my-profile-container .my-profil-header{
     display: flex;
-    position: relative;
-    margin-left: 15px;
     width: 100%;
-}
-.my-profil-header span{
-    display: inline-block;
-    height: 60px;
-    margin-left: 25px;
     margin-top: 15px;
-    font-size: 32px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+.my-profil-header h2{
+    display: block;
+    margin-left: 25px;
+    font-size: 2rem;
     font-weight: 700;
-    font-family: 'Times New Roman', Times, serif;
+    color: #1E1920;
 }
 .my-profil-header img{
-    display: inline-block;
     position: absolute;
-    left:92%;
-    top: 5px;
+    right: 30px;
 }
-.my-profil-container .my-profil-content{
-    position: relative;
-    height: 85%;
-    width: 95%;
-    display: flex;
+.my-profile-container .my-profil-content{
+    width: 97%;
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    margin-left: 25px;
+    margin-left: 15px;
     margin-right: 15px;
-}
-.my-profil-content .profil-content-one{
-    display: flex;
-    width: 50%;
-    height: 25%;
-}
-.profil-content-one .inner-content-one{
-    margin-left: 50px;
     margin-top: 25px;
-    width: 23%;
-    height: 20%;
+    border-radius: 10px;
 }
-.inner-content-one .profil-title{
-    text-align: left;
+.my-profil-content .profil-content-header{
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
 }
-.inner-content-one .profil-title span{
-    font-size: 16px;
+.profil-content-header .my-profil-left{
+    width: 50%;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    margin-top: 53px;
+    margin-left: 50px;
+}
+.my-profil-left .my-profil-form{
+    width: 33%;
+}
+.my-profil-form h4{
+    font-size: 1rem;
     font-weight: 700;
-    line-height: 20px;
-    color: #000000;
 }
-.inner-content-one .profil-title p{
-    font-size: 14px;
+.my-profil-form span{
+    font-size: 1rem;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.5);
 }
-.profil-content-one .inner-content-two{
-    margin-left: 120px;
-    margin-top: 25px;
-    text-align: left;
-    width: 25%;
-    height: 20%;
+.my-profil-left .my-account{
+    margin-left: 25px;
 }
-.profil-content-one .inner-content-two span{
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-    color: #000000;
-}
-.profil-content-one .inner-content-two p{
-    font-size: 14px;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.5);
-}
-.my-profil-content .profil-content-two{
-    margin-top: 25px;
+.profil-content-header .my-profil-right{
     width: 50%;
-    height: 25%;
+    margin-top: 53px;
+    margin-left: 15px;
 }
-.my-profil-container .profil-content-three{
-    position: absolute;
-    top: 45%;
-    display: flex;
-    width: 95%;
+.my-profil-right img{
+    display: block;
+    width: 90%;
+    align-self: center;
 }
-.profil-content-three .profil-form{
-    display: flex;
+.my-profil-content .my-profil-footer{
+    margin-top: 25px;
     margin-left: 50px;
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+}
+.my-profil-footer .my-profil-input{
+    width: 64%;
+    min-width: 150px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+}
+.my-profil-input .input-left{
+    width: 32%;
+}
+.my-profil-input .input-right{
+    width: 32%;
+    margin-left: 25px;
+}
+
+.my-profil-input .my-row-one{
     position: relative;
-    align-items: center;
-    width: 60%;
+    width: 100%;
+    margin-top: 50px;
 }
-.profil-form .profil-right-form{
+.my-row-one label{
+    display: block;
+    position: absolute;
+    top: -35px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.my-row-one input{
+    display: block;
+    width: 75%;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    font-weight: 600;
+}
+.my-row-one input:hover{
+    border: 2px solid #1C9E3C;
+}
+.my-profil-input .my-profil-btn{
+    width: 50%;
+    min-width: 100px;
+    display: flex;
+}
+.my-profil-btn button{
+    display: block;
+    width: 50%;
+    min-width: 25px;
+    margin-top: 25px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.my-profil-btn .my-profil-exit{
+    background: rgba(244, 33, 45, 0.48);
     margin-left: 100px;
-    width: 45%;
 }
-.profil-form .profil-left-form{
-    width: 45%;
-}
-.profil-left-form .profil-inputs{
-    margin-top: 25px;
-    text-align: left;
-}
-.profil-left-form .profil-inputs label{
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.profil-left-form .profil-inputs .profil-input{
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 95%;
-    height: 25px;
-    padding-left: 10px;
-}
-.profil-left-form .profil-inputs .profil-input:hover{
-    border: 2px solid #1C9E3C;
-}
-.profil-form .profil-right-form .profil-inputs{
-    margin-top: 25px;
-    text-align: left;
-}
-.profil-right-form .profil-inputs label{
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.profil-right-form .profil-inputs .profil-input{
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 95%;
-    height: 25px;
-    padding-left: 10px;
-}
-.profil-right-form .profil-inputs .profil-input:hover{
-    border: 2px solid #1C9E3C;
-}
-.profil-form .profil-btn{
-    position: absolute;
-    left: 30%;
-    bottom: -20%;
-}
-.profil-form .profil-btn button{
-    margin-left: 30px;
-    width: 100px;
-    height: 30px;
-    position: relative;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.profil-btn button p{
-    position: absolute;
-    bottom: -7px;
-    left: 18px;
-    font-size: 12px;
-    font-weight: 700;
-}
-.profil-btn .close-btn{
-    background: #fff;
+.my-profil-btn .my-profil-exit:hover{
+    background: #FFFFFF;
     border: 2px solid rgba(244, 33, 45, 0.48);
     color: rgba(244, 33, 45, 0.48);
 }
-.profil-btn .close-btn:hover{
-    background: rgba(244, 33, 45, 0.48);
-    color: #fff;
+.my-profil-btn .my-profil-save{
+    background: #1C9E3C;
+    margin-left: 25px;
 }
-
-.profil-btn .close-btn p:hover{
-    color: #fff;
-}
-.profil-btn .save-btn{
+.my-profil-btn .my-profil-save:hover{
+    background: #FFFFFF;
     border: 2px solid #1C9E3C;
-    background: #fff;
     color: #1C9E3C;
 }
-.profil-btn .save-btn:hover{
-    background: #1C9E3C;
-    color: #fff;
-}
-
-.profil-btn .save-btn p:hover{
-    color: #fff;
-}
-.profil-content-three .profil-image{
+.my-input-img{
+    width: 32%;
     display: flex;
-    margin-left: 15%;
     margin-top: 25px;
+    justify-content: center;
 }
-.profil-image .profil-file-input label{
-    border: 2px dashed #ccc;
+.my-input-img .image-input{
+    width: 45%;
+    align-items: center;
+    justify-content: center;
+    min-width: 75px;
+}
+.my-input-img .image-shower{
+    width: 25%;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.my-input-img .image-input label{
     display: block;
-    width: 75%;
-    height: 50%;
+    width: 65%;
+    height: 45%;
+    min-width: 75px;
+    border: 2px dashed #ccc;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    color: #ccc;
+    align-items: center;
 }
-.profil-image .file-image{
+.image-input label i{
+    position: absolute;
+    bottom: 10px;
+    margin-top: 10px;
     margin-left: 15px;
 }
-.profil-file-input label span{
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 5px;
+.image-input label img{
+    margin-left: 45px;
+    margin-top: 25px;
+}
 
-    margin-left: 10%;
-}
-.profil-file-input label img{
-    margin-top: 20px;
-    margin-left: 25%;
-
-}
-.profil-image .file-image button{
-    position: absolute;
-    top: 65%;
-    right: 5%;
-    border: none;
-    background: #fff;
-    cursor: pointer;
-}
-.profil-file-input input{
+.image-input input{
     display: none;
 }
-.profil-content-two img{
-    width: 65%;
-    margin-left: 10%;
+.image-shower .my-own-image{
+    display: block;
+    min-width: 50px;
+    margin-top: 5px;
 }
-.profil-file-input label img{
-    width: 50%;
-    height: 50%;
-}
-.file-image img{
-    width: 100%;
-    height: 50%;
+.my-input-img .image-shower button{
+    display: block;
+    margin-top: 15px;
+    margin-left: 10px;
+    align-self: flex-start;
 }
 
 

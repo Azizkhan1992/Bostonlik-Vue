@@ -564,3 +564,101 @@
       width: 25%;
       margin-top: 10px;
   } 
+
+
+
+
+  /* User Settings */
+
+.user-settings-container{
+    background: #fff;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.user-settings-table table{
+    display: block;
+    width: 100%;
+}
+.user-settings-table table .table-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.user-settings-table table .table-header th{
+    display: block;
+    width: 10%;
+    margin-left: 0.5%;
+    text-align: left;
+    color: #A0AEC0;
+    margin-top: 5px;
+}
+.user-settings-table table .table-header{
+    background: #F7FAFC;
+    margin: 0;
+    padding: 0;
+}
+
+.settings-container{
+    position: relative;
+    margin-left: 25px;
+}
+.settings-container .settings-header{
+    display: flex;
+    position: relative;
+    height: 250px;
+}
+.settings-header .header-left-blog{
+    text-align: left;
+}
+.settings-header .header-left-blog span{
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.settings-header .header-left-blog p{
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+.settings-header img{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+.settings-container .settings-route{
+    position: absolute;
+    left: 15px;
+    top: 100px;
+}
+.settings-route button{
+    position: relative;
+    width: 250px;
+    height: 110px;
+    background: #fff;
+    color: #1C9E3C;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+.settings-route button img{
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+}
+.settings-route button p{
+    display: inline-block;
+    position: absolute;
+    left: 100px;
+    bottom: 20px;
+}
+.settings-content{
+    background: #fff;
+    width: 90%;
+    border-radius: 10px;
+}
