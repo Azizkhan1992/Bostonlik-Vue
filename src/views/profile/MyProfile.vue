@@ -61,7 +61,21 @@
                         <button class="my-profil-save">Сохранить</button>
                     </div>
                 </div>
-                <div class="my-input-img"></div>
+                <div class="my-input-img">
+                    <div class="image-input">
+                        <label for="my-input-image">
+                            <i aria-hidden="true">Прикрепить фото</i>
+                            <img src="@/assets/src/Vector (3).png" alt="">
+                        </label>
+                        <input type="file" id="my-input-image">
+                    </div>
+                    <div class="image-shower">
+                        <img class="my-own-image" src="@/assets/src/image 5.png" alt="">
+                        <button>
+                            <img src="@/assets/src/Icons/Vector01.png" alt="">
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -155,7 +169,8 @@ export default{
     flex: 0 0 auto;
 }
 .my-profil-footer .my-profil-input{
-    width: 75%;
+    width: 55%;
+    min-width: 150px;
     display: flex;
     flex: 0 0 auto;
     flex-wrap: wrap;
@@ -196,11 +211,13 @@ export default{
 }
 .my-profil-input .my-profil-btn{
     width: 100%;
+    min-width: 100px;
     display: flex;
 }
 .my-profil-btn button{
     display: block;
     width: 20%;
+    min-width: 25px;
     margin-top: 25px;
     height: 50px;
     border-radius: 10px;
@@ -226,6 +243,57 @@ export default{
     border: 2px solid #1C9E3C;
     color: #1C9E3C;
 }
+.my-input-img{
+    width: 30%;
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+}
+.my-input-img .image-input{
+    width: 45%;
+    align-items: center;
+    justify-content: center;
+    min-width: 75px;
+}
+.my-input-img .image-shower{
+    width: 45%;
+    margin-left: 15px;
+}
+.my-input-img .image-input label{
+    display: block;
+    width: 100%;
+    height: 45%;
+    min-width: 75;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    color: #ccc;
+}
+.image-input label i{
+    position: absolute;
+    bottom: 10px;
+    margin-top: 10px;
+}
+.image-input label img{
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
 
+.image-input input{
+    display: none;
+}
+.image-shower .my-own-image{
+    min-width: 135px;
+    min-height: 100px;
+}
+.my-input-img .image-shower button{
+    margin-top: 15px;
+    margin-left: 10px;
+}
 
 </style>
