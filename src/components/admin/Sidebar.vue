@@ -11,7 +11,7 @@
                     <span>Панель графиков</span>
                 </router-link>
             </ul>
-            <li @click="dropdownActive" class="sidebar-dropdown-li" :class="isDropdownActive === true ? 'active-dropdown-open': 'active-dropdown-close'">
+            <li @click="dropdownActive" class="sidebar-dropdown-li" :class="isDropdownActive === true ? 'active-dropdown-open': 'active-dropdown-close'">   
                 <div class="sidebar-dropdown-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" class="sidebar-svg" v-html="sidebar_svg[1].svg"></svg>
                 <span>Заявки</span>
