@@ -211,13 +211,10 @@ export default {
     
    
     getNews() {
-      setTimeout(()=>{
-        this.$store.dispatch('getNews')
+      this.$store.dispatch('getNews')
       .then(response=>{
         console.log(response)
       })
-      
-      }, 1000)
       // this.$api.get("/applications/news").then(
       //   (response) => {
       //     this.news = response.data;

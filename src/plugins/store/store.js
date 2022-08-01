@@ -44,7 +44,7 @@ const store = new Vuex.Store({
   },
   actions: {
     getNews(){
-        return this.$api.get("applicatins/news")
+        return this.$api.get("applications/news")
         .then(response=>{
             console.log(response)
             return response
