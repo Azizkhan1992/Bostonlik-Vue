@@ -190,4 +190,10 @@ export default {
     width: 65px;
     margin-left: 5px;
 }
+.sidebar-content ul li{
+    z-index: 10;
+}
+.sidebar-content li{
+    z-index: 10;
+}
 </style>

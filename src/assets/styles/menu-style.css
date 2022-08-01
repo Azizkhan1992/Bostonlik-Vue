@@ -25,14 +25,22 @@ body{
     display: flex;
 }
 .login-container .login-left-content{
-    max-width: 600px;
+    width: 700px;
+    position: fixed;
     background: #F4F5FA;
+    height: 100vh;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
-    
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,.25));
 }
 .login-container .login-right-container{
-    max-width: 600px;
-    background-color: yellow;
+    max-width: 900px;
+    background-color: yellow;   
+}
+.login-left-content .login-header-img{
+    width: 350px;
+    height: 150px;
+    margin-left: 130px;
+    margin-top: 15px;
 }
 .left-center .left-header{
     width: 60%;
@@ -70,34 +78,35 @@ body{
 }
 .login-input .item-input{
     width: 50%;
-    height: 25px;
+    height: 40px;
     border: 1px solid #ccc;
     border-radius: 3px;
     background: #fff;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 600;
-    margin-left: 10px;
+    margin-left: 150px;
     line-height: 29px;
+    padding-left: 10px;
 }
 .login-input .item-input:hover{
     border: 2px solid ;
 }
 .login-form .left-btn{
-    margin-left: 250px;
-    margin-top: 15px;
+    margin-left: 150px;
+    margin-top: 25px;
     width: 100px;
     height: 50px;
-    border: 1px solid #4B975F;
+    border: 2px solid #4B975F;
     background: #fff;
     border-radius: 5px;
     cursor: pointer;
-    color: #1fef52;
+    color: #4B975F;
 }
 .login-form .left-btn p{
     display: block;
     position: absolute;
     bottom: -5px;
-    left: 275px;
+    left: 185px;
     font-size: 18px;
     font-weight: 700;
     margin-block-start: 1em;
@@ -111,7 +120,7 @@ body{
 }
 
 .login-left-content .left-footer{
-    margin-top: 50px;
+    margin-top: 150px;
     display: flex;
     height: 75px;
 }
@@ -128,12 +137,18 @@ body{
     height: 50px;
     margin-left: 25px;
 }   
+.login-container .login-right-content{
+    width: 700px;
+    justify-content: center;
+    filter: blur(0.3px);
+    margin-left: 820px;
+}
 
 .login-container .login-right-content img{
     width: 400px;
     height: 400px;
-    margin-left: 100px;
-    margin-top: 70px;
+    margin-left: 150px;
+    margin-top: 150px;
 }
 
 /* Sidebar */

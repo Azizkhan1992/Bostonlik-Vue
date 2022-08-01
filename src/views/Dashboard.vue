@@ -84,7 +84,7 @@
 
             </div>
         </div>
-        <div v-if="checkCompanyRole('cuttingDownTrees')" class="inner-block-two">
+        <div v-if="checkCompanyRole" class="inner-block-two">
             <img src="@/assets/src/svg-icons/dashboard_avatar7.svg" alt="">
             <div class="title-block-two">
                 <span>Вырубка деревьев</span>
@@ -93,7 +93,7 @@
             </div>
         </div>
     
-        <div v-if="checkCompanyRole('breedingFire')"  class="inner-block-three">
+        <div   class="inner-block-three">
 
             <img class="block-img" src="@/assets/src/svg-icons/dashboard_avatar8.svg" alt="">
             <div class="title-block-three">
@@ -102,7 +102,7 @@
 
             </div>
         </div>
-        <div v-if="checkCompanyRole('industrialWaste')"  class="inner-block-three">
+        <div   class="inner-block-three">
             <img class="block-img-item" src="@/assets/src/svg-icons/dashboard_avatar9.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span">Выброс промишленных стоков/мусора в реку</span>
@@ -175,45 +175,47 @@ export default {
   data() {
     return {
       applications: {},
-      users_permissions: null,
+      
       checker: false,
     };
   },
-  computed: {},
+  computed: {
+    checkCompanyRole(){
+      let department = this.$store.getters?.getDepartmentRoles;
+      // console.log(department)
+      this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.cuttingDownTrees && this.$store.getters.getCheckRoles.cuttingDownTrees.forEach((element) => {
+        if(element == department){
+          this.checker = true
+        }
+        // console.log(this.checker)
+      })
+      return this.checker;
+    }
+  },
   mounted() {
-    this.getUser();
     this.getDashboardContent();
-    this.getCheckRoles();
+    this.getCurrentUser()
   },
   methods: {
-    checkCompanyRole(roleName) {
-      // console.log(roleName);
-      let checker = false;
-      let department = this.$store.getters?.getDepartmentRoles;
-      this.$store.getters?.getCheckRoles[roleName] &&
-        this.$store.getters.getCheckRoles[roleName].forEach((element) => {
-          element == department ? checker = true : checker = false;
-        });
-      return checker;
+    getCurrentUser(){
+      this.$store.dispatch('getCurrentUsers',{
+        data: 123
+      })
+      .then(response=>{
+        console.log(response, 123)
+      })
     },
-    getUser() {
-      this.$api
-        .get("currentUser")
-
-        .then(
-          (response) => {
-            if (response?.data?.user?.role) {
-              this.$store.dispatch("role", response.data.user.role);
-            }
-            if (response?.data?.user?.department) {
-              this.$store.dispatch("department", response.data.user.department);
-            }
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-    },
+    // checkCompanyRole(roleName) {
+    //   // console.log(roleName);
+    //   let checker = false;
+    //   let department = this.$store.getters?.getDepartmentRoles;
+    //   this.$store.getters?.getCheckRoles[roleName] &&
+    //     this.$store.getters.getCheckRoles[roleName].forEach((element) => {
+    //       element == department ? checker = true : checker = false;
+    //     });
+    //   return checker;
+    // },
+    
     getDashboardContent() {
       this.$api.get("dashboard").then(
         (response) => {
@@ -224,20 +226,7 @@ export default {
         }
       );
     },
-    getCheckRoles() {
-      this.$api.get("settings/check").then(
-        (response) => {
-          if (response?.data?.categories) {
-            const checkroles = response.data.categories;
-            this.users_permissions = checkroles;
-            this.$store.dispatch("CHECK_ROLES", checkroles);
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    },
+    
   },
 };
 </script>

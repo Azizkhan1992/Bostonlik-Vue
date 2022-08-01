@@ -11,11 +11,14 @@
     <div class="statistics-content">
       <div class="statistics-content-header">
         
-          <v-app>
+          <v-app :class="isActiveSvg_one == true ? 'active-svg-one' : 'deactive-svg-one'">
             <p>Категория статистики</p>
-          <v-row justify="center" class="ma-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.29289 7.29289C3.68342 6.90237 4.31658 6.90237 4.70711 7.29289L12 14.5858L19.2929 7.29289C19.6834 6.90237 20.3166 6.90237 20.7071 7.29289C21.0976 7.68342 21.0976 8.31658 20.7071 8.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L3.29289 8.70711C2.90237 8.31658 2.90237 7.68342 3.29289 7.29289Z" stroke="#1C9E3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+          <v-row @click="activeInput" justify="center" class="ma-2">
             <v-col sm="6"
-              ><v-select label="Все" :items="items"></v-select
+              ><v-select  label="Все" :items="items"></v-select
             ></v-col>
           </v-row>
         </v-app>
@@ -23,6 +26,9 @@
         
           <v-app>
             <p>Период</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.29289 7.29289C3.68342 6.90237 4.31658 6.90237 4.70711 7.29289L12 14.5858L19.2929 7.29289C19.6834 6.90237 20.3166 6.90237 20.7071 7.29289C21.0976 7.68342 21.0976 8.31658 20.7071 8.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L3.29289 8.70711C2.90237 8.31658 2.90237 7.68342 3.29289 7.29289Z" stroke="#1C9E3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
           <v-row justify="center" class="ma-2">
             <v-col sm="6"
               ><v-select label="Годовая статистика" :items="items1"></v-select
@@ -34,6 +40,9 @@
         
            <v-app>
             <p>Год</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.29289 7.29289C3.68342 6.90237 4.31658 6.90237 4.70711 7.29289L12 14.5858L19.2929 7.29289C19.6834 6.90237 20.3166 6.90237 20.7071 7.29289C21.0976 7.68342 21.0976 8.31658 20.7071 8.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L3.29289 8.70711C2.90237 8.31658 2.90237 7.68342 3.29289 7.29289Z" stroke="#1C9E3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
           <v-row justify="center" class="ma-2">
             <v-col sm="6"
               ><v-select label="Color" :items="items2"></v-select
@@ -45,6 +54,9 @@
         
           <v-app>
             <p>Месяц</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.29289 7.29289C3.68342 6.90237 4.31658 6.90237 4.70711 7.29289L12 14.5858L19.2929 7.29289C19.6834 6.90237 20.3166 6.90237 20.7071 7.29289C21.0976 7.68342 21.0976 8.31658 20.7071 8.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L3.29289 8.70711C2.90237 8.31658 2.90237 7.68342 3.29289 7.29289Z" stroke="#1C9E3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
           <v-row justify="center" class="ma-2">
             <v-col sm="6"
               ><v-select label="Color" :items="items3"></v-select
@@ -111,12 +123,18 @@ export default {
   data() {
     return {
       items: ["Blue", "Red", "Yellow", "Green"],
-      items1: ["Green", "White"],
+      items1: ["Годовая статистика", "Квартальная статистика", "Месячная статистика", "Недельная статистика"],
       items2: ["Red", "Black", "Dark-Blue"],
-      items3: ["Purple", "Yellow", "Brown"]
-    };
+      items3: ["Purple", "Yellow", "Brown"],
+      isActiveSvg_one: false
+    }
   },
-  methods: {},
+  methods: {
+    activeInput(){
+      this.isActiveSvg_one = !this.isActiveSvg_one
+      console.log(this.isActiveSvg_one)
+    }
+  },
 };
 </script>
 <style>
@@ -125,6 +143,19 @@ export default {
   display: none;
 }
 
-
-
+.statistics-content-header .v-application .v-select__selections input{
+  cursor: pointer;
+}
+.statistics-content-header .v-application svg{
+  position: absolute;
+  top: 40px;
+  margin-left: 300px;
+}
+.statistics-content-header .active-svg-one svg{
+  transform: rotate(180deg);
+  transition: transform .5s;
+}
+.statistics-content-header .deactive-svg-one svg{
+  transition: transform .5s;
+}
 </style>

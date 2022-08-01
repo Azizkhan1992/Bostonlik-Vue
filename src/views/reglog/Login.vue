@@ -1,7 +1,7 @@
 <template>
 <div class="login-container">
     <div class="login-left-content">
-         <img src="@/assets/src/Icons/left-icon.svg" width="350" height="150" alt="">
+         <img class="login-header-img" src="@/assets/src/Icons/left-icon.svg" alt="">
          <div class="left-center">
             <div class="left-header">
                  <span class="left-header-span">Информационная система по экологическому мониторингу раёна Бостанлыка</span>
@@ -39,8 +39,8 @@ export default {
     data(){
         return{
             user: {
-                name: 'ecobot114',
-                password: 'user114'
+                name: 'akobir1605',
+                password: 'akobir'
             }
         }
     },
