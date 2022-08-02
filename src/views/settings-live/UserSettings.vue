@@ -9,16 +9,20 @@
                 <th class="th-two">Дата создания аккоунта</th>
                 <th class="th-two">Последная активность</th>
             </tr>
-                <hr/>
-                <router-link tag="tr" v-for="(user, idx) in Users" :key="idx" :to="`/user-setting-item/${user._id}`"  class="settings-table">
-                
+            <hr/>
+            <router-link tag="tr" v-for="(user, idx) in Users" :key="idx" :to="`/user-setting-item/${user._id}`"  class="settings-table">
+            
                 <td class="td-one">{{user.firstName }}</td>
                 <td class="td-two">{{user.department}}</td>
+                <select tag="td" id="userIsActive">
+                    <option value="this.user.status === true">Активный</option>
+                    <option value="this.user.status === false">Неактивный</option>
+                </select>
                 <td class="td-two">{{user.status}}</td>
                 <td class="td-two">{{user.createdDate}}</td>
                 <td class="td-two">{{user.lastActiveDate}}</td>
-                </router-link>
-                <hr/>
+            </router-link>
+            <hr/>
         </table>
     </div>
     <div class="user-add"></div>
@@ -30,7 +34,11 @@ export default{
     name: 'user-profil',
     data(){
         return{
-            Users: []
+            Users: [],
+            static: {
+                true: 'Активный',
+                false: 'Неактивный'
+            }
         }
     },
     mounted(){

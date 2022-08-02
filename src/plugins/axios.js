@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import TokenService from '@/services/TokenService';
-
+import store from './store/store';
 
 Vue.use(VueAxios, axios);
 
@@ -31,7 +31,7 @@ instance.interceptors.request.use((config) => {
     return config;
 }, error => console.log(error))
 
-
+store.$api = instance;
 Vue.prototype.$api = instance;
 
 export default instance;

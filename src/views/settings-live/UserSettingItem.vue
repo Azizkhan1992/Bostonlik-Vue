@@ -3,7 +3,8 @@
         <div class="user-item-content">
             <div class="user-item-one items">
                 <h3>ФИО</h3>
-                <span></span>
+                <span v-if="isSetUser">{{users.firstName}}</span>
+                <span v-else class="is-not-user">-</span>
             </div>
             <div class="user-item-two items">
                 <h3>Ведомство</h3>
@@ -19,11 +20,13 @@
             </div>
             <div class="user-item-five items">
                 <h3>Электронная почта</h3>
-                <span></span>
+                <span v-if="isSetUser">{{users.email}}</span>
+                <span v-else class="is-not-user">-</span>
             </div>
             <div class="user-item-six items">
                 <h3>Номер телефона</h3>
-                <span></span>
+                <span v-if="isSetUser">{{users.phoneNumber}}</span>
+                <span v-else class="is-not-user">-</span>
             </div>
             <div class="user-item-seven items">
                 <h3>Логин</h3>
@@ -44,14 +47,23 @@ export default {
         return{
             id : this.$route.params,
             users: [],
-            user: ''
+            user: '',
+            isSetUser: false
         }
     },
     mounted(){
         this.getUserItem()
+        // this.getSettingUser()
     },
     
     methods:{
+        getSettingUser(elem){
+            console.log(elem)
+            if(elem.lastName){
+                this.isSetUser = true
+
+            }
+        },
         getUserItem(){
             this.$api.get('users')
             .then(response =>{
@@ -67,10 +79,11 @@ export default {
             item.forEach(element => {
                 if(element._id == userId){
                     this.users = element
+                    this.getSettingUser(element)
                 }
             });
 
-                console.log(this.users)
+                // console.log(this.users)
         },
         goBack(){
             this.$router.go(-1)
@@ -113,5 +126,23 @@ export default {
 }
 .user-item-container .user-item-footer button:hover{
         color: #fff;
+}
+.user-item-one .is-not-user{
+    font-size: 36px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+.user-item-five .is-not-user{
+    font-size: 36px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+.user-item-six .is-not-user{
+    font-size: 36px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 500;
 }
 </style>

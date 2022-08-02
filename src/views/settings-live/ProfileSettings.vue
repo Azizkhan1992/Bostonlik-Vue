@@ -15,6 +15,13 @@
         </button>
         </router-link>
     </div>
+    <div v-else class="settings-route">
+        <router-link to="/add-new-user">
+        <button><img src="@/assets/src/svg-icons/Settings-staff.svg">
+        <p>Добавить нового пользователя</p>
+        </button>
+        </router-link>
+    </div>
     <div class="settings-content">
         <router-view/>
     </div>
@@ -28,7 +35,7 @@ export default {
     name: 'settings-app',
     data(){
         return{
-            isSettings: false 
+            isSettings: false
         }
     },
     mounted(){
@@ -37,11 +44,21 @@ export default {
     },
     methods:{
         getSettings(){
-            if(this.$route.params['/user-settings']){
+            const routeName = this.$route.name;
+            // console.log(routeName)
+            if(routeName === 'user-settings'){
+                this.isSettings = false
+            } else if (routeName === 'user-setting-item') {
                 this.isSettings = true
             }
         },
         
+    },
+    watch: {
+        '$route.params': function (val) {
+            this.getSettings();
+            console.log(val)
+        }
     }
 }
 </script>

@@ -1,0 +1,664 @@
+/* Add-new-user */
+
+.add-user-form .new-user .v-application--wrap{
+    min-height: auto !important;
+  }
+  .add-user-form .new-user .v-application{
+    margin-top: 0 !important;
+  }
+  .add-user-form .new-user .justify-center{
+    margin: 0 !important;
+  }
+  .add-user-form .new-user .v-menu__content{
+    top: 65px !important;
+  }
+  
+  
+  .add-user-container{
+      width: 100%;
+      height: auto;
+  }
+  .add-user-container .add-user-header{
+      width: 100%;
+      margin-left: 15px;
+      margin-top: 15px;
+      display: flex;
+      flex: 0 0 auto;
+      position: relative;
+  }
+  .add-user-header img{
+      position: absolute;
+      right: 50px;
+      top: 10px;
+      cursor: pointer;
+  }
+  .add-user-header .user-header-left{
+      width: 50%;
+  }
+  .add-user-header .user-header-left h2{
+      font-size: 24px;
+      font-weight: 800;
+      margin-left: 10px;
+  }
+  .user-header-left .add-user-route{
+      margin-top: 10px;
+      margin-left: 10px;
+      width: 25%;
+      display: flex;
+      align-content: center;
+      position: relative;
+  }
+  .add-user-route span{
+      display: block;
+      padding: 5px;
+      font-size: 16px;
+      font-weight: 600;
+  }
+  .add-user-route img{
+      display: block;
+      position: absolute;
+      top: 13px;
+      left: 90px;
+      width: 20px;
+      height: 10px;
+  }
+  
+  .add-user-container .add-user-content{
+      width: 98%;
+      display: flex;
+      flex: 0 0 auto;
+      flex-wrap: wrap;
+      height: auto;
+      display: flex;
+      margin: 15px 10px 15px 15px;
+      background: #fff;  
+      border-radius: 15px; 
+  }
+  .add-user-content .add-user-form{
+      width: 97%;
+      display: flex;
+      flex-wrap: wrap;
+      flex: 0 0 auto;
+      justify-content:space-between;
+      position: relative;
+      padding-bottom: 150px;
+      margin-top: 25px;
+      margin-left: 15px;
+  }
+  .add-user-form .new-user{
+      display: flex;
+      width: 30%;
+      margin-left: 15px;
+      margin-top: 35px;
+      position: relative;
+  }
+  
+  .add-user-form .new-user .add-user-title{
+      position: absolute;
+      top: -10px;
+      left: 5px;
+      font-size: 1rem;
+      font-weight: 800;
+      z-index: 10;
+  }
+  .add-user-form .new-user .add-user-department{
+      position: absolute;
+      left: 140px;
+      top: -5px;
+      z-index: 10;
+      font-size: 1rem;
+      font-weight: 800;
+  }
+  .add-user-form .add-user-password input{
+      display: block;
+      margin-top: 25px;
+      padding: 5px;
+      padding-left: 10px;
+      border-radius: 10px;
+      width: 75%;
+      height: 50px;
+      border: 2px solid #ccc;
+      font-size: 1rem;
+      font-weight: 500;
+  }
+  .add-user-form .add-user-password input:hover{
+      border: 2px solid #2AC510;
+  }
+  .add-user-form .new-user span{
+      display: block;
+      margin-top: 10px;
+      width: 75%;
+      background: #1C9E3C;
+      text-align: center;
+      height: 50px;
+      border-radius: 10px;
+      padding-top: 15px;
+      color: #ccc;
+      font-size: 1rem;
+      font-weight: 600;
+  }
+  .add-user-form .new-user .user-department-img{
+      position: absolute;
+      top: 50px;
+      right: 100px;
+      z-index: 10;
+  }
+  .add-user-form .new-user .user-role-img{
+      position: absolute;
+      top: 50px;
+      right: 200px;
+      z-index: 10;
+  }
+  .add-user-form .new-user span:hover{
+      color: #1C9E3C;
+      background: #ccc;
+      cursor: pointer;
+  }
+  .add-user-form .add-user-btn{
+      position: absolute;
+      display: flex;
+      width: 50%;
+      top: 250px;
+      left: 400px;
+  }
+  .add-user-form .add-user-btn button{
+      display: block;
+      margin-left: 75px;
+      width: 25%;
+      height: 50px;
+      border-radius: 10px;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid #ccc;
+  }
+  .add-user-btn .user-btn-exit{
+      background: rgba(244, 33, 45, 0.48);
+  }
+  .add-user-btn .user-btn-exit:hover{
+      background: #FFFFFF;
+      color: rgba(244, 33, 45, 0.48);
+      border: 2px solid rgba(244, 33, 45, 0.48);
+  }
+  .add-user-btn .user-btn-save{
+      background: #1C9E3C;
+  }
+  .add-user-btn .user-btn-save:hover{
+      background: #FFFFFF;
+      color: #1C9E3C;
+      border: 2px solid #1C9E3C;
+  }
+  .add-user-content .add-footer-image{
+      width: 100%;
+      margin-top: 50px;
+      margin-left: 100px;
+      margin-bottom: 15px;
+  }
+  .add-footer-image img{
+      display: block;
+      width: 50%;
+      margin-left: 300px;
+  }
+  
+
+
+
+
+/* Request Blog */
+
+.requests-content-header .requests-content-one .v-application{
+    margin-top: 0 !important;
+    background: none !important;
+    width: 100%;
+    height: 10% !important;
+  }
+  
+  .requests-content-header .requests-content-one .v-application .v-application--wrap{
+    min-height: 0 !important;
+  }
+  .requests-content-header .requests-content-one .col-sm-6{
+    max-width: 100% !important;
+  }
+  .requests-content-header .requests-content-one .justify-center{
+      background: #FFFFFF;
+      border-radius: 10px;
+      margin: 0 !important;
+  }
+  .requests-content-header .requests-content-one .v-menu__content{
+    width: 100%;
+    top: 85px !important;
+    margin-left: -50px;
+  }
+  
+  
+  .requests-container{
+      margin-left: 25px;
+  
+      min-width: 50%;
+      width: 95%;
+  
+  }
+  .requests-container .requests-content{
+      margin-top: 25px;
+  }
+  .requests-container .requests-header{
+      position: relative;
+      width: 95%;
+      display: flex;
+      margin-top: 10px;
+  }
+  .requests-container .requests-header .requests-header-left{
+      margin-top: 10px;
+      margin-left: 10px;
+  }
+  .requests-header .requests-header-left span{
+      font-size: 20px;
+      font-weight: 700;
+      color: #1E1920;
+      margin-left: 20px;
+  }
+  .requests-header .requests-header-left p{
+      font-size: 14px;
+      font-weight: 500;
+      color: #9AADB0;
+  }
+  .requests-container .requests-header .requests-header-right{
+      position: absolute;
+      display: flex;
+      right: 0;
+      top: 10px;
+  }
+  .requests-header .requests-header-right .request-search-input{
+      position: relative;
+      margin-right: 25px;
+      margin-top: 10px;
+  }
+  .requests-header-right .request-search-input input{
+      margin-right: 25px;
+      padding: 12px;
+      width: 200px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #A0AEC0;
+      background: #fff;
+  }
+  .requests-header-right .request-search-input input:hover{
+      border: 2px solid #1C9E3C;
+  }
+  .requests-header-right .request-search-input img{
+      position: absolute;
+      right: 35px;
+      bottom: 20px;
+      cursor: pointer;
+  }
+  .requests-content .requests-content-header .requests-content-one{
+      margin-left: 5px;
+      display: flex;
+      position: relative;
+      margin-top: 35px;
+      min-width: 20%;
+      width: 24%;
+      height: auto;
+      margin-left: 25px;
+  }
+  .requests-content .requests-content-header{
+      display: flex;
+      flex: 0 0 auto;
+  }
+  
+  
+  .requests-content-two{
+      width: 20%;
+      background: #fff;
+      display: flex;
+      margin-left: 15px;
+      margin-top: 35px;
+      height: 90px;
+      border-radius: 10px;
+      position: relative;
+      flex: 0 0 auto;
+      flex-wrap: wrap
+  }
+  .requests-content-two label{
+      position: absolute;
+      top: -25px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #A0AEC0;
+      z-index: 5;
+  }
+  .requests-content-two img{
+      display: block;
+      width: 10%;
+      position: absolute;
+      top: 25px;
+      right: 15px;
+  }
+  .requests-content-two span{
+      display: block;
+      margin: 25px 0 0 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #A0AEC0;
+  }
+  .requests-content-one label{
+      position: absolute;
+      top: -25px; 
+      margin-left: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #A0AEC0;
+      z-index: 5;
+  }
+  
+  
+  
+  .requests-content-header .requests-content-one img{
+      position: absolute;
+      right: 55px;
+      top: 35px;
+      z-index: 10;
+      cursor: pointer;
+  }
+  .requests-content-one input{
+      margin-top: 8px;
+      margin-left: 25px;
+      height: 20px;
+      width: 140px;
+  }
+  
+  .requests-content-content{
+      position: relative;
+      margin-top: 50px;
+  }
+  .requests-content-content span{
+      position: absolute;
+      left: 10px;
+      top: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #A0AEC0;
+  }
+  .requests-content .requests-content-content{
+      position: relative;
+      background: #fff;
+  
+      width: 99%;
+  
+      margin-left: 15px;
+      border-radius: 10px;
+  }
+  .requests-content-content .requests-table{
+      margin-top: 25px;
+  }
+  .requests-table table{
+      display: block;
+  
+      width: 100%;
+  
+      padding-top: 25px;
+      padding-bottom: 25px;
+  }
+  .requests-table table tr{
+      display: flex;
+      width: 100%;
+  }
+  
+  .requests-table table tr th{
+      display: block;
+      width: 20%;
+      text-align: left;
+      margin-left: 33px;
+      color: #A0AEC0;
+      margin-top: 5px;
+  }
+  .requests-table table{
+      display: block;
+  
+      width: 100%;
+  
+      padding-top: 25px;
+      padding-bottom: 25px;
+  }
+  .requests-table table .table-content{
+      display: flex;
+      margin-top: 15px;
+      width: 100%;
+      cursor: pointer;
+  }
+  .requests-table table .table-content:hover{
+      background: rgb(214, 238, 214);
+  }
+  
+  .requests-table table tr td{
+      display: block;
+      width: 20%;
+      text-align: left;
+      margin-left: 33px;
+      margin-top: 5px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #A0AEC0;
+  
+  
+  }
+  .table-content .td-item{
+      color: #CB8F2D;
+  }
+  hr{
+      border: 1px solid #E2E8F0
+  }
+  
+  .table-content .department{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+  .table-content .department-item{
+      width: 25%;
+  }
+  .requests-content-header .requests-content-two .v-application{
+      z-index: 1;
+      margin-top: 50px;
+      margin-left: 10px;
+  }
+  .v-picker__body{
+      width: 100% !important;
+      box-sizing: border-box;
+  }
+  
+  .v-date-picker-table{
+      background: #99c4d926;
+      border-radius: 5px;
+  }
+  .v-btn--icon{
+      z-index: 9 !important;
+  }
+  .request-content-one .request-select{
+      width: 100%;
+  }
+  .request-footer{
+      display: flex;
+      flex: 0 0 auto;
+      width: 100%;
+      margin-bottom: 25px;
+  }
+  .request-footer .footer-left-block{
+      display: flex;
+      margin-top: 50px;
+      margin-left: 25px;
+      width: 25%;
+  }
+  .request-footer .footer-left-block button{
+      display: flex;
+      flex: 0 0 auto;
+      width: 40%;
+      height: 50px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      margin-left: 25px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+  }
+  .request-footer .footer-left-block button .request-right{
+      display: block;
+      position: absolute;
+      width: 7%;
+      left: 25px;
+      font-weight: 800;
+  }
+  .request-footer .footer-left-block button .request-left{
+      display: block;
+      position: absolute;
+      right: 25px;
+      top: 15px;
+      width: 10%;
+  }
+  .request-footer .footer-left-block button span{
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: gray;
+  }
+  .request-footer .footer-center{
+      display: flex;
+      margin-left: 50px;
+      margin-top: 50px;
+      width: 25%;
+      align-items: center;
+      justify-content: center;
+  }
+  .request-footer .footer-center span{
+      display: block;
+      margin-left: 50px;
+  }
+  .request-footer .footer-center input{
+      display: block;
+      background: #fff;
+      width: 15%;
+      min-width: 25px;
+      height: 50px;
+      margin-left: 25px;    
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      padding-left: 15px;
+  }
+  .request-footer .footer-center input:hover{
+      border: 2px solid #1fef52
+  }
+  .request-footer .footer-center button{
+      display: block;
+      width: 13%;
+      min-width: 25px;
+      background: #fff;
+      height: 50px;
+      margin-left: 25px;
+      border-radius: 10px;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+  }
+  .request-footer .footer-center button img{
+      width: 25%;
+      margin-top: 10px;
+  } 
+
+
+
+
+  /* User Settings */
+
+.user-settings-container{
+    background: #fff;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.user-settings-table table{
+    display: block;
+    width: 100%;
+}
+.user-settings-table table .table-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.user-settings-table table .table-header th{
+    display: block;
+    width: 10%;
+    margin-left: 0.5%;
+    text-align: left;
+    color: #A0AEC0;
+    margin-top: 5px;
+}
+.user-settings-table table .table-header{
+    background: #F7FAFC;
+    margin: 0;
+    padding: 0;
+}
+
+.settings-container{
+    position: relative;
+    margin-left: 25px;
+}
+.settings-container .settings-header{
+    display: flex;
+    position: relative;
+    height: 250px;
+}
+.settings-header .header-left-blog{
+    text-align: left;
+}
+.settings-header .header-left-blog span{
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.settings-header .header-left-blog p{
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+.settings-header img{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+.settings-container .settings-route{
+    position: absolute;
+    left: 15px;
+    top: 100px;
+}
+.settings-route button{
+    position: relative;
+    width: 250px;
+    height: 110px;
+    background: #fff;
+    color: #1C9E3C;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+.settings-route button img{
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+}
+.settings-route button p{
+    display: inline-block;
+    position: absolute;
+    left: 100px;
+    bottom: 20px;
+}
+.settings-content{
+    background: #fff;
+    width: 90%;
+    border-radius: 10px;
+}

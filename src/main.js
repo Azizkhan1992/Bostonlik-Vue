@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from '@/router'
 import PersonMenu from '@/views/PersonMenu'
 import '@/utils/directives'
+import vuetify from '@/plugins/vuetify'
 
 
 import store from '@/plugins/store/store'
@@ -16,7 +17,7 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-
+  vuetify,
   store,
   axios,
 

@@ -48,6 +48,12 @@ const routes = [
                     },
                 ]
             },
+            {
+                path: '/add-new-user',
+                name: 'add-user',
+                component: ()=> import('./views/settings-live/AddNewUser.vue'),
+                meta: { layout: 'MainDashboard'}
+            },
             
             {
 

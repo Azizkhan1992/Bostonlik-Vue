@@ -1,83 +1,84 @@
 <template>
-<div class="my-profil-container">
-    <div class="my-profil-header">
-        <span>Мой профиль</span>
-        <person-menu/>
-    </div>
-    <div class="my-profil-content">
-        <div class="profil-content-one">
-            <div class="inner-content-one">
-                <div class="profil-title">
-                    <span>Логин:</span>
-                    <p>login_003</p>
-                </div>
-                <div class="profil-title">
-                    <span>Ведомство</span>
-                    <p>Тоза худуд</p>
-                </div>
-            </div>
-            <div class="inner-content-two">
-                <span>Дата создания аккоунта:</span>
-                <p>11.11.2022</p>
-            </div>
+    <div class="my-profile-container">
+        <div class="my-profil-header">
+            
+                <h2>Мой профиль</h2>
+                <person-menu/>
         </div>
-        <div class="profil-content-two">
-            <img src="@/assets/src/Icons/profil-icon.svg" alt="">
-        </div>
-
-         <div class="profil-content-three">
-            <div class="profil-form">
-                <div class="profil-left-form">
-                    <div class="profil-inputs">
-                        <label for="profil-input">Фамилия</label>
-                        <input class="profil-input" type="text" placeholder="Фамилия">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Имя</label>
-                        <input class="profil-input" type="text" placeholder="Имя">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Отчество</label>
-                        <input class="profil-input" type="text" placeholder="Отчество">
-                    </div>
+        <div class="my-profil-content">
+            <div class="profil-content-header">
+                <div class="my-profil-left">
+                <div class="my-login my-profil-form">
+                    <h4>Логин:</h4>
+                    <span>login_003</span>
                 </div>
-                <div class="profil-right-form">
-                    <div class="profil-inputs">
-                        <label for="profil-input">Номер телефона</label>
-                        <input class="profil-input" type="text" placeholder="+998">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Эл. адрес</label>
-                        <input class="profil-input" type="text" placeholder="Email">
-                    </div>
-                    <div class="profil-inputs">
-                        <label for="profil-input">Пароль</label>
-                        <input class="profil-input" type="text" placeholder="Пароль">
-                    </div>
+                <div class="my-account my-profil-form">
+                    <h4>Дата создания аккаунта:</h4>
+                    <span>11.11.2022</span>
                 </div>
-                <div class="profil-btn">
-                    <button class="close-btn"><p>Отмена</p></button>
-                    <button class="save-btn"><p>Сохранить</p></button>
+                <div class="my-department my-profil-form">
+                    <h4>Ведомство</h4>
+                    <span>Тоза худуд</span>
                 </div>
             </div>
-            <div class="profil-image">
-                <div class="profil-file-input">
-                    <label for="profil-image-input">
-                        <img src="@/assets/src/Vector.png" alt="">
-                        <span>Прикрепить фото</span>
+            <div class="my-profil-right">
+                <img src="@/assets/src/Icons/profil-icon.svg" alt="">
+            </div>
+            </div>
+            
+            <div class="my-profil-footer">
+                <div class="my-profil-input">
+                    <div class="input-left">
+                        <div class="my-lastname my-row-one">
+                            <label for="lastname-input">Фамилия</label>
+                            <input type="text" id="lastname-input" placeholder="Фамилия">
+                        </div>
+                        <div class="my-firstname my-row-one">
+                            <label for="firstname-input">Имя</label>
+                            <input type="text" id="firstname-input" placeholder="Имя"> 
+                        </div>
+                        <div class="my-patronimic my-row-one">
+                            <label for="patronimic-input">Отчество</label>
+                            <input type="text" id="patronimic-input" placeholder="Отчество">
+                        </div>
+                    </div>
+                    <div class="input-right">
+                        <div class="my-phone-number my-row-one">
+                            <label for="phone-input">Номер телефона</label>
+                            <input type="text" id="phone-input" placeholder="+998">
+                        </div>
+                        <div class="my-email my-row-one">
+                            <label for="email-input">Эл. адрес</label>
+                            <input type="text" id="email-input" placeholder="Email">
+                        </div>
+                        <div class="my-password my-row-one">
+                            <label for="password-input">Пароль</label>
+                            <input type="text" id="password-input" placeholder="Пароль">
+                        </div>
+                    </div>
+                    <div class="my-profil-btn">
+                        <button class="my-profil-exit">Отмена</button>
+                        <button class="my-profil-save">Сохранить</button>
+                    </div>
+                </div>
+                <div class="my-input-img">
+                    <div class="image-input">
+                        <label for="my-input-image">
+                            <i aria-hidden="true">Прикрепить фото</i>
+                            <img src="@/assets/src/Vector (3).png" alt="">
                         </label>
-                    <input type="file" id="profil-image-input">
-                </div>
-                <div class="file-image">
-                    <img src="@/assets/src/image 5.png" alt="">
-                    <button><img src="@/assets/src/Icons/Vector01.png" alt=""></button>
+                        <input type="file" id="my-input-image">
+                    </div>
+                    <div class="image-shower">
+                        <img class="my-own-image" src="@/assets/src/image 5.png" alt="">
+                        <button>
+                            <img src="@/assets/src/Icons/Vector01.png" alt="">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-       
     </div>
-    
-</div>
 </template>
 <script>
 import PersonMenu from '../PersonMenu.vue'
@@ -96,4 +97,6 @@ export default{
 .my-profil-header .personal-keys{
     display: none;  
 }
+    
+
 </style>

@@ -43,6 +43,8 @@
                 </select>
             </div>
             </div>
+
+
             <div class="sentenses-content-content">
                 <table>
                     <tr class="table-header">
@@ -64,11 +66,11 @@
             <div class="sentenses-footer">
                 <div class="sentenses-footer-left">
                     <button class="btn-item-one">
-                        <img src="@/assets/src/Icons/Vector-left.svg" alt="">
+                        <img class="sentense-left" src="@/assets/src/Vector (2).png" alt="">
                         <span>Пред.</span>
                     </button>
                     <button class="footer-btn-item">
-                        <img class="right-img" src="@/assets/src/Icons/chevron-right.svg" alt="">
+                        <img class="sentense-right" src="@/assets/src/Vector (1).png" alt="">
                         <span>След.</span>
                     </button>
                 </div>
@@ -95,4 +97,10 @@ export default {
 .sentenses-header .personal-keys{
     display: none;  
 }
+
+
+
+
+
+
 </style>
