@@ -7,7 +7,7 @@
       </div>
       <div class="requests-header-right">
         <div class="request-search-input">
-          <input type="text" placeholder="Введите номер заявки" />
+          <input type="text" v-model="request_message" @keydown="getInputValue" @keypress="isNumber($event)" placeholder="Введите номер заявки" />
           <img src="@/assets/src/svg-icons/search.svg" alt="" />
         </div>
         <div class="request-header-img">
@@ -78,7 +78,7 @@
               <th>Ответственный сотрудник</th>
             </tr>
             <hr />
-            <tr v-for="(now, idx) in news" :key="idx" class="table-content">
+            <router-link tag="tr" :to="`/request-blog-item/${now._id}`" v-for="(now, idx) in news" :key="idx" class="table-content">
               <td>{{ now.phoneNumber }}</td>
               <td>Выброс мусора</td>
               <td>{{ now.lastDateOfSolving }}</td>
@@ -94,7 +94,7 @@
               </div>
 
               <td>{{ now.name }}</td>
-            </tr>
+            </router-link>
           </table>
         </div>
       </div>
@@ -138,6 +138,7 @@ export default {
   data() {
     return {
       news: null,
+      request_message: null,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
         .substr(0, 10),
@@ -169,9 +170,41 @@ export default {
   },
   
   methods: {
+    getInputValue(e){
+      console.log(e)
+      if(this.request_message.length >= 2){
+         setTimeout(()=>{
+        
+        this.$store.dispatch("getRequestInputValue", {
+          idNumber: this.request_message
+        })
+        .then(response =>{
+          console.log(response)
+          this.news = response.data
+        })
+      }, 1000)
+      }
+     
+      
+    },
+    isNumber(evt) {  
+      // console.log(evt)
+      const charCode = evt.which ? evt.which : evt.keyCode;  
+      // console.log(charCode ==46)
+      if (  
+        charCode > 31 &&  
+        (charCode < 48 || charCode > 57) &&  
+        charCode !== 46  
+      ) {  
+        evt.preventDefault();  
+    }  
+  },  
     getRequestData(){
       this.$store.dispatch('getRequestData', {
         data: this.picker
+      })
+      .then(response=> {
+        this.news =response.data
       })
     },
     getRequestDepartment(){
@@ -179,15 +212,17 @@ export default {
         deparment : this.Departments
       })
       .then(response =>{
-        console.log(response)
+        this.news = response.data
+        // console.log(this.news)
       })
     },
     getRequestStatus(){
       this.$store.dispatch('getRequestStatus', {
         status: this.requestStatus
       })
-      .then(response=> {
-        console.log(response)
+      .then(response=>{
+        this.news = response.data
+        console.log(this.news)
       })
     },
     getRequestCategory(){
@@ -195,7 +230,7 @@ export default {
         category: this.requestCategory
       })
       .then(response=> {
-        console.log(response)
+        this.news = response.data
       })
     },
     // sendStatus(){
@@ -213,7 +248,8 @@ export default {
     getNews() {
       this.$store.dispatch('getNews')
       .then(response=>{
-        console.log(response)
+        // console.log(response)
+        this.news = response.data
       })
       // this.$api.get("/applications/news").then(
       //   (response) => {

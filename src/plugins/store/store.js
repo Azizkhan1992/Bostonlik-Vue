@@ -43,10 +43,16 @@ const store = new Vuex.Store({
     departmentRole: "",
   },
   actions: {
+    getRequestInputValue(_, params){
+      return this.$api.get("applications/news", {params})
+      .then(response=>{
+        return response
+      }).catch(error => {console.log(error)})
+    },
     getNews(){
         return this.$api.get("applications/news")
         .then(response=>{
-            console.log(response)
+            // console.log(response)
             return response
         }).catch(error=>{console.log(error)})
     },
@@ -71,7 +77,7 @@ const store = new Vuex.Store({
     getRequestDepartment(_, params){
         return this.$api.get("applications/news", {params})
         .then(response => {
-            console.log(response)
+            // console.log(response)
             return response
         }).catch(error=>console.log(error))
     },

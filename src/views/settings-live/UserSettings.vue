@@ -14,10 +14,6 @@
             
                 <td class="td-one">{{user.firstName }}</td>
                 <td class="td-two">{{user.department}}</td>
-                <select tag="td" id="userIsActive">
-                    <option value="this.user.status === true">Активный</option>
-                    <option value="this.user.status === false">Неактивный</option>
-                </select>
                 <td class="td-two">{{user.status}}</td>
                 <td class="td-two">{{user.createdDate}}</td>
                 <td class="td-two">{{user.lastActiveDate}}</td>

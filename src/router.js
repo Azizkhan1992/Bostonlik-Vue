@@ -56,12 +56,19 @@ const routes = [
             },
             
             {
-
-
                 path: '/opened-requests',
 
                 name: 'requests',
                 component: ()=> import('./views/requests/RequestBlog.vue'),
+                meta: {
+                    layout: 'MainDashboard'
+                },
+                
+            },
+            {
+                path: '/request-blog-item/:id?',
+                name: 'request-blog-item',
+                component: ()=> import('./views/requests/requestItems/RequestBlogItem.vue'),
                 meta: {
                     layout: 'MainDashboard'
                 }

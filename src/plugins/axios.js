@@ -7,7 +7,8 @@ import store from './store/store';
 Vue.use(VueAxios, axios);
 
 
-const URL_BASE = 'https://back.bostonliqlive.uz/api/'
+// const URL_BASE = 'https://back.bostonliqlive.uz/api/'
+const URL_BASE = 'http://192.168.10.16:5000/api/'
 
 const instance = axios.create({
     baseURL: URL_BASE,

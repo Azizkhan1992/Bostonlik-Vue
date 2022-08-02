@@ -46,7 +46,7 @@
 
             </div>
         </div>
-        <div class="inner-block-one dashboard-one">
+        <div v-if="checkFire" class="inner-block-one dashboard-one">
             <img src="@/assets/src/svg-icons/dashboard_avatar2.svg" alt="">
             <div class="title-block-one">
                 <span>Ложные заявки</span>
@@ -66,7 +66,7 @@
 
             </div>
         </div>
-        <div  class="inner-block-two">
+        <div v-if="checkEjection" class="inner-block-two">
             <img src="@/assets/src/svg-icons/dashboard_avatar5.svg" alt="">
             <div class="title-block-two">
                 <span>Скопления мусора</span>
@@ -75,7 +75,7 @@
 
             </div>
         </div>
-        <div  class="inner-block-two">
+        <div v-if="checkGarbage" class="inner-block-two">
             <img src="@/assets/src/svg-icons/dashboard_avatar6.svg" alt="">
             <div class="title-block-two">
                 <span>Выброс мусора в неположённом месте</span>
@@ -102,7 +102,7 @@
 
             </div>
         </div>
-        <div   class="inner-block-three">
+        <div v-if="checkIndustrial" class="inner-block-three">
             <img class="block-img-item" src="@/assets/src/svg-icons/dashboard_avatar9.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span">Выброс промишленных стоков/мусора в реку</span>
@@ -111,7 +111,7 @@
 
             </div>
         </div>
-        <div class="inner-block-three">
+        <div v-if="checkSpontan" class="inner-block-three">
             <img class="img-item-one" src="@/assets/src/svg-icons/dashboard_avatar2.svg" alt="">
             <div class="title-block-three">
                 <span class="title-span-item">Прочее</span>
@@ -175,6 +175,7 @@ export default {
   data() {
     return {
       applications: {},
+      userDepartment: null,
       
       checker: false,
     };
@@ -182,7 +183,7 @@ export default {
   computed: {
     checkCompanyRole(){
       let department = this.$store.getters?.getDepartmentRoles;
-      // console.log(department)
+    //   console.log(this.userDepartment)
       this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.cuttingDownTrees && this.$store.getters.getCheckRoles.cuttingDownTrees.forEach((element) => {
         if(element == department){
           this.checker = true
@@ -190,7 +191,52 @@ export default {
         // console.log(this.checker)
       })
       return this.checker;
-    }
+    },
+    checkIndustrial(){
+        let department = this.$store.getters?.getDepartmentRoles;
+        this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.industrialWaste && this.$store.getters.getCheckRoles.industrialWaste.forEach((element) => {
+            if(element == department){
+                this.checker =true
+            }
+        })
+        return this.checker
+    },
+    checkEjection(){
+        let department = this.$store.getters?.getDepartmentRoles;
+        this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.ejectionCarbage && this.$store.getters.getCheckRoles.ejectionCarbage.forEach((element) =>{
+            if(element == department){
+                this.checker = true
+            }
+        })
+        return this.checker
+    },
+    checkSpontan(){
+        let department = this.$store.getters?.getDepartmentRoles;
+        this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.spontaneous && this.$store.getters.getCheckRoles.spontaneous.forEach((element) => {
+            if(element == department){
+                this.checker = true
+            }
+        })
+        return this.checker
+    },
+    checkFire(){
+        let department = this.$store.getters?.getDepartmentRoles;
+        this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.breedingFire && this.$store.getters.getCheckRoles.breedingFire.forEach((element) => {
+            if(element == department){
+                this.checker = true
+            }
+        })
+        return this.checker
+    },
+  checkGarbage(){
+    let department = this.$store.getters?.getDepartmentRoles;
+    this.$store.getters?.getCheckRoles && this.$store.getters.getCheckRoles?.clusterGarbage && this.$store.getters.getCheckRoles.clusterGarbage.forEach((element) => {
+        if(element == department){
+            this.checker = true
+        }
+    })
+    return this.checker
+  },
   },
   mounted() {
     this.getDashboardContent();

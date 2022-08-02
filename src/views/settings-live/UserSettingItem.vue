@@ -16,7 +16,11 @@
             </div>
             <div class="user-item-four items">
                 <h3>Статус</h3>
-                <span>{{users.status}}</span>
+                <select id="selectStatus">
+                    <option value="">Активный</option>
+                    <option value="">Деактивный</option>
+                </select>
+                <!-- <span v-if="users.status === true">Активный</span> -->
             </div>
             <div class="user-item-five items">
                 <h3>Электронная почта</h3>
@@ -48,7 +52,7 @@ export default {
             id : this.$route.params,
             users: [],
             user: '',
-            isSetUser: false
+            isSetUser: false,
         }
     },
     mounted(){

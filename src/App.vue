@@ -12,6 +12,7 @@ import './assets/styles/menu-style.css'
 import './assets/styles/content-style.css'
 import './assets/styles/additional-style.css'
 import './assets/styles/statistics-style.css'
+import './assets/styles/request-blog.css'
 
 export default {
   name: 'App',
