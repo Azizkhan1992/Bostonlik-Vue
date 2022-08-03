@@ -286,3 +286,17 @@ body{
 .sidebar-content .active-dropdown-open .sidebar-dropdown-list svg{
     color: #FFFFFF;
 }
+/* .active-dropdown-open .sidebar-dropdown-list ul .router-link-active::after{
+    content: "";
+    border-radius: 15px;
+    position: fixed;
+    width: calc(90% -80px);
+    left: 20px;
+    height: 48px;
+    background: hsla(0, 0%, 100%, .2);
+    clip: auto;
+}
+.active-dropdown-open .sidebar-dropdown-list ul .router-link-active{
+    width: 100%;
+    justify-content: flex-start;
+} */

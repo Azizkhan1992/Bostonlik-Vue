@@ -142,6 +142,7 @@ export default {
         },
         dropdownSave(){
             this.isDropdownActive = true
+            console.log(this.isDropdownActive)
         }
     }
 }
