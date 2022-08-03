@@ -211,6 +211,7 @@
 
 .user-settings-container{
     margin-right: 10px;
+    margin-bottom: 15px;
 }
 .user-settings-table{
     background: #FFFFFF;
@@ -304,4 +305,83 @@
     background: #fff;
     width: 90%;
     border-radius: 10px;
+}
+
+.user-settings-container .user-settings-header{
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+.user-settings-header .settings-header-left{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.settings-header-left .header-route span{
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.user-settings-header .settings-header-right{
+    align-self: flex-end;
+    position: absolute;
+    right: 35px;
+}
+.settings-header-left .header-route p{
+    display: block;
+    margin-left: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.settings-header-left .header-route img{
+    position: absolute;
+    left: 85px;
+    top: 60px;
+    display: block;
+    width: 10px;
+    height: 15px;
+}
+.settings-header-left h2{
+    font-size: 2rem;
+    font-weight: 800;
+}
+.settings-header-left .header-route{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+table .settings-table{
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+}
+table .settings-table td{
+    cursor: pointer;
+}
+table .settings-table .td-one{
+    display: block;
+    width: 25%;
+    text-align: left;
+    margin-left: 33px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #A0AEC0;
+}
+table .settings-table .td-two{
+    display: block;
+    width: 25%;
+    text-align: left;
+    margin-left: 33px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #A0AEC0;
+    margin-left: 7%;
+}
+
+hr{
+    border: 1px solid #E2E8F0
 }
