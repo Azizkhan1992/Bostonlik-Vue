@@ -24,7 +24,7 @@
                 <th class="th-two">Последная активность</th>
             </tr>
             <hr/>
-            <router-link tag="tr" v-for="(user, idx) in Users" :key="idx" :to="`/user-setting-item/${user._id}`"  class="settings-table">
+            <router-link tag="tr" v-for="(user, idx) in list" :key="idx" :to="`/user-setting-item/${user._id}`"  class="settings-table">
             
                 <td class="td-one">{{user.firstName }}</td>
                 <td class="td-two">{{user.department}}</td>
@@ -36,37 +36,22 @@
         </table>
     </div>
     <div class="user-add">
-        <div class="user-footer-left">
-            <button>
-                <img class="footer-left-left-img" src="@/assets/src/Vector (2).png" alt="">
-                Пред.
-            </button>
-            <button>
-                <img class="footer-left-right-img" src="@/assets/src/Vector (1).png" alt="">
-                След.
-            </button>
-        </div>
-        <div class="user-footer-center">
-            <span>Страница</span>
-            <input type="text">
-            <span>из 123</span>
-            <button>
-                <img src="@/assets/src/Vector (1).png" alt="">
-            </button>
-        </div>
-        <button>Создать профиль</button>
+        <div class="request-footer">
+        <app-pagination @paginate="setPaginationData" :data="Users" :limit="4"></app-pagination>
+      </div>
     </div>
 </div>
 </template>
 <script>
 import PersonMenu from '../PersonMenu.vue'
-
+import AppPagination from '@/components/common/AppPagination'
 export default{
-  components: { PersonMenu },
+  components: { PersonMenu, AppPagination },
     name: 'user-profil',
     data(){
         return{
             Users: [],
+            list: [],
             static: {
                 true: 'Активный',
                 false: 'Неактивный'
@@ -81,10 +66,14 @@ export default{
             this.$api.get('users')
             .then(response => {
                 console.log(response.data)
-                this.Users = response.data
+                this.Users = response.data;
+                this.list = this.Users.slice(0, 4)
             },
             error => {console.log(error)}
             )
+        },
+        setPaginationData(data) {console.log('pg data', data)
+            this.list = data
         }
     }
 }

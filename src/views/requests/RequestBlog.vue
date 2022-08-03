@@ -79,7 +79,7 @@
               <th>Ответственный сотрудник</th>
             </tr>
             <hr />
-            <router-link tag="tr" :to="`/request-blog-item/${now._id}`" v-for="(now, idx) in paginateData" :key="idx" class="table-content">
+            <router-link tag="tr" :to="`/request-blog-item/${now._id}`" v-for="(now, idx) in list" :key="idx" class="table-content">
               <td>{{ now.phoneNumber }}</td>
               <td>Выброс мусора</td>
               <td>{{ now.lastDateOfSolving }}</td>
@@ -101,47 +101,21 @@
       </div>
 
       <div class="request-footer">
-        <div class="footer-left-block">
-          <button @click="prevPage">
-            <img
-              class="request-right"
-              src="@/assets/src/Icons/Vector-left.svg"
-              alt=""
-            />
-            <span >Пред .</span>
-          </button>
-          <button @click="nextPage">
-            <img
-              class="request-left"
-              src="@/assets/src/Icons/chevron-right.svg"
-              alt=""
-            />
-            <span>След .</span>
-          </button>
-        </div>
-        <div class="footer-center">
-          <span>Страница</span>
-          <input type="text" placeholder="1" />
-          <span>из {{currentPages}}</span>
-          <button>
-            <img src="@/assets/src/Icons/chevron-right.svg" alt="" />
-          </button>
-        </div>
+        <app-pagination @paginate="setPaginationData" :data="$store?.getters && $store.getters?.getRequestsNews && $store.getters.getRequestsNews"></app-pagination>
       </div>
     </div>
   </div>
 </template>
 <script>
 import PersonMenu from "../PersonMenu.vue";
+import AppPagination from "@/components/common/AppPagination";
 export default {
-  components: { PersonMenu },
+  components: { PersonMenu, AppPagination },
   name: "request-blog",
   data() {
     return {
       news: null,
-      paginationData: null,
-      pageNumber: 1,
-      limit:2,
+      list: [],
       request_message: null,
       picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
@@ -155,41 +129,8 @@ export default {
       requestCategory: null
     };
   },
-  mounted() {
-    // this.getNews();
-    this.requestsPagination()
-  },
   computed:{
-    paginateData(){
-      let pageNews = this.$store?.getters && this.$store.getters?.getRequestsNews && this.$store.getters.getRequestsNews
-      console.log(pageNews)
-      let pagination;
-      if(pageNews){
-        const start = this.pageNumber * this.limit,
-          end = start + this.limit;
-          // console.log(1111, pageNews)
-          pagination = pageNews.slice(start, end)
-      }
-      return pagination
-    },
-    currentPages(){
-      let newsData = this.$store?.getters && this.$store.getters?.getRequestsNews && this.$store.getters.getRequestsNews
-      let currentRequestPages;
-      if(newsData){
-        let x = newsData.length
-        let y = this.limit
-        currentRequestPages = Math.ceil(x/y)
-      }
-      
-      return currentRequestPages
-    },
-    // getPaginationNews(){
-    //   let pageNews = this.$store?.getters && this.$store.getters?.getRequestsNews && this.$store.getters.getRequestsNews
-    //   // console.log(pageNews)
-    //   return pageNews
-    // },
     getRequestsNews(){
-      // console.log(this.$store?.getters && this.$store.getters?.getRequestsNews && this.$store.getters.getRequestsNews)
       return this.$store?.getters && this.$store.getters?.getRequestsNews && this.$store.getters.getRequestsNews
     },
     getDepartments(){
@@ -207,18 +148,6 @@ export default {
   },
   
   methods: {
-    nextPage(){
-      if(this.pageNumber<this.currentPages)
-      this.pageNumber++
-    },
-    prevPage(){
-      if(this.pageNumber>1){
-        this.pageNumber--
-      }
-    },
-    requestsPagination(){
-      this.paginationData = this.getPaginationNews
-    },
     getInputValue(e){
       console.log(e)
       if(this.request_message.length >= 2){
@@ -282,24 +211,7 @@ export default {
         this.news = response.data
       })
     },
-    // sendStatus(){
-    //   this.$api.get(`applications/news/?${this.requestStatus}`)
-    //   .then(response => {
-    //     console.log(response)
-    //   },
-    //   error=> {
-    //     console.log(error)
-    //   }
-    //   )
-    // },
     
-   
-    // getNews() {
-    //   // console.log(this.$store)
-    //   this.$store.dispatch('getNews').then(response=>{
-    //     this.news = response.data
-    //   })
-    // },
     activateImg_one(){
       this.isActiveImg_one = !this.isActiveImg_one
     },
@@ -317,6 +229,9 @@ export default {
     showData() {
       this.isData = !this.isData
     },
+    setPaginationData(data) {
+      this.list = data;
+    }
   }
 }
 </script>
