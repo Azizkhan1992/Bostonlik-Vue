@@ -5,6 +5,7 @@
         <div class="requests-header-left">
             <span>Заявки</span>
             <p>Заявки</p>
+            <!-- <span>{{getSolvedRequests}}</span> -->
         </div>
         <div class="requests-header-right">
             <div class="request-search-input">
@@ -25,7 +26,7 @@
                  <v-app>
           <v-row justify="center" class="ma-2">
             <v-col sm="6"
-              ><v-select label="Все" :items="items2"></v-select
+              ><v-select label="Все" :items="items"></v-select
             ></v-col>
           </v-row>
         </v-app>
@@ -76,20 +77,20 @@
                     <hr/>
                     <tr>
                         <th>Заявитель</th>
-                        <th>Количество нарушения</th>
+                        <th>Категория нарушения</th>
                         <th>Время отправки</th>
                         <th>Статус заявки</th>
                         <th>Ответвление ведомство</th>
                         <th>Ответственный сотркдник</th>
                     </tr>
                     <hr/>
-                     <tr class="table-content">
-                        <td>+99890123-45-67</td>
-                        <td>Выброс мусора</td>
-                        <td>22.07.2022 14:37</td>
-                        <td class="td-item">Решено</td>
-                        <td>Эко-прокуратура</td>
-                        <td>Не определен</td>
+                     <tr v-for="(solved, idx) in getSolvedRequests" :key="idx" class="table-content">
+                        <td>{{solved.phoneNumber}}</td>
+                        <td>{{solved.category}}</td>
+                        <td>{{solved.lastDateOfSolving}}</td>
+                        <td class="td-item">{{solved.status}}</td>
+                        <td v-for="(department, idy) in solved.department" :key="idy" class="solved-requests-td">{{department}}</td>
+                        <td>{{solved.responsiblePerson}}</td>
                     </tr>
                 </table>
             </div>
@@ -128,16 +129,23 @@ export default {
         return {
             isData: false,
 
-            items: ["Blue", "Red", "Yellow", "Green"],
-      items1: ["Green", "White"],
-      items2: ["Red", "Black", "Dark-Blue"],   
+            items: ["Инспекция по экологии", "Тоза Худуд", "Экопрокуратура", "Тур Полиция", "ТРЗ  <<Чарвак>>", "МВД", "Лесное хозяйство", "Комитет по автомобильным дорогам"],
+            items1: ["Решена", "Ложные"],
+            items2: ["Стихийная свалка", "Скопления мусора", "Выброс мусора в неположенном месте", "Вырубка деревьев", "Разведение огня в неположенном месте", "Выброс промышленных стоков/мусора в реку"],   
+        }
+    },
+    computed:{
+        getSolvedRequests(){
+            let requests = this.$store?.getters && this.$store.getters?.getSolvedRequests && this.$store.getters.getSolvedRequests
+            console.log(requests)
+            return requests
         }
     },
     methods:{
         showData(){
             this.isData = !this.isData
             // console.log(this.isData)
-        }
+        },
     }
 }
 </script>
@@ -168,5 +176,9 @@ hr{
 }
 .request-header-img .personal-keys{
     display: none;  
+}
+.table-content .solved-requests-td{
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>

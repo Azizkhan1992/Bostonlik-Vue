@@ -16,13 +16,35 @@ export default {
     data(){
         return{
             users_permissions: null,
+            solvedRequests: null
         }
     },
     mounted(){
         this.getUser()
         this.getCheckRoles()
+        this.getNews()
+        this.getSolvedRequests()
+        this.getCurrentUser()
     },
     methods:{
+      getCurrentUser(){
+      this.$store.dispatch('getCurrentUsers')
+      // .then(response=>{
+      //   console.log(response)
+      // })
+    },
+      getSolvedRequests(){
+        this.$store.dispatch('getSolvedRequests')
+        .then(response => {
+          this.solvedRequests = response.data
+        })
+      },
+      getNews() {
+      // console.log(this.$store)
+      this.$store.dispatch('getNews').then(response=>{
+        this.news = response.data
+      })
+    },
         getUser() {
       this.$api
         .get("currentUser")

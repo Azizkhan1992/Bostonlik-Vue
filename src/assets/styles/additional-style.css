@@ -210,9 +210,13 @@
   /* User Settings */
 
 .user-settings-container{
-    background: #fff;
-    border-radius: 10px;
     margin-right: 10px;
+}
+.user-settings-table{
+    background: #FFFFFF;
+    margin-left: 15px;
+    border-radius: 15px;
+    margin-top: 25px;
 }
 .user-settings-table table{
     display: block;

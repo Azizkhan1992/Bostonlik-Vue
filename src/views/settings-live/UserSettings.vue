@@ -1,5 +1,19 @@
 <template>
 <div class="user-settings-container">
+    <div class="user-settings-header">
+        <div class="settings-header-left">
+            <h2>Настройки</h2>
+            <div class="header-route">
+                <router-link tag="span" to="/settings">настройки</router-link>
+                <img src="@/assets/src/Vector (1).png" alt="">
+                <p>Пользователи системы</p>
+            </div>
+            
+        </div>
+        <div class="settings-header-right">
+            <person-menu/>
+        </div>
+    </div>
     <div class="user-settings-table">
         <table>
             <tr class="table-header">
@@ -25,8 +39,10 @@
 </div>
 </template>
 <script>
+import PersonMenu from '../PersonMenu.vue'
 
 export default{
+  components: { PersonMenu },
     name: 'user-profil',
     data(){
         return{
@@ -54,6 +70,28 @@ export default{
 }
 </script>
 <style>
+.user-settings-header .settings-header-right .personal-keys {
+  display: none;
+}
+.user-settings-container .user-settings-header{
+    display: flex;
+    width: 100%;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+.user-settings-header .settings-header-left{
+    display: flex;
+    flex-direction: column;
+}
+.settings-header-left h2{
+    font-size: 2rem;
+    font-weight: 800;
+}
+.settings-header-left .header-route{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
 table .settings-table{
     display: flex;
     margin-top: 15px;
