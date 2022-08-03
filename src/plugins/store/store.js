@@ -7,7 +7,9 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    currentUser: null,
+    news: null,
+    current_User: null,
+    solved_requests: null,
     role: [],
     checkRoles: [],
     requestsDepartments: [
@@ -43,18 +45,33 @@ const store = new Vuex.Store({
     departmentRole: "",
   },
   actions: {
+    changeStatusUser(_, payload){
+      return this.$api.put("users/"+payload.id, {...payload})
+      .then(response=> {
+        return response
+      }).catch(error => {console.log(error)})
+    },
+    getSolvedRequests({commit}){
+      return this.$api.get("applications/solved")
+      .then(response => {
+        commit('SAVE_SOLVED_REQUESTS', response && response.data)
+        return response
+      }).catch(error => {console.log(error)})
+    },
     getRequestInputValue(_, params){
       return this.$api.get("applications/news", {params})
       .then(response=>{
         return response
       }).catch(error => {console.log(error)})
     },
-    getNews(){
+    getNews({commit}){
         return this.$api.get("applications/news")
         .then(response=>{
-            // console.log(response)
+            // console.log(66,response)
+            commit('SAVE_NEWS', response && response.data)
             return response
-        }).catch(error=>{console.log(error)})
+        })
+        .catch(error=>{console.log(error)})
     },
     getRequestData(_, params){
         return this.$api.get("applications/news", {params})
@@ -81,10 +98,12 @@ const store = new Vuex.Store({
             return response
         }).catch(error=>console.log(error))
     },
-    getCurrentUsers(_,params){
+    getCurrentUsers({commit},params){
         return this.$api.get("currentUser",{params})
         .then(response =>{
-            // console.log(response);
+            // console.log(response.data.user.role);
+            const currentUser = response?.data && response.data?.user && response.data.user?.role && response.data.user.role
+            commit('SAVE_CURRENT_USER', currentUser)
             return response
         },
         ).catch(error=>{console.log(error)}) 
@@ -107,6 +126,15 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
+    SAVE_CURRENT_USER(state, current){
+      state.current_User = current
+    },
+    SAVE_SOLVED_REQUESTS(state, solved){
+      state.solved_requests = solved
+    },
+    SAVE_NEWS(state, news){
+      state.news = news
+    },
     currentUser(state, data){
         state.currentUser = data
         console.log(data)
@@ -123,6 +151,15 @@ const store = new Vuex.Store({
     },
   },
   getters: {
+    getCurrentUser(state){
+      return state.current_User
+    },
+    getSolvedRequests(state){
+      return state.solved_requests
+    },
+    getRequestsNews(state){
+      return state.news
+    },
     getRole(state) {
       return state.role;
     },

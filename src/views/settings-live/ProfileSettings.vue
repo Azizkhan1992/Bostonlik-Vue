@@ -8,20 +8,20 @@
         
         <person-menu/>
     </div>
-    <div v-if="!isSettings" class="settings-route">
+    <div  class="settings-route">
         <router-link to="/user-settings">
         <button><img src="@/assets/src/svg-icons/Settings-staff.svg">
         <p>Пользователи системы</p>
         </button>
         </router-link>
     </div>
-    <div v-else class="settings-route">
+    <!-- <div v-else class="settings-route">
         <router-link to="/add-new-user">
         <button><img src="@/assets/src/svg-icons/Settings-staff.svg">
         <p>Добавить нового пользователя</p>
         </button>
         </router-link>
-    </div>
+    </div> -->
     <div class="settings-content">
         <router-view/>
     </div>

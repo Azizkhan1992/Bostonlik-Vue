@@ -33,20 +33,18 @@ const routes = [
                 name: 'settings',
                 component: ()=> import('./views/settings-live/ProfileSettings.vue'),
                 meta: { layout: 'MainDashboard'},
-                children: [
-                    {
-                        path: '/user-settings',
-                        name: 'user-settings',
-                        component: ()=> import('./views/settings-live/UserSettings.vue'),
-                        meta: { layout: 'MainDashboard'}
-                    },
-                    {
-                        path: '/user-setting-item/:id?',
-                        name: 'user-setting-item',
-                        component: ()=> import('./views/settings-live/UserSettingItem.vue'),
-                        meta: { layout: 'MainDashboard'}
-                    },
-                ]
+            },
+            {
+                path: '/user-settings',
+                name: 'user-settings',
+                component: ()=> import('./views/settings-live/UserSettings.vue'),
+                meta: { layout: 'MainDashboard'}
+            },
+            {
+                path: '/user-setting-item/:id?',
+                name: 'user-setting-item',
+                component: ()=> import('./views/settings-live/UserSettingItem.vue'),
+                meta: { layout: 'MainDashboard'}
             },
             {
                 path: '/add-new-user',
