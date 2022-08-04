@@ -385,3 +385,33 @@ table .settings-table .td-two{
 hr{
     border: 1px solid #E2E8F0
 }
+.user-settings-container .user-add {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    padding-bottom: 25px;
+  }
+  .user-add .add-user-item{
+      width: 25%;
+      margin-top: 50px;
+  }
+  
+  .request-footer app-pagination{
+      width: 75%;
+      
+  }
+  .user-add .add-user-item button{
+      display: block;
+      width: 75%;
+      height: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #38AA54;
+      border-radius: 15px;
+      color: #FFFFFF;
+  }
+  .user-add .add-user-item button:hover{
+      color: #38AA54;
+      background: #FFFFFF ;
+  }

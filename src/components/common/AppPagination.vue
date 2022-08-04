@@ -1,13 +1,13 @@
 <template>
-<div>
+<div class="pagination-container">
     <div class="footer-left-block">
         <button @click="prevPage">
-            <img class="request-right" src="@/assets/src/Icons/Vector-left.svg" alt="" />
-            <span>Пред .</span>
+            <img class="request-left" src="@/assets/src/Icons/Vector-left.svg" alt="" />
+            Пред .
         </button>
         <button @click="nextPage">
-            <img class="request-left" src="@/assets/src/Icons/chevron-right.svg" alt="" />
-            <span>След .</span>
+            <img class="request-right-img" src="@/assets/src/Icons/chevron-right.svg" alt="" />
+            След .
         </button>
     </div>
     <div class="footer-center">
@@ -43,17 +43,19 @@ export default {
     computed: {
         currentPages() {
             let currentRequestPages;
+            console.log(this.data)
             if (this.data) {
                 let x = this.data.length
                 let y = this.limit
                 currentRequestPages = Math.ceil(x / y)
+                
             }
 
             return currentRequestPages
         },
     },
     methods: {
-        nextPage() {console.log('next page', this.currentPages, this.pageNumber)
+        nextPage() {
             if (this.pageNumber < this.currentPages)
                 this.pageNumber++
         },
@@ -83,3 +85,42 @@ export default {
 
 }
 </script>
+
+<style>
+.pagination-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.footer-left-block{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+.footer-left-block button{
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.footer-left-block button .request-left{
+    display: block;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+.footer-left-block button .request-right-img{
+    display: block;
+    position: absolute;
+    right: 15px;
+}
+.footer-left-block button:hover{
+    color: #1C9E3C;
+}
+.pagination-container .footer-center{
+    width: 30%;
+    display: flex;
+}
+.pagination-container .footer-center input{
+    width: 50px;
+}
+</style>

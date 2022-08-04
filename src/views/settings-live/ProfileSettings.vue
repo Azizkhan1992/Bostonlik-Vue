@@ -3,7 +3,6 @@
     <div class="settings-header">
         <div class="header-left-blog">
             <span>Настройки</span>
-            <p>Настройки</p>
         </div>
         
         <person-menu/>

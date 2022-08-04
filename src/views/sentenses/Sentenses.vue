@@ -2,8 +2,8 @@
     <div class="sentenses-container">
         <div class="sentenses-header">
             <div class="sentenses-header-left">
+                <h1>Жалобы и предложения</h1>
                 <span>Жалобы и предложения</span>
-                <p>Жалобы и предложения</p>
             </div>
             <person-menu/>
         </div>
@@ -12,35 +12,47 @@
                 <div class="sentenses-content-one one">
 
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-one-select">
-                    <option value="">Все</option>
-                    <option value="">Новые</option>
-                    <option value="">Старые</option>
-                </select>
+                <v-app>
+            <v-row  justify="center" class="ma-2">
+              <v-col sm="6"
+              
+                ><v-select  label="Все" :items="items"></v-select
+              ></v-col>
+            </v-row>
+          </v-app>
             </div>
             <div class="sentenses-content-one two">
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-status">
-                    <option value="">Предложение</option>
-                    <option value="">Откритые</option>
-                    <option value="">Закрытые</option>
-                </select>
+                <v-app>
+            <v-row  justify="center" class="ma-2">
+              <v-col sm="6"
+              
+                ><v-select  label="Предложения" :items="items1"></v-select
+              ></v-col>
+            </v-row>
+          </v-app>
             </div>
             <div class="sentenses-content-one three">
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-month">
-                    <option value="">2022</option>
-                    <option value="">Естественные</option>
-                    <option value="">Человеческие</option>
-                </select>
+                <v-app>
+            <v-row  justify="center" class="ma-2">
+              <v-col sm="6"
+              
+                ><v-select  label="Год" :items="items2"></v-select
+              ></v-col>
+            </v-row>
+          </v-app>
             </div>
             <div class="sentenses-content-one four">
                 <img src="@/assets/src/Icons/chevron-down.svg" alt="">
-                <select id="sentenses-year">
-                    <option value="">Апрель</option>
-                    <option value="">Естественные</option>
-                    <option value="">Человеческие</option>
-                </select>
+                <v-app>
+            <v-row  justify="center" class="ma-2">
+              <v-col sm="6"
+              
+                ><v-select  label="Месяц" :items="items2"></v-select
+              ></v-col>
+            </v-row>
+          </v-app>
             </div>
             </div>
 
@@ -90,7 +102,14 @@
 import PersonMenu from '../PersonMenu.vue'
 export default {
   components: { PersonMenu },
-    name: 'sentense-app'
+    name: 'sentense-app',
+    data(){
+        return{
+            items: ["Инспекция по экологии", "Тоза Худуд", "Экопрокуратура", "Тур Полиция", "ТРЗ  <<Чарвак>>", "МВД", "Лесное хозяйство", "Комитет по автомобильным дорогам"],
+            items1: ["Решена", "Ложные"],
+            items2: ["Январ", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сунтябр", "Октябр", "Ноябр", "Декабр"],
+        }
+    }
 }
 </script>
 <style>
@@ -98,9 +117,26 @@ export default {
     display: none;  
 }
 
-
-
-
+.sentenses-content-one .v-application .v-application--wrap{
+    min-height: auto !important;
+}
+.sentenses-content-one .v-application .ma-2{
+    margin: 0 !important;
+}
+.sentenses-content-one .v-application{
+    background: none !important;
+}
+.sentenses-content-one .v-application .v-application--wrap .row .col{
+    padding: 0 !important;
+}
+.sentenses-content-one .v-application .v-application--wrap .row .col .v-input .v-input__control{
+    cursor: pointer;
+}
+.sentenses-content-one .v-application .v-menu__content{
+    min-width: 300px !important;
+    top: 75px !important;
+    margin-left: -25px;
+}
 
 
 </style>

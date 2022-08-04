@@ -8,7 +8,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" class="request-item-svg">
                     <path d="M1.5 9L5.5 5L1.5 1" stroke="#1C9E3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <p class="item-id">#{{request_item_id}}</p>
+                <p class="item-id">#{{userData?.idNumber}}</p>
                 </div>
                 
             </div>
@@ -21,15 +21,15 @@
             <div class="item-content-header">
                 <div class="content-item">
                     <h4>Заявитель</h4>
-                    <span>+998901234567</span>
+                    <span>{{userData?.phoneNumber}}</span>
                 </div>
                 <div class="content-item">
                     <h4>Категория нарушения</h4>
-                    <span>Выброс мусора</span>
+                    <span>{{userData?.category== 'spontaneous'?'Стихийная свалка':userData?.category == 'ejectionCarbage'?'Выброс мусора в неположенном месте':userData?.category=='breedingFire'?'Разведение огня в неположенном месте':userData?.category =='industrialWsate'?'Выброс промышленных стоков/мусора в реку' :userData?.category == 'other'?'Прочее' :userData?.category == 'complaints'?'Жалобы':userData?.category== 'cuttingDownTrees'?'Вырубка деревьев':'&#x334;'}}</span>
                 </div>
                 <div class="content-item">
                     <h4>Время отправки</h4>
-                    <span>22.07.2022 14:37</span>
+                    <span>{{userData?.receivedDate}}</span>
                 </div>
                 <div class="content-item item-select">
                     <h4>Статус заявки</h4>
@@ -47,11 +47,11 @@
                 </div>
                 <div class="content-item">
                     <h4>Ответственное ведомство</h4>
-                    <span>Эко-прокуратура</span>
+                    <span v-for="(user, idx) in userData?.department" :key="idx">{{user}}</span>
                 </div>
                 <div class="content-item">
                     <h4>Ответственный сотрудник</h4>
-                    <span>Не определен</span>
+                    <span>{{userData?.responsiblePerson}}</span>
                 </div>
             </div>
             <div class="item-content-center">
@@ -67,10 +67,8 @@
             <div class="item-content-footer">
                 <div class="item-footer-images">
                     <p>Файлы</p>
-                    <div class="fields-images">
-                        <img src="@/assets/src/image 1.png" alt="">
-                        <img src="@/assets/src/image 2.png" alt="">
-                        <img src="@/assets/src/image 4.png" alt="">
+                    <div v-for="(image, idy) in userData?.documentPath" :key="idy" class="fields-images">
+                        <img src="https://back.bostonliqlive.uz//images/AgACAgIAAxkBAAITtGLhIEBTPgi17fzZTseGTQyfz_HSAALfvTEbjhIJS8kphrpMDjzbAQADAgADeAADKQQ.jpg" alt="">        
                     </div>
                 </div>
                 <div class="location-request">
@@ -90,14 +88,26 @@ export default {
     data(){
         return{
             request_item_id: null,
-            items: ["В обработке", "Решена", "Ложная информация"],
-            isRequestStatus: false
+            items: ["Решена", "Ложная информация"],
+            isRequestStatus: false,
+            userData: null
         }
     },
     mounted(){
         this.getRequestItem_id()
+        this.getRequestItem()
     },
     methods:{
+        getRequestItem(){
+            this.$api.get(`applications/${this.request_item_id}`)
+            .then(response =>{
+                if(response){
+                    this.userData = response.data
+                console.log(this.userData)
+                }
+                
+            }).catch(error=> {console.log(error)})
+        },
         showStatusRequest(){
             this.isRequestStatus = !this.isRequestStatus
             // console.log(this.isRequestStatus)
