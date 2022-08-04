@@ -75,8 +75,8 @@ export default {
   name: "add-new-user",
   data() {
     return {
-      items: ["Blue", "Red", "Yellow", "Green"],
-      items1: ["Green", "White"],
+      items: ["Инспекция по экологии", "Тоза Худуд", "Экопрокуратура", "Тур Полиция", "ТРЗ  <<Чарвак>>", "МВД", "Лесное хозяйство", "Комитет по автомобильным дорогам"],
+      items1: ["admin", "moderator"],
     };
   },
 };

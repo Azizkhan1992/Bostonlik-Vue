@@ -155,6 +155,60 @@ body{
 
 
 
+
+.sidebar-content
+  .active-dropdown-open
+  .sidebar-dropdown-list
+  .router-link-active::after {
+  position: fixed;
+  width: calc(100% - 60px);
+  left: 20px;
+  height: 48px;
+  background: hsla(0, 0%, 100%, 0.2);
+  border-radius: 20px;
+}
+
+.sidebar-content .active-dropdown-open .dropdownListActive {
+  display: block;
+}
+.sidebar-container .sidebar-footer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  bottom: 25px;
+  filter: blur(0.3px);
+}
+.sidebar-footer .sidebar-footer-img {
+  margin: 0 0 0 15px;
+  width: 250px;
+  align-self: center;
+  z-index: -1;
+}
+.sidebar-footer .sidebar-inner-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+.sidebar-inner-footer span {
+  display: block;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.sidebar-inner-footer img {
+  width: 65px;
+  margin-left: 5px;
+}
+.sidebar-content ul li {
+  z-index: 10;
+}
+.sidebar-content li {
+  z-index: 10;
+}
+
 .sidebar-container{
     position: relative;
     height: 100vh;
@@ -173,130 +227,3 @@ body{
     margin-top: 10px;
     width: 220px;
 }
-.sidebar-container .sidebar-content{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.sidebar-content ul{
-    margin: 5px 0 0 20px;
-    list-style-type: none;
-    display: flex;
-    width: 100%;
-}
-.sidebar-content .active-dropdown-close{
-    display: none;
-}
-.sidebar-content ul li{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 50px;
-    cursor: pointer;
-    margin-left: 15px;
-    gap: 20px;
-}
-.sidebar-container ul li:hover{
-    color: #1C9E3C;
-}
-.sidebar-content ul li span{
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.sidebar-content .sidebar-dropdown-li{
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    align-items: center;
-    
-}
-.sidebar-dropdown-li .sidebar-dropdown-btn{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin-left: 15px;
-    width: 100%;
-    height: 50px;
-    align-items: center;
-    cursor: pointer;
-}
-.sidebar-dropdown-li .sidebar-dropdown-btn .sidebar-svg{
-    margin-left: 25px;
-}
-.sidebar-dropdown-li .sidebar-dropdown-btn .sidebar-dropdown-svg{
-    width: 20px;
-    margin-left: 10px;
-}
-.sidebar-dropdown-li .sidebar-dropdown-btn span{
-    font-size: 1rem;
-    font-weight: 600;
-}
-.sidebar-dropdown-li .sidebar-dropdown-list{
-    width: 75%;
-    margin-left: 35px;
-}
-
-.sidebar-content .active-dropdown-open .sidebar-dropdown-svg{
-    transform: rotate(180deg);
-    transition: transform .5s;
-    color: #FFFFFF;
-}
-.sidebar-content .active-dropdown-close .sidebar-dropdown-svg{
-    transition: all .5s;
-}
-.sidebar-content ul .router-link-active{
-    display: flex;
-    background: #1C9E3C;
-    color: #FFFFFF;
-}
-.sidebar-content ul .router-link-active:hover{
-    color: #FFFFFF;
-}
-.sidebar-content ul .router-link-active::before{
-    position: fixed;
-    width: 296px;
-    height: inherit;
-    left: 0;
-    content: "";
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    background: #1C9E3C;
-    z-index: -1;
-}
-.sidebar-content .active-dropdown-open{
-    width: 296px;
-    background: #1C9E3C;
-    margin: 10px 0 10px 0;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    color: #FFFFFF;
-}
-.sidebar-content .active-dropdown-open .sidebar-dropdown-btn .sidebar-svg{
-    color: #FFFFFF;
-}
-.sidebar-content .active-dropdown-open .sidebar-dropdown-list:hover{
-    color: #FFFFFF;
-}
-.sidebar-content .active-dropdown-open .sidebar-dropdown-list span{
-    color: #FFFFFF;
-}
-.sidebar-content .active-dropdown-open .sidebar-dropdown-list svg{
-    color: #FFFFFF;
-}
-/* .active-dropdown-open .sidebar-dropdown-list ul .router-link-active::after{
-    content: "";
-    border-radius: 15px;
-    position: fixed;
-    width: calc(90% -80px);
-    left: 20px;
-    height: 48px;
-    background: hsla(0, 0%, 100%, .2);
-    clip: auto;
-}
-.active-dropdown-open .sidebar-dropdown-list ul .router-link-active{
-    width: 100%;
-    justify-content: flex-start;
-} */

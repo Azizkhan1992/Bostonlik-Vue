@@ -101,7 +101,7 @@
       </div>
 
       <div class="request-footer">
-        <app-pagination @paginate="setPaginationData" :data="$store?.getters && $store.getters?.getRequestsNews && $store.getters.getRequestsNews"></app-pagination>
+        <app-pagination @paginate="requestPaginationData" :data="news" :limit="2"></app-pagination>
       </div>
     </div>
   </div>
@@ -129,6 +129,9 @@ export default {
       requestCategory: null
     };
   },
+  created(){
+    this.getRequestData()
+  },
   computed:{
     getRequestsNews(){
       return this.$store?.getters && this.$store.getters?.getRequestsNews && this.$store.getters.getRequestsNews
@@ -148,6 +151,9 @@ export default {
   },
   
   methods: {
+    requestPaginationData(data){
+      this.list = data
+    },
     getInputValue(e){
       console.log(e)
       if(this.request_message.length >= 2){
@@ -183,6 +189,8 @@ export default {
       })
       .then(response=> {
         this.news =response.data
+        this.list = this.news.slice(0, 2);
+        console.log(this.news)
       })
     },
     getRequestDepartment(){

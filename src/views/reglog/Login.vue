@@ -40,7 +40,7 @@ export default {
         return{
             user: {
                 name: 'akobir1605',
-                password: 'akobir'
+                password: 'kimdir123'
             }
         }
     },

@@ -447,13 +447,15 @@
     margin-left: 10px;
     margin-top: 10px;
 }
-.sentenses-header .sentenses-header-left span{
-    font-size: 20px;
-    font-weight: 700;
+.sentenses-header .sentenses-header-left h1{
+    font-size: 2rem;
+    font-weight: 800;
 }
-.sentenses-header .sentenses-header-left p{
-    font-size: 12px;
-    font-weight: 500;
+.sentenses-header .sentenses-header-left span{
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 .sentenses-container .sentenses-header img{
     position: absolute;
@@ -485,25 +487,11 @@
     border-radius: 5px;
     align-items: self-start;
 }
-.sentenses-content-one select{
-    margin-top: 5px;
-    width: 100%;
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
-    outline: none;
-    display: inline-block;
-    -moz-appearance: none;
-    -webkit-appearance:none;
-      -moz-appearance: none;
-      appearance: none;
-      cursor: pointer;
-      /* margin-left: 25px; */
-}
+
 .sentenses-content-one img{
     display: block;
     position: absolute;
-    top: 5px;
+    top: 25px;
     right: 10px;
 }
 .sentenses-content-content{
@@ -652,7 +640,7 @@
     width: 75%;
     margin-left: 100px;
 }
-.user-item-container .user-item-footer button{
+.user-item-container .user-item-footer .user-item-buttons .user-item-cancel{
     display: block;
     align-self: center;
     width: 125px;
@@ -664,7 +652,13 @@
     font-weight: 600;
     cursor: pointer;
 }
-.user-item-container .user-item-footer button:hover{
+.user-item-footer .user-item-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.user-item-container .user-item-footer .user-item-buttons .user-item-cancel:hover{
         color: #fff;
 }
 .user-item-one .is-not-user{
@@ -672,6 +666,21 @@
     line-height: 20px;
     font-style: normal;
     font-weight: 500;
+}
+.user-item-footer .user-item-buttons .user-item-save{
+    display: block;
+    align-self: center;
+    width: 125px;
+    height: 50px;
+    background: #1C9E3C;
+    margin-left: 15px;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.user-item-footer .user-item-buttons .user-item-save:hover{
+    color: #FFFFFF;
 }
 .user-item-five .is-not-user{
     font-size: 36px;
@@ -707,7 +716,7 @@
 .user-item-four .current-user-img{
 position: absolute;
 top: 50px;
-left: 110px;
+left: 150px;
 z-index: 1000;
 }
 
