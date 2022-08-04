@@ -67,7 +67,6 @@ export default {
             if (this.data) {
                 const start = this.pageNumber * this.limit,
                     end = start + this.limit;
-                // console.log(1111, pageNews)
                 pagination = this.data.slice(start, end)
 
                 return this.$emit('paginate', pagination)
