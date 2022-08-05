@@ -67,7 +67,7 @@
                             <i aria-hidden="true">Прикрепить фото</i>
                             <img src="@/assets/src/Vector (3).png" alt="">
                         </label>
-                        <input type="file" id="my-input-image" @change="mySendData.profile">
+                        <input type="file" id="my-input-image" @change="setProfile_img">
                     </div>
                     <div class="image-shower">
                         <img class="my-own-image" src="@/assets/src/image 5.png" alt="">
@@ -95,12 +95,14 @@ export default{
                 email: null,
                 password: null,
                 phoneNumber: null,
-                profile: null
-            }
+                profile_img: null
+            },
+            isMyData: false
         }
     },
     mounted(){
         this.getMyData()
+        // this.sendMyData()
     },
     computed:{
     },
@@ -109,15 +111,44 @@ export default{
             this.$api.get('currentUser')
             .then(response =>{
                 this.myData = response.data.user
-                console.log(response.data.user)
+                // console.log(response.data.user)
             }).catch(error => {console.log(error)})
         },
+        setProfile_img(e){
+            this.mySendData.profile_img = e.target.value
+            // console.log(this.mySendData.profile_img)
+        },
         sendMyData(){
+            const image = this.mySendData.profile_img
+            this.mySendData.profile_img = image && Array.isArray(image) && image.length > 0 ? image[0]:null
+            const formdata = new FormData()
+
+            for(let item in this.mySendData){
+                const elem = this.mySendData[item]
+                if(Array.isArray(elem)){
+                    for(let i=0; i<elem.length; i++){
+                        formdata.append(`${item}[]`, elem[i])
+                    }
+                }else{
+                    formdata.append(item, elem)
+                }
+                this.isMyData = true
+            }
+            if(this.isMyData === true){
+                this.addMyData(formdata)
+            }   
+            
             // let data = new FormData()
-            this.$api.post('profile', this.mySendData)
-            .then(response =>{
-                console.log(response.data)
-            }).catch(error => {console.log(error    )})
+            // this.$api.post('profile', this.mySendData)
+            // .then(response =>{
+            //     console.log(response.data)
+            // }).catch(error => {console.log(error)})
+        },
+        addMyData(formdata){
+            return this.$api.post('profile', formdata)
+            .then(response=>{
+                console.log(response)
+            })
         }
     }
 }

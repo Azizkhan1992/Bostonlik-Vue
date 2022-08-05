@@ -26,10 +26,9 @@
       flex: 0 0 auto;
       position: relative;
   }
-  .add-user-header img{
+  .add-user-header .user-profile-img{
       position: absolute;
       right: 50px;
-      top: 10px;
       cursor: pointer;
   }
   .add-user-header .user-header-left{
@@ -40,28 +39,7 @@
       font-weight: 800;
       margin-left: 10px;
   }
-  .user-header-left .add-user-route{
-      margin-top: 10px;
-      margin-left: 10px;
-      width: 25%;
-      display: flex;
-      align-content: center;
-      position: relative;
-  }
-  .add-user-route span{
-      display: block;
-      padding: 5px;
-      font-size: 16px;
-      font-weight: 600;
-  }
-  .add-user-route img{
-      display: block;
-      position: absolute;
-      top: 13px;
-      left: 90px;
-      width: 20px;
-      height: 10px;
-  }
+  
   
   .add-user-container .add-user-content{
       width: 98%;
@@ -154,14 +132,12 @@
       background: #ccc;
       cursor: pointer;
   }
-  .add-user-form .add-user-btn{
-      position: absolute;
+  .add-footer-image .add-user-btn{
       display: flex;
       width: 50%;
-      top: 250px;
-      left: 400px;
+      margin-top: 100px;   
   }
-  .add-user-form .add-user-btn button{
+  .add-footer-image .add-user-btn button{
       display: block;
       margin-left: 75px;
       width: 25%;
@@ -189,6 +165,12 @@
       border: 2px solid #1C9E3C;
   }
   .add-user-content .add-footer-image{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
       width: 100%;
       margin-top: 50px;
       margin-left: 100px;
@@ -196,8 +178,8 @@
   }
   .add-footer-image img{
       display: block;
-      width: 50%;
-      margin-left: 300px;
+      width: 75%;
+      margin-left: 50px;
   }
   
 

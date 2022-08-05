@@ -133,7 +133,7 @@ export default {
     cursor: pointer;
 }
 .sentenses-content-one .v-application .v-menu__content{
-    min-width: 300px !important;
+    min-width: 250px !important;
     top: 75px !important;
     margin-left: -25px;
 }

@@ -4,12 +4,17 @@
       <div class="user-header-left">
         <h2>Настройки</h2>
         <div class="add-user-route">
-          <span>Настройки</span>
-          <img src="@/assets/src/Vector (1).png" alt="" />
-          <span></span>
+          <router-link tag="span" class="setting-span-one" to="/settings">Настройки</router-link>
+          <img class="add-user-img-one" src="@/assets/src/Vector (1).png" alt="" />
+          <router-link tag="span" class="setting-span-two" to="/user-settings">Пользователи системы</router-link>
+          <img src="@/assets/src/Vector (1).png" alt="">
+          <span>Создать профиль</span>
         </div>
       </div>
-      <person-menu />
+      <div class="user-profile-img">
+         <person-menu />
+      </div>
+     
     </div>
     <div class="add-user-content">
       <div class="add-user-form">
@@ -57,13 +62,14 @@
           <span>ecobot123</span>
         </div>
 
+        
+      </div>
+      <div class="add-footer-image">
+        <img src="@/assets/src/Icons/profil-icon.svg" alt="" />
         <div class="add-user-btn new-user">
           <button class="user-btn-exit">Отмена</button>
           <button class="user-btn-save">Сохранить</button>
         </div>
-      </div>
-      <div class="add-footer-image">
-        <img src="@/assets/src/Icons/profil-icon.svg" alt="" />
       </div>
     </div>
   </div>
@@ -87,6 +93,40 @@ export default {
 }
 
 
-
+.user-header-left .add-user-route{
+      position: relative;
+      margin-top: 10px;
+      margin-left: 10px;
+      width: 100%;
+      display: flex;
+  }
+  .add-user-route .setting-span-one{
+    display: block;
+      width: 15%;
+      padding: 5px;
+      font-size: 16px;
+      font-weight: 600;
+  } 
+  .add-user-route .setting-span-two{
+    display: block;
+    width: 30%;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+   .add-user-route span{
+    display: block;
+    width: 30%;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .add-user-route img{
+    display: block;
+      width: 10px;
+      height: 10px;
+      margin-top: 10px;
+  }
 
 </style>

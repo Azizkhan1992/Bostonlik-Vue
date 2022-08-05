@@ -75,14 +75,12 @@
               <th class="th-two two">Количество заявок</th>
               <th class="th-two">Решенные заявки в %</th>
               <th class="th-two">Ложные заявки в %</th>
-              <th class="th-two">Соотношение случаев в аналогичном периоде</th>
             </tr>
-            <tr class="table-content">
-              <td class="td-one">01.04.2022</td>
-              <td class="td-two">1916</td>
-              <td class="td-two">57,80 %</td>
-              <td class="td-two two">04,22 %</td>
-              <td class="td-two two">04,22 %</td>
+            <tr v-for="(stat, idx) in statistics" :key="idx" class="table-content">
+              <td class="td-one">{{stat.date}}</td>
+              <td class="td-two">{{stat.number}}</td>
+              <td class="td-two">{{stat.solvedProcent}}</td>
+              <td class="td-two two">{{stat.falseProcent}}</td>
             </tr>
           </table>
         </div>
@@ -127,13 +125,16 @@ export default {
       items2: [],
       items3: ["Январ", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сунтябр", "Октябр", "Ноябр", "Декабр"],
       isActiveSvg_one: false,
-      isActiveSvg_two: false
+      isActiveSvg_two: false,
+      statistics: null
     }
   },
   computed:{
     years() {
       let years = [];
-        for (let i = 2015; i < 2025; i++) {
+      let nowTime = new Date().getFullYear()
+      // console.log(nowTime)
+        for (let i = nowTime-20; i < nowTime+1; i++) {
           years.push(i)
         }
 
@@ -142,14 +143,16 @@ export default {
   },
   mounted(){
     // this.getLastDate() 
+    this.getStatistics()
   },
   methods: {
-    // getLastDate(){
-    //   let lastTime = new Date('01-01-2010')
-    //   let nowTime = new Date()
-    //   let diff = moment.utc(moment(nowTime, "DD/MM/YYYY").diff(moment(lastTime, "DD/MM/YYYY"))).format("DD/MM/YYYY")
-    //   console.log(diff)
-    // },
+    getStatistics(){
+      this.$api.get('statistics')
+      .then(response =>{
+        this.statistics = response.data.result
+        console.log(response.data.result)
+      })
+    },
     activeInput(){
       this.isActiveSvg_one = !this.isActiveSvg_one
       // console.log(this.isActiveSvg_one)
