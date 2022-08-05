@@ -45,7 +45,7 @@
         </svg>
           <v-row justify="center" class="ma-2">
             <v-col sm="6"
-              ><v-select label="Год" :items="items2"></v-select
+              ><v-select label="Год" :items="years"></v-select
             ></v-col>
           </v-row>
         </v-app>
@@ -128,6 +128,16 @@ export default {
       items3: ["Январ", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сунтябр", "Октябр", "Ноябр", "Декабр"],
       isActiveSvg_one: false,
       isActiveSvg_two: false
+    }
+  },
+  computed:{
+    years() {
+      let years = [];
+        for (let i = 2015; i < 2025; i++) {
+          years.push(i)
+        }
+
+        return years;
     }
   },
   mounted(){

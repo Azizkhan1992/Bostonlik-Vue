@@ -80,6 +80,14 @@ const routes = [
                 }
             },
             {
+                path: '/closed-blog-item/:id?',
+                name: 'closed-blog-item',
+                component: ()=> import('./views/requests/requestItems/ClosedBlogItem.vue'),
+                meta: {
+                    layout: 'MainDashboard'
+                }
+            },
+            {
                 path: '/sentenses',
                 name: 'sentenses',
                 component: ()=> import('./views/sentenses/Sentenses.vue'),

@@ -113,6 +113,7 @@ export default{
             }).catch(error => {console.log(error)})
         },
         sendMyData(){
+            // let data = new FormData()
             this.$api.post('profile', this.mySendData)
             .then(response =>{
                 console.log(response.data)

@@ -84,14 +84,18 @@
                         <th>Ответственный сотркдник</th>
                     </tr>
                     <hr/>
-                     <tr v-for="(solved, idx) in getSolvedRequests" :key="idx" class="table-content">
-                        <td>{{solved.phoneNumber}}</td>
+                    <router-link tag="tr" :to="`/closed-blog-item/${solved._id}`" v-for="(solved, idx) in getSolvedRequests" :key="idx" class="table-content">
+                    <td>{{solved.phoneNumber}}</td>
                         <td>{{solved.category}}</td>
                         <td>{{solved.lastDateOfSolving}}</td>
                         <td class="td-item">{{solved.status}}</td>
-                        <td v-for="(department, idy) in solved.department" :key="idy" class="solved-requests-td">{{department}}</td>
-                        <td>{{solved.responsiblePerson}}</td>
-                    </tr>
+                        <td class="solved-requests-td"><span v-for="(department, idy) in solved.department" :key="idy" >{{department}}</span></td>
+                        <td>{{solved.responsiblePerson}}</td>   
+
+                    </router-link>
+                     
+                        
+                    
                 </table>
             </div>
         </div>
@@ -177,8 +181,8 @@ hr{
 .request-header-img .personal-keys{
     display: none;  
 }
-.table-content .solved-requests-td{
-    display: flex;
-    flex-wrap: wrap;
+.requests-content-content span {
+    position: initial;
+    display: block;
 }
 </style>
