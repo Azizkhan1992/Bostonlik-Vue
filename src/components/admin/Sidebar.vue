@@ -5,7 +5,7 @@
     </div>
     <div class="sidebar-content">
       <ul>
-        <router-link class="sidebar-li" @click="isDropdownActive = false" tag="li" :to="sidebar_svg[0].path">
+        <router-link class="sidebar-li" @click.native="isDropdownActive = false" tag="li" :to="sidebar_svg[0].path">
           <svg
             class="dashboard-sidebar-svg"
             width="24"
@@ -19,15 +19,11 @@
         </router-link>
 
         <li
+          :class="isDropdownActive ? 'active-dropdown-open' : 'active-dropdown-close'"
           class="sidebar-dropdown-li"
-          :class="
-            isDropdownActive === true
-              ? 'active-dropdown-open'
-              : 'active-dropdown-close'
-          "
         >
           <div
-            @click.stop="isDropdownActive = !isDropdownActive"
+            @click="isDropdownActive = !isDropdownActive"
             class="sidebar-dropdown-btn"
           >
             <svg
@@ -77,7 +73,7 @@
           </div>
         </li>
 
-        <router-link class="sidebar-li" tag="li" @click.stop="isDropdownActive = false" :to="sidebar_svg[5].path">
+        <router-link class="sidebar-li" tag="li" @click.native="isDropdownActive = false" :to="sidebar_svg[5].path">
           <svg
             width="24"
             height="24"
@@ -89,7 +85,7 @@
           <span>{{ sidebar_svg[5].name }}</span>
         </router-link>
 
-        <router-link class="sidebar-li" tag="li" @click.stop="isDropdownActive = false" :to="sidebar_svg[6].path">
+        <router-link class="sidebar-li" tag="li" @click.native="isDropdownActive = false" :to="sidebar_svg[6].path">
           <svg
             width="24"
             height="24"
@@ -101,7 +97,7 @@
           <span>{{ sidebar_svg[6].name }}</span>
         </router-link>
 
-        <router-link class="sidebar-li" tag="li" @click.stop="isDropdownActive = false" :to="sidebar_svg[7].path">
+        <router-link class="sidebar-li" tag="li" @click.native="isDropdownActive = false" :to="sidebar_svg[7].path">
           <svg
             width="24"
             height="24"
@@ -113,7 +109,7 @@
           <span>{{ sidebar_svg[7].name }}</span>
         </router-link>
 
-        <router-link class="sidebar-li" tag="li" @click.stop="isDropdownActive = false" :to="sidebar_svg[8].path">
+        <router-link class="sidebar-li" tag="li" @click.native="isDropdownActive = false" :to="sidebar_svg[8].path">
           <svg
             width="24"
             height="24"
@@ -196,9 +192,9 @@ export default {
     };
   },
   methods: {
-    dropdownActive() {
-      this.isDropdownActive = !this.isDropdownActive;
-    },
+    // dropdownActive() {
+    //   this.isDropdownActive = !this.isDropdownActive;
+    // },
     dropdownSave() {
       this.isDropdownActive = true;
       console.log(this.isDropdownActive);
@@ -328,6 +324,8 @@ export default {
   background: hsla(0,0%,100%,.2);
   border-radius: 20px;
 }
-
+/* .sidebar-content ul li.active-dropdown-close .sidebar-dropdown-list {
+  display: none;
+} */
 
 </style>

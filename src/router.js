@@ -88,9 +88,17 @@ const routes = [
                 }
             },
             {
-                path: '/sentenses',
+                path: '/sentenses/:id?',
                 name: 'sentenses',
                 component: ()=> import('./views/sentenses/Sentenses.vue'),
+                meta: {
+                    layout: 'MainDashboard'
+                }
+            },
+            {
+                path: '/sentenses-blog-item/:id',
+                name: 'sentenses-blog-item',
+                component: ()=> import('./views/sentenses/SentensesBlogItem.vue'),
                 meta: {
                     layout: 'MainDashboard'
                 }

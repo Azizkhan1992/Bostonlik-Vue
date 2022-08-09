@@ -13,6 +13,7 @@ import './assets/styles/content-style.css'
 import './assets/styles/additional-style.css'
 import './assets/styles/statistics-style.css'
 import './assets/styles/request-blog.css'
+import './assets/styles/sentenses-style.css'
 
 export default {
   name: 'App',

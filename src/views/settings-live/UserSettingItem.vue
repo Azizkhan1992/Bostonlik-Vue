@@ -144,56 +144,5 @@ import PersonMenu from '../PersonMenu.vue'
     }
     </script>
     <style>
-.user-items-container .user-items-header .personal-keys {
-  display: none;
-}
-.user-items-container .user-item-container{
-    background: #FFFFFF;
-    width: 97%;
-    margin-left: 25px;
-    margin-top: 15px;
-}
-    .user-items-container .user-items-header{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        margin-top: 15px;
-        margin-left: 35px;
-    }
-    .user-items-header .items-left-block-one{
-        width: 50%;
-        margin-left: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-    .items-left-block-one h1{
-        font-size: 2rem;
-        font-weight: 800;
-    }
-    .items-left-block-one .item-route-block{
-        position: relative;
-        display: flex;
-        margin-top: 10px;
-    }
-    .item-route-block span{
-        display: block;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-    }
-    .item-route-block img{
-        display: block;
-        width: 10px;
-        height: 15px;
-        margin-top: 5px;
-        margin-left: 5px;
-    }
-    .item-route-block .item-route{
-        margin-left: 5px;
-    }
-    .user-items-header .items-right-block-one{
-        position: absolute;
-        right: 25px;
-        top: 25px;
-    }
+
     </style>

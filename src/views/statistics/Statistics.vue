@@ -76,7 +76,7 @@
               <th class="th-two">Решенные заявки в %</th>
               <th class="th-two">Ложные заявки в %</th>
             </tr>
-            <tr v-for="(stat, idx) in statistics" :key="idx" class="table-content">
+            <tr v-for="(stat, idx) in statistics_list" :key="idx" class="table-content">
               <td class="td-one">{{stat.date}}</td>
               <td class="td-two">{{stat.number}}</td>
               <td class="td-two">{{stat.solvedProcent}}</td>
@@ -85,24 +85,9 @@
           </table>
         </div>
         <div class="statistics-footer">
-          <div class="statistics-footer-left">
-            <button class="btn-item-one">
-              <img
-                class="statistics-left"
-                src="@/assets/src/Vector (2).png"
-                alt=""
-              />
-              Пред .
-            </button>
-            <button class="footer-btn-item">
-              <img
-                class="statistics-right"
-                src="@/assets/src/Vector (1).png"
-                alt=""
-              />
-              След .
-            </button>
-          </div>
+          
+          <app-pagination @paginate="statisticsPaginateData" :data="statistics" :limit="5"/>
+
           <div class="statistics-footer-right">
             <button>
               <img src="@/assets/src/svg-icons/print.svg" alt="" />
@@ -115,8 +100,9 @@
 </template>
 <script>
 import PersonMenu from "../PersonMenu.vue";
+import AppPagination from "@/components/common/AppPagination.vue";
 export default {
-  components: { PersonMenu },
+  components: { PersonMenu, AppPagination },
   name: "statistics-app",
   data() {
     return {
@@ -126,7 +112,8 @@ export default {
       items3: ["Январ", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сунтябр", "Октябр", "Ноябр", "Декабр"],
       isActiveSvg_one: false,
       isActiveSvg_two: false,
-      statistics: null
+      statistics: null,
+      statistics_list: []
     }
   },
   computed:{
@@ -150,8 +137,12 @@ export default {
       this.$api.get('statistics')
       .then(response =>{
         this.statistics = response.data.result
+        this.statistics_list = this.statistics.slice(0, 5)
         console.log(response.data.result)
       })
+    },
+    statisticsPaginateData(data){
+        this.statistics_list = data
     },
     activeInput(){
       this.isActiveSvg_one = !this.isActiveSvg_one
@@ -173,29 +164,5 @@ export default {
   display: none;
 }
 
-.statistics-content-header .v-application .v-select__selections input{
-  cursor: pointer;
-}
-.statistics-content-header .v-application svg{
-  position: absolute;
-  top: 40px;
-  margin-left: 300px;
-}
-.statistics-content-header .active-svg-one{
-  transform: rotate(180deg);
-  transition: transform .5s;
-}
-.statistics-content-header .deactive-svg-one{
-  transition: transform .5s;
-}
-.statistics-content-header .active-svg-two{
-  transform: rotate(180deg);
-  transition: transform .5s;
-}
-.statistics-content-header .deactive-svg-two{
-  transition: transform .5s;
-}
-.statistics-content-header .v-application .v-menu__content{
-  margin-left: -85px !important;
-}
+
 </style>

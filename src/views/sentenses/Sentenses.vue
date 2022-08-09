@@ -64,50 +64,51 @@
                         <th class="th-two two">номер телефона</th>
                         <th class="th-two">Категория</th>
                         <th class="th-two">Статус</th>
-                        <th class="th-two">Дата поступления</th>
                     </tr>
-                    <tr class="table-content">
-                        <td class="td-one">Абдужабборов Акбар</td>
-                        <td class="td-two">Место не убрано...</td>
-                        <td class="td-two">Предложение</td>
-                        <td class="td-two two">Прочитано</td>
-                        <td class="td-two two">01.01.2022</td>
-                    </tr>
+                    <router-link tag="tr" :to="`/sentenses-blog-item/${sentense._id}`" v-for="(sentense, idx) in sentenses_list" :key="idx" class="table-content">
+                        <td class="td-one">{{sentense.name}}</td>
+                        <td class="td-two">{{sentense.phoneNumber}}</td>
+                        <td class="td-two">{{sentense?.category == "Proposals" ? "Предложения" :sentense?.category == "" ? "-" :  "Жалоба"}}</td>
+                        <td class="td-two two">{{sentense?.status == "unread" ? "Непрочитано" : "Прочитано"}}</td>
+                    </router-link>
                 </table>
             </div>
             <div class="sentenses-footer">
-                <div class="sentenses-footer-left">
-                    <button class="btn-item-one">
-                        <img class="sentense-left" src="@/assets/src/Vector (2).png" alt="">
-                        <span>Пред.</span>
-                    </button>
-                    <button class="footer-btn-item">
-                        <img class="sentense-right" src="@/assets/src/Vector (1).png" alt="">
-                        <span>След.</span>
-                    </button>
-                </div>
-                <div class="sentenses-footer-center">
-                    <span>Страница</span>
-                    <input type="text" placeholder="1">
-                    <span>из 1</span>
-                    <button>
-                        <img src="@/assets/src/Icons/chevron-right.svg" alt="">
-                    </button>
-                </div>
+                <app-pagination :data="sentenses" :limit="3" @paginate="sentensesPaginationData"/>
             </div>
         </div>
     </div>
 </template>
 <script>
 import PersonMenu from '../PersonMenu.vue'
+import AppPagination from '@/components/common/AppPagination.vue'
 export default {
-  components: { PersonMenu },
+  components: { PersonMenu, AppPagination },
     name: 'sentense-app',
     data(){
         return{
+            sentenses: null,
+            sentenses_list: [],
             items: ["Инспекция по экологии", "Тоза Худуд", "Экопрокуратура", "Тур Полиция", "ТРЗ  <<Чарвак>>", "МВД", "Лесное хозяйство", "Комитет по автомобильным дорогам"],
             items1: ["Решена", "Ложные"],
             items2: ["Январ", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сунтябр", "Октябр", "Ноябр", "Декабр"],
+        }
+    },
+    mounted(){
+        this.getSentenses()
+    },
+    methods:{
+        getSentenses(){
+            this.$api.get('complaintAndProposals')
+            .then(response =>{
+                this.sentenses = response.data
+                
+                this.sentenses_list = this.sentenses.slice(0, 3);
+                console.log(typeof(this.sentenses))
+            })
+        },
+        sentensesPaginationData(data){
+            this.sentenses_list = data
         }
     }
 }
@@ -117,26 +118,6 @@ export default {
     display: none;  
 }
 
-.sentenses-content-one .v-application .v-application--wrap{
-    min-height: auto !important;
-}
-.sentenses-content-one .v-application .ma-2{
-    margin: 0 !important;
-}
-.sentenses-content-one .v-application{
-    background: none !important;
-}
-.sentenses-content-one .v-application .v-application--wrap .row .col{
-    padding: 0 !important;
-}
-.sentenses-content-one .v-application .v-application--wrap .row .col .v-input .v-input__control{
-    cursor: pointer;
-}
-.sentenses-content-one .v-application .v-menu__content{
-    min-width: 250px !important;
-    top: 75px !important;
-    margin-left: -25px;
-}
 
 
 </style>

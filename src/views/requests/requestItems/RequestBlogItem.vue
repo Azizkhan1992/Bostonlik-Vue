@@ -4,7 +4,7 @@
       <div class="item-header-left">
         <h2>Заявки</h2>
         <div class="item-header-titles">
-          <span>Откриытые заявки</span>
+          <router-link tag="span" to="/opened-requests">Откриытые заявки</router-link>
           <svg
             width="24"
             height="24"
@@ -56,7 +56,7 @@
         </div>
         <div class="content-item">
           <h4>Время отправки</h4>
-          <span>{{ userData?.receivedDate }}</span>
+          <span>{{ userData?.receivedDate|requestBlogFilter }}</span>
         </div>
         <div class="content-item item-select">
           <h4>Статус заявки</h4>
@@ -162,6 +162,15 @@ export default {
     this.getRequestItem_id();
     this.getRequestItem();
     this.getUserGeolocation()
+  },
+  filters:{
+    requestBlogFilter(data){
+      if(data){
+      let prettyData = data.split('T')
+      return prettyData[0]
+      }
+     
+    }
   },
   methods: {
          getUserGeolocation(){

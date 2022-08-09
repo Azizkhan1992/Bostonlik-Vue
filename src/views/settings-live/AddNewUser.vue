@@ -93,40 +93,5 @@ export default {
 }
 
 
-.user-header-left .add-user-route{
-      position: relative;
-      margin-top: 10px;
-      margin-left: 10px;
-      width: 100%;
-      display: flex;
-  }
-  .add-user-route .setting-span-one{
-    display: block;
-      width: 15%;
-      padding: 5px;
-      font-size: 16px;
-      font-weight: 600;
-  } 
-  .add-user-route .setting-span-two{
-    display: block;
-    width: 30%;
-    padding: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-   .add-user-route span{
-    display: block;
-    width: 30%;
-    padding: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .add-user-route img{
-    display: block;
-      width: 10px;
-      height: 10px;
-      margin-top: 10px;
-  }
 
 </style>

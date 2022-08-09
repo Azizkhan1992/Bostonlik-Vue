@@ -1,24 +1,24 @@
 <template>
-<div class="pagination-container">
-    <div class="footer-left-block">
-        <button @click="prevPage">
-            <img class="request-left" src="@/assets/src/Icons/Vector-left.svg" alt="" />
-            Пред .
-        </button>
-        <button @click="nextPage">
-            <img class="request-right-img" src="@/assets/src/Icons/chevron-right.svg" alt="" />
-            След .
-        </button>
+    <div class="pagination-container">
+        <div class="footer-left-block">
+            <button @click="prevPage" class="pagination-right-btn">
+                <img class="request-left" src="@/assets/src/Icons/Vector-left.svg" alt="" />
+                Пред .
+            </button>
+            <button @click="nextPage" class="pagination-left-btn">
+                <img class="request-right-img" src="@/assets/src/Icons/chevron-right.svg" alt="" />
+                След .
+            </button>
+        </div>
+        <div class="footer-center">
+            <span>Страница</span>
+            <input type="text" :value="pageNumber" />
+            <span>из {{currentPages}}</span>
+            <button>
+                <img src="@/assets/src/Icons/chevron-right.svg" alt="" />
+            </button>
+        </div>
     </div>
-    <div class="footer-center">
-        <span>Страница</span>
-        <input type="text" :value="pageNumber" />
-        <span>из {{currentPages}}</span>
-        <button>
-            <img src="@/assets/src/Icons/chevron-right.svg" alt="" />
-        </button>
-    </div>
-</div>
 </template>
 
 <script>
@@ -88,39 +88,73 @@ export default {
 
 <style>
 .pagination-container{
-    width: 100%;
+    width: 100%; 
+    margin: auto;
     display: flex;
-    flex-direction: row;
 }
-.footer-left-block{
+.pagination-container .footer-left-block{
+    width: 40%;
+    margin-left: 15px;
     display: flex;
-    flex-direction: row;
-    width: 30%;
 }
-.footer-left-block button{
-    width: 50%;
-    position: relative;
+.pagination-container .footer-left-block button{
+    width: 45%;
+    margin: auto;
+    background: #FFFFFF;
+    display: block;
+    height: 50px;
+    border-radius: 15px;
+}
+.pagination-container .footer-left-block .pagination-right-btn img{
+    margin-right: 10px;
+}
+.pagination-container .footer-left-block .pagination-left-btn{
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
     align-items: center;
 }
-.footer-left-block button .request-left{
-    display: block;
-    margin-right: 50px;
+.pagination-container .footer-left-block .pagination-left-btn img{
+    margin-left: 10px;
     margin-top: 5px;
 }
-.footer-left-block button .request-right-img{
-    display: block;
-    position: absolute;
-    right: 15px;
-}
-.footer-left-block button:hover{
-    color: #1C9E3C;
-}
 .pagination-container .footer-center{
-    width: 30%;
+    width: 40%;
+    margin: auto;
     display: flex;
 }
+.pagination-container .footer-center span{
+    display: inline-block;
+    color:  #A0AEC0;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 12%;
+    margin: auto;
+}
 .pagination-container .footer-center input{
-    width: 50px;
+    display: inline-block;
+    width: 12%;
+    height: 40px;
+    margin: auto;
+    background: #FFFFFF;
+    padding-left: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2px solid;
+}
+.pagination-container .footer-center input:hover{
+    border: 2px solid #1C9E3C;
+}
+.pagination-container .footer-center button{
+    display: block;
+    background: #FFFFFF;
+    width: 12%;
+    height: 40px;
+    border-radius: 5px;
+}
+.pagination-container .footer-center button img{
+    display: block;
+    width: auto;
+    margin: auto;
 }
 </style>
