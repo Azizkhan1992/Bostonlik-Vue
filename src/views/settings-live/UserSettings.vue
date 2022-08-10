@@ -32,9 +32,9 @@
         >
           <td class="td-one">{{ user.firstName }}</td>
           <td class="td-two">{{ user.department }}</td>
-          <td class="td-two">{{ user.status }}</td>
-          <td class="td-two">{{ user.createdDate }}</td>
-          <td class="td-two">{{ user.lastActiveDate }}</td>
+          <td class="td-two">{{ user?.status == true ? "Активирован" : 'Деактивирован' }}</td>
+          <td class="td-two">{{ user?.createdDate|userSettingsFilter }}</td>
+          <td class="td-two">{{ user?.lastActiveDate|userSettingsFilter }}</td>
         </router-link>
         <hr />
       </table>
@@ -77,6 +77,12 @@ export default {
     this.getUsers();
     // this.getRoute()
     // this.getRoute()
+  },
+  filters:{
+    userSettingsFilter(data){
+      let prettyDate = data?.split('T')
+      return prettyDate && prettyDate[0]
+    }
   },
   methods: {
     getRoute() {

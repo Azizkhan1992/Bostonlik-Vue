@@ -94,19 +94,29 @@ export default {
 }
 .pagination-container .footer-left-block{
     width: 40%;
-    margin-left: 15px;
+    margin: auto;   
     display: flex;
 }
 .pagination-container .footer-left-block button{
     width: 45%;
     margin: auto;
     background: #FFFFFF;
-    display: block;
+    display: flex;
     height: 50px;
     border-radius: 15px;
 }
+.pagination-container .footer-left-block .pagination-right-btn{
+    flex-direction: row-reverse;
+    position: relative;
+    align-items: center;
+    justify-items: center;
+    padding-right: 25px;
+    box-sizing: border-box;
+}
 .pagination-container .footer-left-block .pagination-right-btn img{
-    margin-right: 10px;
+    display: inline-block;
+    width: 10px;
+    margin: auto;
 }
 .pagination-container .footer-left-block .pagination-left-btn{
     display: flex;

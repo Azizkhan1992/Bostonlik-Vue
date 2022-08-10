@@ -102,7 +102,9 @@
       display: flex;
       flex: 0 0 auto;
   }
-  
+  .requests-content .request-footer .pagination-container .footer-left-block .pagination-right-btn{
+    flex-direction: row !important;
+  }
   
   .requests-content-two{
       width: 20%;
@@ -276,92 +278,14 @@
   }
   .request-footer{
       display: flex;
-      flex: 0 0 auto;
-      width: 75%;
-      margin-bottom: 25px;
+      flex-direction: row;
+      width: 100%;
+      margin-top: 15px;
+      /* margin-bottom: 25px; */
   }
-  .request-footer .footer-left-block{
-      display: flex;
-      margin-top: 50px;
-      margin-left: 25px;
-      width: 25%;
-  }
-  .request-footer .footer-left-block button{
-      display: flex;
-      flex: 0 0 auto;
-      width: 40%;
-      height: 50px;
-      background: #fff;
-      border-radius: 10px;
-      padding: 10px;
-      margin-left: 25px;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-  }
-  .request-footer .footer-left-block button .request-right{
-      display: block;
-      position: absolute;
-      width: 7%;
-      left: 25px;
-      font-weight: 800;
-  }
-  .request-footer .footer-left-block button .request-left{
-      display: block;
-      position: absolute;
-      right: 25px;
-      top: 15px;
-      width: 10%;
-  }
-  .request-footer .footer-left-block button span{
-      display: block;
-      font-size: 16px;
-      font-weight: 600;
-      color: gray;
-  }
-  .request-footer .footer-center{
-      display: flex;
-      margin-left: 50px;
-      margin-top: 50px;
-      width: 25%;
-      align-items: center;
-      justify-content: center;
-  }
-  .request-footer .footer-center span{
-      display: block;
-      margin-left: 50px;
-  }
-  .request-footer .footer-center input{
-      display: block;
-      background: #fff;
-      width: 15%;
-      min-width: 25px;
-      height: 50px;
-      margin-left: 25px;    
-      border-radius: 10px;
-      border: 2px solid #ccc;
-      padding-left: 15px;
-  }
-  .request-footer .footer-center input:hover{
-      border: 2px solid #1fef52
-  }
-  .request-footer .footer-center button{
-      display: block;
-      width: 13%;
-      min-width: 25px;
-      background: #fff;
-      height: 50px;
-      margin-left: 25px;
-      border-radius: 10px;
-      position: relative;
-      align-items: center;
-      justify-content: center;
-  }
-  .request-footer .footer-center button img{
-      width: 25%;
-      margin-top: 10px;
-  } 
-
+ .req
+  
+  
 
   /* Request-Blog-Item */
 

@@ -138,7 +138,18 @@
   margin-bottom: 25px;
   /* align-items: center; */
 }
-
+.statistics-footer .pagination-container .footer-left-block .pagination-right-btn{
+  flex-direction: row !important;
+  align-items: center;
+  justify-items: center;
+  padding-right: 15px !important;
+  box-sizing: border-box;
+}
+.statistics-footer .pagination-container .footer-left-block .pagination-right-btn img{
+  width: 10px !important;
+  display: inline-block;
+  margin: auto;
+}
 
 .statistics-footer .statistics-footer-right {
   display: flex;

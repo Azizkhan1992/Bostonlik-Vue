@@ -467,9 +467,18 @@ hr{
     margin-top: 25px;
     padding-bottom: 25px;
   }
+  .user-add .request-footer .pagination-container .footer-left-block .pagination-right-btn{
+    flex-direction: row;
+  }
+  .user-add .request-footer .pagination-container .footer-left-block .pagination-right-btn img{
+    width: 10px;
+    margin: auto;
+  }
   .user-add .add-user-item{
       width: 25%;
-      margin-top: 50px;
+  }
+  .user-add .add-user-item button{
+    margin-top: 10px;
   }
   
   .request-footer app-pagination{
