@@ -72,13 +72,6 @@ img{
     color: #1C9E3C;
 } 
 
-
-.own .router-link-exact-active{
-    background: #1C9E3C !important;
-}
-.own .router-link-exact-active button{
-    background: #1C9E3C;
-}
 .own .router-link-exact-active button:hover{
     color: #fff;
 }

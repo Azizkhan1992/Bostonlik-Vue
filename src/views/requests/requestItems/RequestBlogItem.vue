@@ -122,20 +122,33 @@
           </div>
         </div>
         <div class="location-request">
-          <p>Местоположение случившегося нарушения</p>
-          <span
+          <div v-if="isGoogleAddress == false" class="closed-address-text">
+            <p>Местоположение случившегося нарушения</p>
+            <div class="closed-address-content">
+              <span
             >Ташкентская область, Бостанликский район, поселок Чимган, ул. Ш.
             Рашидов 67Б</span
           >
           <img src="@/assets/src/Vector (4).png" alt="" />
+            </div>
+          
+          </div>
+          
 
     
 
-            <!-- <GmapMap
-            :center="{lat: this.latitude, lng: this.longitude}"
-            :zoom="7"
-            style="width:640px, height:480px"
-            ></GmapMap> -->
+            <div v-else class="closed-address-google">
+            <iframe
+            width="750"
+            height="550"
+            style="border: 0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            :src="`https://maps.google.com/maps?q='${latitude}','${longitude}+  '&hl=es;z=14&amp;output=embed`"
+          >
+          </iframe>
+          </div>
 
          
         </div>
@@ -152,6 +165,7 @@ export default {
     return {
       longitude: null,
       latitude: null,
+      isGoogleAddress: false,
       request_item_id: null,
       items: ["Решена", "Ложная информация"],
       isRequestStatus: false,
@@ -187,6 +201,9 @@ export default {
             this.userData = response.data;
             this.longitude = response.data.long;
             this.latitude = response.data.lat;
+            if(response.data.long >0 && response.data.lat > 0){
+              this.isGoogleAddress = true
+            }
             console.log(this.longitude, this.latitude);
           }
         })

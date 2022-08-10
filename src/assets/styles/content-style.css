@@ -57,8 +57,12 @@
 }
 .inner-block .title-block{
     position: absolute;
+    display: flex;
+    flex-direction: column;
     right: 50px;
     top: 25px;
+    justify-items: flex-end;
+    align-items: flex-end;
 }
 .inner-block .title-block span{
     font-size: 24px;
@@ -319,6 +323,7 @@
     width: 25%;
     text-align: left;
     border-bottom: 1px solid #ccc;
+    cursor: pointer;
 }
 .sentenses-footer{
     display: flex;

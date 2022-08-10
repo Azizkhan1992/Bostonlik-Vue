@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="requests-content-content">
-        <span>Заявки</span>
+        <span class="request-table-name">Заявки</span>
         <div class="requests-table">
           <table>
             <hr />
